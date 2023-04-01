@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
+  m_Name: PlayerTable
+  m_EditorClassIdentifier: 
+  _MaxHp: 100
+  _Hp: 84.850006
+  _Atk: 22
+  _NowAtk: 19
+  _Defense: 10
+  NowDefense: 0
+  _Critical: 14
+  _Dodge: 5
+  _StunStack: -3
+  _ResChance: -2
+  _IronBody: 0
+  _Scare: 2
+  _FightingSpirit: 0
+  _WillPower: 3
+  playerSkillList:
+  - Name: "\uACF5\uACA9"
+    SkillPercentage: 1
+    SkillDialog:
+    - 
+    CriMultiple: 1.4
+    SkillSprite: {fileID: 21300000, guid: 3925691c2a021aa429c1dc89712a1253, type: 3}
+    SkillText:
+    - "\uACF5\uACA9\uB825 100%\uC758 \uD53C\uD574\uB97C   \uC90D\uB2C8\uB2E4."
+    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 140%)"
+    SkillTrigger: IsAttack
+    AvailableCount: 0
+  - Name: "\uC2A4\uD134\uBD90"
+    SkillPercentage: 0.8
+    SkillDialog:
+    - 
+    CriMultiple: 1.4
+    SkillSprite: {fileID: 21300000, guid: df5153fca31c9bf47b2d36359b5dd373, type: 3}
+    SkillText:
+    - "\uACF5\uACA9\uB825\uC758 80%\uB85C \uACF5\uACA9 \uBC0F \uC801 \uAE30\uC808"
+    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 140%)"
+    SkillTrigger: IsStunBoom
+    AvailableCount: 5
+  - Name: "\uBC1C\uB3C4"
+    SkillPercentage: 2
+    SkillDialog:
+    - 
+    CriMultiple: 2
+    SkillSprite: {fileID: 21300000, guid: 8cc7ca0e29ced7b4f84e8c4ef7deb28b, type: 3}
+    SkillText:
+    - "\uACF5\uACA9\uB825\uC758 200%\uB85C \uC801\uC744 \uACF5\uACA9"
+    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 200%)"
+    SkillTrigger: IsBaldo
+    AvailableCount: 3
+  - Name: 
+    SkillPercentage: 0
+    SkillDialog: []
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
+    SkillText: []
+    SkillTrigger: 
+    AvailableCount: 0
+  - Name: 
+    SkillPercentage: 0
+    SkillDialog: []
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
+    SkillText: []
+    SkillTrigger: 
+    AvailableCount: 0
+  scareText:
+    OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
+      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4. 5Lv \uB2EC\uC131 \uD574\uAE08\uB2A5\uB825
+      : \uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC740 \uACF5\uD3EC\uB85C 1\uD134
+      \uAE30\uC808\uD569\uB2C8\uB2E4."
+    LevelText:
+    - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 1 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 2 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 4 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 10 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 21 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+  ironBodyText:
+    OptionText: "\uB9E4 \uD134 \uB9C8\uB2E4 \uC77C\uC815 \uBC29\uC5B4\uB825\uC744
+      \uAC00\uC9C4 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    LevelText:
+    - "\uBC29\uC5B4\uB825 2\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    - "\uBC29\uC5B4\uB825 3\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    - "\uBC29\uC5B4\uB825 4\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    - "\uBC29\uC5B4\uB825 6\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
+    - "\uBC29\uC5B4\uB825 9\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4. "
+  fightingSpiritText:
+    OptionText: "\uC804\uD22C \uC2DC 3\uD134\uB9C8\uB2E4 \uC77C\uC815 \uACF5\uACA9\uB825\uC774
+      \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    LevelText:
+    - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 2 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 3 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 4 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  willPowerText:
+    OptionText: "\uC801\uC758 \uAE30\uC808 \uACF5\uACA9\uC744 \uC77C\uC815 \uD69F\uC218
+      \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+    LevelText:
+    - "cc\uAE30\uB97C 1\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+    - "cc\uAE30\uB97C 2\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+    - "cc\uAE30\uB97C 3\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+    - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+    - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
+  playerSkillCount: 3
+  SecondSkillAvailableCount: 0
+  ThirdSkillAvailableCount: 1
+  FourthSkillAvailableCount: 0
+  FifthSkillAvailableCount: 0

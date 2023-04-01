@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a64e185de47bfe43bebe3d272c4612f, type: 3}
+  m_Name: BlessingTable
+  m_EditorClassIdentifier: 
+  BlessingList:
+  - BlessingName: "\uD0C0\uACE0\uB09C \uC2E0\uCCB4"
+    BlessingSprite: {fileID: 21300000, guid: b066c869b51f9384fa8ac9cce36b4648, type: 3}
+    IronBodyPt: 2
+    ScarePt: 0
+    FightingSpiritPt: 0
+    WillPowerPt: 0
+    maxHp: 150
+    Atk: 0
+    Def: 0
+    Dod: 0
+    Cri: 0
+    Option:
+    - "\uCCA0\uD1B5 + 2Lv"
+    - "\uCD5C\uB300\uCCB4\uB825 + 150"
+  - BlessingName: "\uB69C\uB837\uD55C \uC758\uC9C0"
+    BlessingSprite: {fileID: 21300000, guid: 14a0f66a7be165c4ba476e3d7c40e390, type: 3}
+    IronBodyPt: 0
+    ScarePt: 0
+    FightingSpiritPt: 0
+    WillPowerPt: 3
+    maxHp: 0
+    Atk: 0
+    Def: 0
+    Dod: 0
+    Cri: 0
+    Option:
+    - "\uC758\uC9C0 + 3Lv"
+  - BlessingName: "\uC555\uB3C4\uC801 \uC704\uC5C4"
+    BlessingSprite: {fileID: 21300000, guid: 63b30c77b2de31d4398b65d935f4713c, type: 3}
+    IronBodyPt: 0
+    ScarePt: 2
+    FightingSpiritPt: 0
+    WillPowerPt: 0
+    maxHp: 0
+    Atk: 3
+    Def: 0
+    Dod: 0
+    Cri: 0
+    Option:
+    - "\uACF5\uD3EC + 2Lv"
+    - "\uACF5\uACA9\uB825 + 3"
