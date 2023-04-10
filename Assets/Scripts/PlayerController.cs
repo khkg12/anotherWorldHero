@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public async void playerDamaged(float DamageAmount)
-    {                
-        PlayerTable.Instance.Hp -= DamageAmount;
+    {
+        double Damage = System.Math.Round(DamageAmount, 2);
+        PlayerTable.Instance.Hp -= (float)Damage;
         playerAni.SetTrigger("IsHit");
         if (PlayerTable.Instance.Hp <= 0)
         {

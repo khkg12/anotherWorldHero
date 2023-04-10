@@ -118,6 +118,8 @@ public class MonsterController : MonoBehaviour
         float CriAttackAmount = PlayerTable.Instance.NowDefense - nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple <= 0 ?
             nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple - PlayerTable.Instance.NowDefense : 0;
 
+        
+
         if (BattleManager.Instance.CriAttack(nowMonsterCri)) // 치명타 공격이라면
         {
             BattleManager.Instance.nowplayer.playerDamaged(CriAttackAmount);
