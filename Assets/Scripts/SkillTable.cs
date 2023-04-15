@@ -248,6 +248,7 @@ public class MonsterSkill
     public float SkillPercentage;
     public float CriMultiple;
     public string[] SkillDialog;
+    public string SkillText; // 몬스터가 무슨 공격을 할지 암시하는 텍스트
     public string SkillTrigger;
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }
 }

@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }        
         PlayerTable.Instance.playerSkillList[0] = SkillTable.Instance.attack; // 처음 게임시작 시 공격과 수비 기본스킬로 플레이어 스킬리스트에 추가
-        PlayerTable.Instance.playerSkillList[1] = SkillTable.Instance.stunBoom;        
+        PlayerTable.Instance.playerSkillList[1] = SkillTable.Instance.defense;
 
         IsMonsterDead = false; // 몬스터 등장 씬 트리거정하는 변수 false로 초기화 (몬스터와 싸우기전이기때문)
         IsAni = true; // 처음엔 true여야 실행되므로 true로 초기화

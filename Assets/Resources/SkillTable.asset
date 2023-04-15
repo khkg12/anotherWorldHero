@@ -139,6 +139,7 @@ MonoBehaviour:
     SkillDialog:
     - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uBCA0\uC5B4\uB118\uAE30\uAE30!
       \n1.6 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
+    SkillText: "\uC0C1\uB300\uB294 \uAC80\uC744 \uBE44\uC2A4\uB4EC\uD788 \uB4E4\uC5C8\uB2E4."
     SkillTrigger: IsDemonSlayerSlash
   demonSlayerStabbing:
     Name: "\uAE09\uC18C\uCC0C\uB974\uAE30"
@@ -147,6 +148,7 @@ MonoBehaviour:
     SkillDialog:
     - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uAE09\uC18C\uCC0C\uB974\uAE30!
       \n2.8 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
+    SkillText: "\uC0C1\uB300\uB294 \uCC0C\uB974\uAE30 \uC790\uC138\uB97C \uCDE8\uD55C\uB2E4."
     SkillTrigger: IsDemonSlayerStabbing
   demonSlayerSwordsmanship:
     Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
@@ -155,40 +157,47 @@ MonoBehaviour:
     SkillDialog:
     - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uB9C8\uAC80\uC2DD 1\uC2DD!
       \n4.4 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
+    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
     SkillTrigger: IsDemonSlayerSwordmanship
   demonArcherArrowShot:
     Name: "\uC560\uB85C\uC6B0 \uC0F7"
     SkillPercentage: 0.9
     CriMultiple: 1.5
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsArrow
   demonArcherDouble:
     Name: "\uB354\uBE14 \uC0F7"
     SkillPercentage: 0.7
     CriMultiple: 1.5
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsDouble
   demonArcherDarkArrow:
     Name: "\uB2E4\uD06C \uC560\uB85C\uC6B0"
     SkillPercentage: 1.2
     CriMultiple: 1.5
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsDarkArrow
   demonShamanEnergyBolt:
     Name: "\uC5D0\uB108\uC9C0\uBCFC\uD2B8"
     SkillPercentage: 1.5
     CriMultiple: 1.5
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsEnergy
   demonShamanDarkLightning:
     Name: "\uB2E4\uD06C\uB77C\uC774\uD2B8\uB2DD"
     SkillPercentage: 0.8
     CriMultiple: 1.5
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsDarkLight
   demonShamanStunBall:
     Name: "\uC2A4\uD134\uBCFC"
     SkillPercentage: 2
     CriMultiple: 2
     SkillDialog: []
+    SkillText: 
     SkillTrigger: IsStunBall

@@ -113,7 +113,11 @@ public class BattleManager : MonoBehaviour
         ResBtn.onClick.AddListener(() => ResurrectionEvent());
         DiscardBtn.onClick.AddListener(() => GameManager.Instance.LoadDeadScene());
 
-        BattleDialogText.text += "\n\n무엇을 할까?";
+        // 처음 전투를 시작할 때
+        MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
+        monsterSkill = MonsterTable.Instance.monsterSkillList[0];
+
+        BattleDialogText.text += $"\n{monsterSkill.SkillText} 무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
     }
@@ -148,8 +152,8 @@ public class BattleManager : MonoBehaviour
     {        
         playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
         Debug.Log(playerSkill.Name);
-        MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
-        monsterSkill = MonsterTable.Instance.monsterSkillList[0];
+        /*MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
+        monsterSkill = MonsterTable.Instance.monsterSkillList[0];*/ // 뒤로 이동
         PlayerTable.Instance.IronBody = PlayerTable.Instance.IronBody; // 철통 스킬 매턴마다 발동        
 
         yield return new WaitForEndOfFrame();
@@ -176,11 +180,13 @@ public class BattleManager : MonoBehaviour
         {
             SkillCount = 0; // 플레이어 스킬 함수에서 skillcount(공유함)를 올리기 때문에 몬스터 스킬 함수 실행 전 초기화시킴
             MonsterSkillEvent(monsterSkill);
+            MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤 , 몬스터가 스킬을 사용한 직후 다음에 사용할 스킬 정해둠       
+            monsterSkill = MonsterTable.Instance.monsterSkillList[0];
         }                
 
         yield return new WaitForSeconds(1f);
         {
-            BattleDialogText.text += "\n\n무엇을 할까?";
+            BattleDialogText.text += $"\n{monsterSkill.SkillText} 무엇을 할까?";
             BattleRound += 1; // 어떻게할까가 대화창에 뜨기 직전에 배틀라운드 상승, UI도 추가할것
             if(BattleRound % 3 == 0) // 3턴마다 공격력증가시키는 투지특성 발동
             {
