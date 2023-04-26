@@ -162,7 +162,9 @@ public class DialogManager : MonoBehaviour
             case 6:
                 UiManager.Instance.SkillSelectBtn.gameObject.SetActive(true);
                 break;
+            case 8:
 
+                break;
 
         }
     }

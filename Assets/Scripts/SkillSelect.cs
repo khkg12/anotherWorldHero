@@ -11,6 +11,7 @@ public class SkillSelect : MonoBehaviour
     public Button PassiveSkillBtn;    
     public Button RerollBtn;
     public Button ContinueBtn;
+    public Button PassiveContinueBtn;
     
     public List<BaseSkill> selectActiveSkillList;
     public List<PassiveSkill> selectPassiveSkillList;
@@ -29,15 +30,7 @@ public class SkillSelect : MonoBehaviour
     public Image PassiveSkillImage;
     public TextMeshProUGUI PassiveSkillName;
     public TextMeshProUGUI PassiveSkillOption;    
-
-
-    private void Start()
-    {                                
-        ActiveSkillBtn.onClick.AddListener(() => ActiveSkillGet(selectActiveSkillList[0])); 
-        PassiveSkillBtn.onClick.AddListener(() => PassiveSkillGet(selectPassiveSkillList[0]));        
-        RerollBtn.onClick.AddListener(() => SkillReroll());
-        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.SkillSelectUI, selectActiveSkillList));  
-    }
+    
 
     public void OnEnable() // 스킬선택 UI가 활성화될때마다 실행되는 코드
     {
@@ -52,13 +45,22 @@ public class SkillSelect : MonoBehaviour
         PassiveSkillUISet(PassiveSkillImage, PassiveSkillName, PassiveSkillOption, selectPassiveSkillList[0]);
     }
 
+    private void Start()
+    {
+        ActiveSkillBtn.onClick.AddListener(() => ActiveSkillGet(selectActiveSkillList[0]));
+        PassiveSkillBtn.onClick.AddListener(() => PassiveSkillGet(selectPassiveSkillList[0]));
+        RerollBtn.onClick.AddListener(() => SkillReroll());
+        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.SkillSelectUI, selectActiveSkillList));
+        PassiveContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.SkillSelectUI, selectActiveSkillList));
+    }
+
 
     public void ActiveSkillGet(BaseSkill selectSkill) 
     {
         ActiveSkillGetOption.text = ""; // 스킬 옵션 텍스트UI 초기화
         ActiveSkillGetUI.gameObject.SetActive(true);
 
-        switch (PlayerTable.Instance.playerSkillCount)
+        switch (PlayerTable.Instance.playerSkillCount) // playertable에 있으므로 테스트한뒤 2로 초기화해줄것
         {
             case 2: // 스킬창이 3칸이 비어있다면, 즉 채워져야 하는 스킬이 세번째 버튼                
                 PlayerTable.Instance.playerSkillList[2] = selectSkill; // playerSkillList에 선택한 스킬 추가 나중에 가득찼을 때 불가능한 조건 넣기                 

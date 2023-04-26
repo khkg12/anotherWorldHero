@@ -117,7 +117,7 @@ public class BattleManager : MonoBehaviour
         MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
         monsterSkill = MonsterTable.Instance.monsterSkillList[0];
 
-        BattleDialogText.text += $"\n{monsterSkill.SkillText} 무엇을 할까?";
+        BattleDialogText.text += $"\n{monsterSkill.SkillText}\n무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
     }
@@ -186,7 +186,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         {
-            BattleDialogText.text += $"\n{monsterSkill.SkillText} 무엇을 할까?";
+            BattleDialogText.text += $"\n{monsterSkill.SkillText}";
             BattleRound += 1; // 어떻게할까가 대화창에 뜨기 직전에 배틀라운드 상승, UI도 추가할것
             if(BattleRound % 3 == 0) // 3턴마다 공격력증가시키는 투지특성 발동
             {
@@ -195,7 +195,8 @@ public class BattleManager : MonoBehaviour
         }
      
         yield return new WaitForSeconds(0.1f);
-        {         
+        {
+            BattleDialogText.text += $"\n무엇을 할까?";
             BtnEnable(true);
             PlayerTable.Instance.NowDefense = 0; // 턴이 끝나면 방어도를 0으로
             SkillCount = 0;
