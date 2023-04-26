@@ -151,7 +151,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator BtnClickEvent(int SkillNum) 
     {        
         playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
-        Debug.Log(playerSkill.Name);
+        Debug.Log(playerSkill);
         /*MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
         monsterSkill = MonsterTable.Instance.monsterSkillList[0];*/ // 뒤로 이동
         PlayerTable.Instance.IronBody = PlayerTable.Instance.IronBody; // 철통 스킬 매턴마다 발동        

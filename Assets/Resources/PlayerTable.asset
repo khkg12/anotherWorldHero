@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
-  _MaxHp: 690
-  _Hp: 397.6
+  _MaxHp: 710
+  _Hp: 412.8
   _Atk: 30
   _NowAtk: 30
-  _Defense: 30
+  _Defense: 35
   NowDefense: 3
   _Critical: 39
   _Dodge: 14
-  _StunStack: -4
+  _StunStack: -5
   _ResChance: -3
   _IronBody: 2
   _Scare: 0

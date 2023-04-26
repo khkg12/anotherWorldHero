@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
         }        
         PlayerTable.Instance.playerSkillList[0] = SkillTable.Instance.attack; // 처음 게임시작 시 공격과 수비 기본스킬로 플레이어 스킬리스트에 추가
         PlayerTable.Instance.playerSkillList[1] = SkillTable.Instance.defense;
+        PlayerTable.Instance.playerSkillList[2] = SkillMatch($"{PlayerTable.Instance.playerSkillList[2].Name}"); // 스킬저장
+        PlayerTable.Instance.playerSkillList[3] = SkillMatch($"{PlayerTable.Instance.playerSkillList[3].Name}");
+        PlayerTable.Instance.playerSkillList[4] = SkillMatch($"{PlayerTable.Instance.playerSkillList[4].Name}");
 
         IsMonsterDead = false; // 몬스터 등장 씬 트리거정하는 변수 false로 초기화 (몬스터와 싸우기전이기때문)
         IsAni = true; // 처음엔 true여야 실행되므로 true로 초기화
@@ -73,6 +76,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("DeadScene");
     }
-    
+    public BaseSkill SkillMatch(string Name) // 이름체크 후 스킬매치
+    {
+        if (Name == "발도") return SkillTable.Instance.baldo;
+        else if (Name == "더블 어택") return SkillTable.Instance.doubleAttack;
+        else if (Name == "스턴붐") return SkillTable.Instance.stunBoom;
+        else return null;
+    }
     
 }
