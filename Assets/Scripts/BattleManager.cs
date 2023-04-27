@@ -82,7 +82,7 @@ public class BattleManager : MonoBehaviour
         SecondSkillImage.sprite = PlayerTable.Instance.playerSkillList[1].SkillSprite;
         ThirdSkillImage.sprite = PlayerTable.Instance.playerSkillList[2].SkillSprite; // 배틀씬의 세번째 스킬 이미지 선택한 스킬의 이미지로 채워짐            
         FourthSkillImage.sprite = PlayerTable.Instance.playerSkillList[3].SkillSprite;
-        FourthSkillImage.sprite = PlayerTable.Instance.playerSkillList[4].SkillSprite;
+        FifthSkillImage.sprite = PlayerTable.Instance.playerSkillList[4].SkillSprite;
         
 
         if (PlayerTable.Instance.SecondSkillAvailableCount <= 0) // 전투시작 시 가능횟수가 0이라면 버튼을 비활성화

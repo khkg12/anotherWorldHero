@@ -72,6 +72,8 @@ public class DialogManager : MonoBehaviour
         DialogData.Add(5, new string[] { "마족 궁수를 쓰러뜨렸다!", "\n그의 화살은 매우 날카로웠지만 그게 전부였다.", "\n당신은 지친 숨을 고르며 마왕성 복도를 걷기 시작했다." });
         DialogData.Add(6, new string[] { "우연히 발견한 서고에 들어갔다.", "\n수 많은 책들 중 하나의 책에서 강렬한 기운이 느껴졌다.", "\n당신은 그 책을 들어 펼쳐보았다." });
         DialogData.Add(7, new string[] { "날카로워진 촉각이 강렬한 기운을 탐지했다!", "\n멀리서 한 인영의 실루엣이 보인다.", "\n마족 주술사는 주문을 외우며 당신을 향해 걸어오고 있다." });
+        DialogData.Add(8, new string[] { "마족 주술사를 쓰러뜨렸다!", "\n그의 마법을 겨우 막아내고 그의 목을 베었다.", "\n당신은 지친 숨을 고르며 마왕성 복도를 걷기 시작했다." });
+        DialogData.Add(9, new string[] { "거대한 문이 가로막혀 있다.", "\n주변엔 아무런 기척이 없다. 당신은 화톳불을 피웠다.", "\n당신은 휴식을 취했다." });
     }
 
     public void StartRandomDialogData() // 랜덤 대화창 저장 함수
@@ -148,9 +150,14 @@ public class DialogManager : MonoBehaviour
             case 1:            
                 UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
                 break;
+            case 8:
+                UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
+                MonsterTable.Instance.MonsterNum += 1;
+                break;
             case 2:
             case 4:
             case 7:
+            case 10:
                 UiManager.Instance.StartBattleBtn.gameObject.SetActive(true);   
                 break;
             case 3:
@@ -162,10 +169,12 @@ public class DialogManager : MonoBehaviour
             case 6:
                 UiManager.Instance.SkillSelectBtn.gameObject.SetActive(true);
                 break;
-            case 8:
-
+            case 9:
+                UiManager.Instance.HpBtn.gameObject.SetActive(true);
+                UiManager.Instance.SkillPtBtn.gameObject.SetActive(true);
+                UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
+                UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
                 break;
-
         }
     }
 
@@ -279,6 +288,19 @@ public class DialogManager : MonoBehaviour
         {
             UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
         }
+    }
+
+    public void HpBtnEvent()
+    {
+        PlayerTable.Instance.Hp += (int)(0.3f * PlayerTable.Instance.MaxHp);
+    }
+
+    public void SkillBtnEvent()
+    {
+        PlayerTable.Instance.SecondSkillAvailableCount += 2;
+        if (PlayerTable.Instance.playerSkillList[2].Name != "") PlayerTable.Instance.ThirdSkillAvailableCount += 2;
+        if (PlayerTable.Instance.playerSkillList[3].Name != "") PlayerTable.Instance.FourthSkillAvailableCount += 2;
+        if (PlayerTable.Instance.playerSkillList[4].Name != "") PlayerTable.Instance.FifthSkillAvailableCount += 2;
     }
 }
 

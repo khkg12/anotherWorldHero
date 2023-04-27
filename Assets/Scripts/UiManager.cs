@@ -39,6 +39,10 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI FirstRandomSelectText;
     public TextMeshProUGUI SecondRandomSelectText;
 
+    //휴식 선택지 버튼
+    public Button HpBtn;
+    public Button SkillPtBtn;
+
     // 메인씬 캐릭터 hp
     public TextMeshProUGUI HpText;
 
@@ -58,6 +62,8 @@ public class UiManager : MonoBehaviour
         RandomSelectBtn.onClick.AddListener(()=> StartCoroutine(DialogManager.Instance.nextRandomDialog()));
         MainPlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
         PlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
+        HpBtn.onClick.AddListener(() => StartCoroutine(DialogManager.Instance.nextDialog(GameManager.Instance.NowRound)));
+        SkillPtBtn.onClick.AddListener(() => StartCoroutine(DialogManager.Instance.nextDialog(GameManager.Instance.NowRound)));
     }
 
     private void Update()

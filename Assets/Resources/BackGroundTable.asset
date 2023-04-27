@@ -30,9 +30,9 @@ MonoBehaviour:
   - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5 3"
     bgSprite: {fileID: 21300000, guid: ca1a8bf71aa63f24bbc93bfb2e4e9119, type: 3}
   - bgName: "\uB9C8\uC655\uC131 \uACC4\uB2E8"
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
-  - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 21300000, guid: dc8cfab51d369b045a3aae6d5fafe1b2, type: 3}
+  - bgName: "\uD734\uC2DD\uC758 \uC2DC\uAC04"
+    bgSprite: {fileID: 21300000, guid: 190b7a766bd72914091d21b75c7d656e, type: 3}
   - bgName: 
     bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
   - bgName: 
