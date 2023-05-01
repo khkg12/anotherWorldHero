@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
-  _MaxHp: 100
-  _Hp: 90
-  _Atk: 18.3
-  _NowAtk: 15.3
-  _Defense: 10
+  _MaxHp: 120
+  _Hp: 120
+  _Atk: 25.3
+  _NowAtk: 21.3
+  _Defense: 15
   NowDefense: 6
-  _Critical: 76
+  _Critical: 84
   _Dodge: 17
   _StunStack: -5
   _ResChance: -3
   _IronBody: 4
-  _Scare: 0
+  _Scare: 4
   _FightingSpirit: 0
   _WillPower: 5
   playerSkillList:
@@ -117,7 +117,11 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
   playerSkillCount: 4
-  SecondSkillAvailableCount: 20
+  _SecondSkillAvailableCount: 20
+  secondCount: 20
   ThirdSkillAvailableCount: 3
-  FourthSkillAvailableCount: 0
+  thirdCount: 10
+  FourthSkillAvailableCount: 2
+  fourthCount: 5
   FifthSkillAvailableCount: 0
+  fifthCount: 0

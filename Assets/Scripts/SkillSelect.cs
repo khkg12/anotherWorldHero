@@ -64,19 +64,22 @@ public class SkillSelect : MonoBehaviour
         {
             case 2: // 스킬창이 3칸이 비어있다면, 즉 채워져야 하는 스킬이 세번째 버튼                
                 PlayerTable.Instance.playerSkillList[2] = selectSkill; // playerSkillList에 선택한 스킬 추가 나중에 가득찼을 때 불가능한 조건 넣기                 
-                PlayerTable.Instance.ThirdSkillAvailableCount = selectSkill.AvailableCount; // 세번째 버튼에 추가될 스킬의 사용가능 횟수를 선택한 스킬의 사용가능 횟수로 초기화
+                PlayerTable.Instance.ThirdSkillAvailableCount = selectSkill.AvailableCount; // 세번째 버튼에 추가될 스킬의 사용가능 횟수를 선택한 스킬의 사용가능 횟수로 초기화                
+                PlayerTable.Instance.thirdCount = selectSkill.AvailableCount;
                 SkillTable.Instance.ActiveSkillList.Remove(selectSkill); // 뽑은 스킬은 중복되지 않게 스킬리스트에서 삭제                
                 PlayerTable.Instance.playerSkillCount += 1;
                 break;
             case 3:
                 PlayerTable.Instance.playerSkillList[3] = selectSkill;                
                 PlayerTable.Instance.FourthSkillAvailableCount = selectSkill.AvailableCount;
+                PlayerTable.Instance.fourthCount = selectSkill.AvailableCount;
                 SkillTable.Instance.ActiveSkillList.Remove(selectSkill); // 뽑은 스킬은 중복되지 않게 스킬리스트에서 삭제
                 PlayerTable.Instance.playerSkillCount += 1;
                 break;
             case 4:
                 PlayerTable.Instance.playerSkillList[4] = selectSkill;                
                 PlayerTable.Instance.FifthSkillAvailableCount = selectSkill.AvailableCount;
+                PlayerTable.Instance.fifthCount = selectSkill.AvailableCount;
                 SkillTable.Instance.ActiveSkillList.Remove(selectSkill); // 뽑은 스킬은 중복되지 않게 스킬리스트에서 삭제
                 PlayerTable.Instance.playerSkillCount += 1; 
                 break;

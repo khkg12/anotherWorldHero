@@ -174,7 +174,7 @@ public class DialogManager : MonoBehaviour
                 UiManager.Instance.SkillPtBtn.gameObject.SetActive(true);
                 UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
                 UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
-                break;
+                break;            
         }
     }
 
@@ -298,9 +298,22 @@ public class DialogManager : MonoBehaviour
     public void SkillBtnEvent()
     {
         PlayerTable.Instance.SecondSkillAvailableCount += 2;
-        if (PlayerTable.Instance.playerSkillList[2].Name != "") PlayerTable.Instance.ThirdSkillAvailableCount += 2;
-        if (PlayerTable.Instance.playerSkillList[3].Name != "") PlayerTable.Instance.FourthSkillAvailableCount += 2;
-        if (PlayerTable.Instance.playerSkillList[4].Name != "") PlayerTable.Instance.FifthSkillAvailableCount += 2;
+        if (PlayerTable.Instance.SecondSkillAvailableCount > PlayerTable.Instance.secondCount) PlayerTable.Instance.SecondSkillAvailableCount = PlayerTable.Instance.secondCount;
+        if (PlayerTable.Instance.playerSkillList[2].Name != "")
+        {
+            PlayerTable.Instance.ThirdSkillAvailableCount += 2;
+            if(PlayerTable.Instance.ThirdSkillAvailableCount > PlayerTable.Instance.thirdCount) PlayerTable.Instance.ThirdSkillAvailableCount = PlayerTable.Instance.thirdCount;    
+        }
+        if (PlayerTable.Instance.playerSkillList[3].Name != "")
+        {
+            PlayerTable.Instance.FourthSkillAvailableCount += 2;
+            if (PlayerTable.Instance.FourthSkillAvailableCount > PlayerTable.Instance.fourthCount) PlayerTable.Instance.FourthSkillAvailableCount = PlayerTable.Instance.fourthCount;
+        }
+        if (PlayerTable.Instance.playerSkillList[4].Name != "")
+        {
+            PlayerTable.Instance.FifthSkillAvailableCount += 2;
+            if (PlayerTable.Instance.FifthSkillAvailableCount > PlayerTable.Instance.fifthCount) PlayerTable.Instance.FifthSkillAvailableCount = PlayerTable.Instance.fifthCount;
+        }
     }
 }
 

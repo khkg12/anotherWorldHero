@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         if (PlayerTable.Instance.playerSkillList[4].Name != "")
         {
             PlayerTable.Instance.playerSkillList[4] = SkillMatch($"{PlayerTable.Instance.playerSkillList[4].Name}"); 
-        }        
+        }                
 
         IsMonsterDead = false; // 몬스터 등장 씬 트리거정하는 변수 false로 초기화 (몬스터와 싸우기전이기때문)
         IsAni = true; // 처음엔 true여야 실행되므로 true로 초기화

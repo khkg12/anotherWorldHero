@@ -276,10 +276,30 @@ public class PlayerTable : ScriptableObject
     public FightingSpiritText fightingSpiritText;
     public WillPowerText willPowerText;
     public int playerSkillCount = 2;
-    public int SecondSkillAvailableCount = 20; // 두번째 스킬은 방어로 고정이므로 방어의 사용가능횟수인 20으로 초기화
+
+    public int SecondSkillAvailableCount
+    {
+        get => _SecondSkillAvailableCount;
+        set
+        {
+            if(value > 20)
+            {
+                _SecondSkillAvailableCount = 20;
+            }
+            else
+            {
+                _SecondSkillAvailableCount = value;
+            }            
+        }
+    }
+    public int _SecondSkillAvailableCount = 20; // 두번째 스킬은 방어로 고정이므로 방어의 사용가능횟수인 20으로 초기화    
+    public int secondCount = 20;
     public int ThirdSkillAvailableCount;
+    public int thirdCount; // 값비교를 위한 절댓값
     public int FourthSkillAvailableCount;
+    public int fourthCount;
     public int FifthSkillAvailableCount;
+    public int fifthCount;
 }
 
 [System.Serializable]
