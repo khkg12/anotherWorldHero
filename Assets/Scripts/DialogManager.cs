@@ -54,17 +54,19 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData = new Dictionary<int, string[]>();
         StartSecondRandomResultDialogData();
 
-        if (GameManager.Instance.NowRound == 0) 
+        
+
+        /*if (GameManager.Instance.NowRound == 0) 
         {            
             StartCoroutine(nextDialog(GameManager.Instance.NowRound));            
-        }
+        }*/
 
         RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
     }        
 
     public void StartDialogData() // 일반 대화창 저장 함수
     {
-        DialogData.Add(0, new string[] { "안녕? 반가워 정신이 좀 드니? 나는 여신이야.", "\n넌 지금 교통사고로 인해 <color=red>혼수상태</color>에 빠져있지.", "\n너가 이세계의 마왕을 처리해주면 너를 건강한 몸으로 혼수상태에서 깨어나게 해줄게." });
+        DialogData.Add(0, new string[] { "안녕? 반가워 정신이 좀 드니? 나는 여신이야.", "\n넌 지금 교통사고로 인해 혼수상태에 빠져있지.", "\n너가 이세계의 마왕을 처리해주면 너를 건강한 몸으로 혼수상태에서 깨어나게 해줄게." });
         DialogData.Add(1, new string[] { "마왕성 입구에 도착했다!!", "\n살벌한 분위기를 풍긴다", "\n문을 열자 거대한 소리를 내며 문은 천천히 열리기 시작했다." });
         DialogData.Add(2, new string[] { "적이 등장했다!!", "\n마왕성 1층의 입구를 지키는 하급 마족기사다.", "\n기다란 검을 들고 마족기사는 천천히 당신의 앞으로 다가왔다." });
         DialogData.Add(3, new string[] { "하급 마족기사를 쓰러뜨렸다!", "\n쉽지 않은 상대였지만 여신이 준 치트같은 힘은 상상을 초월했다.", "\n당신은 지친 숨을 고르며 마왕성 복도를 걷기 시작했다." });
@@ -108,11 +110,7 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData.Add(5, new string[] { "영웅이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n방어력이 10% 증가하였다!" });
         
     }    
-
-    public string GetDialog(Dictionary<int, string[]> dialogData, int key, int dialogIndex)
-    {        
-        return dialogData[key][dialogIndex];
-    }
+    
 
     public async void getDialog(Dictionary<int, string[]> dialogData, int key, int dialogIndex)
     {
