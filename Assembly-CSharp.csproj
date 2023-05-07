@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\BlessingSelect.cs" />
     <Compile Include="Assets\Scripts\MainSceneObj.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
+    <Compile Include="Assets\Scripts\TouchPanel.cs" />
     <Compile Include="Assets\Scripts\MonsterTable.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\BackGround.cs" />

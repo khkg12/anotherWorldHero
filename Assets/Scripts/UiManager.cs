@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Text;
+using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
@@ -70,6 +71,5 @@ public class UiManager : MonoBehaviour
     {
         HpText.text = $"{PlayerTable.Instance.Hp}/{PlayerTable.Instance.MaxHp}";
     }
-
 }
 

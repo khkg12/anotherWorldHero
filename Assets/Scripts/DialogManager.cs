@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System.Threading.Tasks;
+using UnityEditor.TextCore.Text;
+using JetBrains.Annotations;
+using TMPro;
+using UnityEngine.EventSystems;
 
 public class DialogManager : MonoBehaviour
 {
@@ -32,6 +36,9 @@ public class DialogManager : MonoBehaviour
     public List<int> RandomEventList;
     
     public bool DialogFlag = true;
+    public bool ClickFlag = false;
+    public bool SkipFlag = false;    
+    public TextMeshProUGUI talkerName;
 
     void Awake()
     {                
@@ -43,7 +50,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }        
 
         DialogData = new Dictionary<int, string[]>();
         StartDialogData();
@@ -52,17 +59,18 @@ public class DialogManager : MonoBehaviour
         FirstRandomResultDialogData = new Dictionary<int, string[]>();
         StartFirstRandomResultDialogData();
         SecondRandomResultDialogData = new Dictionary<int, string[]>();
-        StartSecondRandomResultDialogData();
-
-        
-
-        /*if (GameManager.Instance.NowRound == 0) 
-        {            
-            StartCoroutine(nextDialog(GameManager.Instance.NowRound));            
-        }*/
+        StartSecondRandomResultDialogData();        
 
         RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
-    }        
+    }
+
+    private void Start()
+    {
+        if (GameManager.Instance.NowRound == 0)
+        {
+            StartCoroutine(nextDialog(GameManager.Instance.NowRound));
+        }
+    }
 
     public void StartDialogData() // 일반 대화창 저장 함수
     {
@@ -109,74 +117,80 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData.Add(4, new string[] { "오른쪽으로 회피했더니 내가 있는 방향으로 대부분의 화살이 날아왔다!", "\n화살을 쳐냈지만 모든 화살을 막을 순 없었다.", "\n최대 체력의 30%가 감소하였다." });
         SecondRandomResultDialogData.Add(5, new string[] { "영웅이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n방어력이 10% 증가하였다!" });
         
-    }    
-    
+    }
 
-    public async void getDialog(Dictionary<int, string[]> dialogData, int key, int dialogIndex)
+    
+    public IEnumerator getDialog(SceneData sceneData, int lineIndex)
     {
-        string[] DialogSplit = dialogData[key][dialogIndex].Split(" ");
+        string[] DialogSplit = sceneData.Dialog[lineIndex].Line.Split(" ");
+        string TalkerName = sceneData.Dialog[lineIndex].Talker;
+        talkerName.text = TalkerName;
+        ClickFlag = false;
+        SkipFlag = false;
         foreach (string Split in DialogSplit)
         {
-            await Task.Delay(80);
+            // 마우스클릭시 UiManager를 sceneData.Dialog[lineIndex].Line로 변경 foreach문 break;
+            if (ClickFlag == true)
+            {
+                UiManager.Instance.DialogText.text = sceneData.Dialog[lineIndex].Line;
+                break;
+            }
+            yield return new WaitForSeconds(0.08f);
             {
                 UiManager.Instance.DialogText.text += Split + " ";
             }
         }
-        await Task.Delay(500);        
-        DialogFlag = true;
-    }    
+        UiManager.Instance.DialogText.text += "\n";
+        SkipFlag = true;
+        // yield return new WaitForSeconds(5f);
+        // DialogFlag = true;
+    }
 
     public IEnumerator nextDialog(int NowRound)
     {
         RandomBackGround.gameObject.SetActive(false);
-        GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠
-        UiManager.Instance.DialogText.text = "";
-        for (int i = 0; i < DialogData[NowRound].Length; i++)
-        {            
+        GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠        
+        for (int i = 0; i < DataManager.Instance.sceneData[NowRound].Dialog.Length; i++)
+        {
             yield return new WaitUntil(() => DialogFlag == true);
             {
+                UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;
-                getDialog(DialogData, NowRound, i);
-            }            
+                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound], i));                
+            }
         }
         yield return new WaitForSeconds(1f);
-        switch (NowRound)
+        switch (DataManager.Instance.sceneData[NowRound].Situation)
         {
-            case 0: // case추가 예를들어 아래코드를 진행해야 하는 NowRound가 10이면 case : 10 추가
-                UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true); // 특성추가하면 특성창으로 변경/  아이템 버튼 -> 특성 버튼으로 변경완료
+            case "Blessing": // case추가 예를들어 아래코드를 진행해야 하는 NowRound가 10이면 case : 10 추가
+                UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true);
                 break;
-            case 1:            
+            case "Dialog":
                 UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
                 break;
-            case 8:
-                UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
-                MonsterTable.Instance.MonsterNum += 1;
+            case "Battle":
+                UiManager.Instance.StartBattleBtn.gameObject.SetActive(true);
                 break;
-            case 2:
-            case 4:
-            case 7:
-            case 10:
-                UiManager.Instance.StartBattleBtn.gameObject.SetActive(true);   
-                break;
-            case 3:
-            case 5:
+            case "Victory":
                 UiManager.Instance.RandomSelectBtn.gameObject.SetActive(true);
                 MonsterTable.Instance.MonsterNum += 1; // 전투에서 승리하고 다음 라운드로 넘어간 뒤 MonsterNum을 올려줌
                 GameManager.Instance.IsAni = true;
                 break;
-            case 6:
+            case "Skill":
                 UiManager.Instance.SkillSelectBtn.gameObject.SetActive(true);
                 break;
-            case 9:
+            case "Rest":
                 UiManager.Instance.HpBtn.gameObject.SetActive(true);
                 UiManager.Instance.SkillPtBtn.gameObject.SetActive(true);
-                UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
-                UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
-                break;            
+                //UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
+                //UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
+                MonsterTable.Instance.MonsterNum += 1; // 전투에서 승리하고 다음 라운드로 넘어간 뒤 MonsterNum을 올려줌
+                GameManager.Instance.IsAni = true;
+                break;
         }
     }
 
-
+    
     public void NextPage<T>(Image UiImage, List<T> list) // 특성, 스킬, 아이템 창의 계속하기 버튼, 위와 따로분리해둔 이유는 아래 주석이 이유
     {        
         StartCoroutine(nextDialog(GameManager.Instance.NowRound));
@@ -201,7 +215,7 @@ public class DialogManager : MonoBehaviour
             yield return new WaitUntil(() => DialogFlag == true);
             {
                 DialogFlag = false;
-                getDialog(RandomDialogData, rand, i);
+                //getDialog(RandomDialogData, rand, i);
             }            
         }
         if (rand != 6)
@@ -279,7 +293,7 @@ public class DialogManager : MonoBehaviour
             yield return new WaitUntil(() => DialogFlag == true);
             {
                 DialogFlag = false;
-                getDialog(DialogData, rand, i);
+                //getDialog(DialogData, rand, i);
             }
         }
         yield return new WaitForSeconds(0.4f);
@@ -314,4 +328,6 @@ public class DialogManager : MonoBehaviour
         }
     }
 }
+
+
 
