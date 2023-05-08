@@ -5574,7 +5574,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &498539563
 MonoBehaviour:
@@ -7960,7 +7960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &680557033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17375,7 +17375,7 @@ Transform:
   m_Children:
   - {fileID: 167700416}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1333988523
 MonoBehaviour:
@@ -25436,6 +25436,7 @@ MonoBehaviour:
   ClickFlag: 0
   SkipFlag: 0
   talkerName: {fileID: 1438420725}
+  CliokAlarm: {fileID: 680557032}
   RandomBackGround: {fileID: 1973242844}
 --- !u!4 &1898156201
 Transform:
@@ -25451,7 +25452,7 @@ Transform:
   m_Children:
   - {fileID: 1973242842}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900031785
 GameObject:
@@ -25559,7 +25560,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902405700
 MonoBehaviour:

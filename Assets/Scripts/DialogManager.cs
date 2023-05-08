@@ -38,7 +38,9 @@ public class DialogManager : MonoBehaviour
     public bool DialogFlag = true;
     public bool ClickFlag = false;
     public bool SkipFlag = false;    
+
     public TextMeshProUGUI talkerName;
+    public GameObject CliokAlarm;
 
     void Awake()
     {                
@@ -62,6 +64,7 @@ public class DialogManager : MonoBehaviour
         StartSecondRandomResultDialogData();        
 
         RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
+        
     }
 
     private void Start()
@@ -120,7 +123,7 @@ public class DialogManager : MonoBehaviour
     }
 
     
-    public IEnumerator getDialog(SceneData sceneData, int lineIndex)
+    public IEnumerator getDialog(SceneData sceneData, int lineIndex, int LastIndex)
     {
         string[] DialogSplit = sceneData.Dialog[lineIndex].Line.Split(" ");
         string TalkerName = sceneData.Dialog[lineIndex].Talker;
@@ -139,27 +142,28 @@ public class DialogManager : MonoBehaviour
             {
                 UiManager.Instance.DialogText.text += Split + " ";
             }
-        }
+        }        
+        if(lineIndex < LastIndex - 1) CliokAlarm.gameObject.SetActive(true); // 대화의 마지막은 클릭알람을 띄워선 안되므로 현재의 대화인덱스가 마지막대화인덱스보다 작을때만
         UiManager.Instance.DialogText.text += "\n";
-        SkipFlag = true;
-        // yield return new WaitForSeconds(5f);
-        // DialogFlag = true;
+        SkipFlag = true;        
     }
 
     public IEnumerator nextDialog(int NowRound)
     {
         RandomBackGround.gameObject.SetActive(false);
-        GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠        
-        for (int i = 0; i < DataManager.Instance.sceneData[NowRound].Dialog.Length; i++)
-        {
+        GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠
+        int DialogSize = DataManager.Instance.sceneData[NowRound].Dialog.Length;
+        for (int i = 0; i < DialogSize; i++)
+        {            
             yield return new WaitUntil(() => DialogFlag == true);
             {
+                CliokAlarm.gameObject.SetActive(false);
                 UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;
-                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound], i));                
-            }
-        }
-        yield return new WaitForSeconds(1f);
+                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound], i, DialogSize));                
+            }                                    
+        }        
+        yield return new WaitForSeconds(1f);        
         switch (DataManager.Instance.sceneData[NowRound].Situation)
         {
             case "Blessing": // case추가 예를들어 아래코드를 진행해야 하는 NowRound가 10이면 case : 10 추가
@@ -182,8 +186,8 @@ public class DialogManager : MonoBehaviour
             case "Rest":
                 UiManager.Instance.HpBtn.gameObject.SetActive(true);
                 UiManager.Instance.SkillPtBtn.gameObject.SetActive(true);
-                //UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
-                //UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
+                UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
+                UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
                 MonsterTable.Instance.MonsterNum += 1; // 전투에서 승리하고 다음 라운드로 넘어간 뒤 MonsterNum을 올려줌
                 GameManager.Instance.IsAni = true;
                 break;
