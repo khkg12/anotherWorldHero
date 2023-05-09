@@ -25574,9 +25574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160d9faf04a13f7429b40faf2bd233f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JsonFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  DialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  RandomDialogFile: {fileID: 4900000, guid: 3b84c367a529ca9419d62fe3962b5147, type: 3}
   talkerName: {fileID: 1438420725}
-  DialogFlag: 1
 --- !u!1 &1916996841
 GameObject:
   m_ObjectHideFlags: 0

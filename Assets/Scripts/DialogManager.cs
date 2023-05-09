@@ -123,10 +123,10 @@ public class DialogManager : MonoBehaviour
     }
 
     
-    public IEnumerator getDialog(SceneData sceneData, int lineIndex, int LastIndex)
+    public IEnumerator getDialog(Dialogs[] Dialog, int lineIndex, int LastIndex)
     {
-        string[] DialogSplit = sceneData.Dialog[lineIndex].Line.Split(" ");
-        string TalkerName = sceneData.Dialog[lineIndex].Talker;
+        string[] DialogSplit = Dialog[lineIndex].Line.Split(" ");
+        string TalkerName = Dialog[lineIndex].Talker;
         talkerName.text = TalkerName;
         ClickFlag = false;
         SkipFlag = false;
@@ -135,7 +135,7 @@ public class DialogManager : MonoBehaviour
             // 마우스클릭시 UiManager를 sceneData.Dialog[lineIndex].Line로 변경 foreach문 break;
             if (ClickFlag == true)
             {
-                UiManager.Instance.DialogText.text = sceneData.Dialog[lineIndex].Line;
+                UiManager.Instance.DialogText.text = Dialog[lineIndex].Line;
                 break;
             }
             yield return new WaitForSeconds(0.08f);
@@ -149,9 +149,10 @@ public class DialogManager : MonoBehaviour
     }
 
     public IEnumerator nextDialog(int NowRound)
-    {
+    {        
         RandomBackGround.gameObject.SetActive(false);
         GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠
+        DialogFlag = true;
         int DialogSize = DataManager.Instance.sceneData[NowRound].Dialog.Length;
         for (int i = 0; i < DialogSize; i++)
         {            
@@ -160,7 +161,7 @@ public class DialogManager : MonoBehaviour
                 CliokAlarm.gameObject.SetActive(false);
                 UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;
-                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound], i, DialogSize));                
+                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].Dialog, i, DialogSize));                
             }                                    
         }        
         yield return new WaitForSeconds(1f);        
@@ -203,6 +204,8 @@ public class DialogManager : MonoBehaviour
     }
     
     public SpriteRenderer RandomBackGround;
+    
+    // 테스트용 코드
 
     public IEnumerator nextRandomDialog()
     {
@@ -211,72 +214,40 @@ public class DialogManager : MonoBehaviour
         UiManager.Instance.DialogText.text = "";
         RandomEventList = RandomEventList.OrderBy(i => Random.value).ToList();
         int rand = RandomEventList[0];
-        RandomEventList.RemoveAt(0);        
+        RandomEventList.RemoveAt(0);
         RandomBackGround.sprite = BackGroundTable.Instance.RandomBackGroundImageList[rand].bgSprite;
-
-        for (int i = 0; i < RandomDialogData[rand].Length; i++)
+        DialogFlag = true;
+        int size = DataManager.Instance.RandomSceneData[rand].Dialog.Length;
+        for (int i = 0; i < size; i++) // jsonData로 변경
         {
             yield return new WaitUntil(() => DialogFlag == true);
             {
                 DialogFlag = false;
-                //getDialog(RandomDialogData, rand, i);
-            }            
-        }
-        if (rand != 6)
-        {
-            yield return new WaitForSeconds(1.0f);
-            {
-
-                UiManager.Instance.FirstRandomSelectBtn.gameObject.SetActive(true);
-                UiManager.Instance.SecondRandomSelectBtn.gameObject.SetActive(true);
-
+                getDialog(DataManager.Instance.RandomSceneData[rand].Dialog, i, size);
             }
         }
-        switch (rand)
-        {
-            case 0:
-                BtnTextSet("먹는다", "버린다", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0.3f, 0, 0, 0, 0, 0)); // HP회복량, HP감소량, 공격력 증가량, 방어력 증가량, 치명타, 회피율                
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 0, 0));
-                break;
-            case 1:
-                BtnTextSet("빨간물약", "파란물약", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 3, 0));
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 0, 3));
-                break;
-            case 2:
-                BtnTextSet("열어본다", "열지 않는다", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0.1f, 0, 0, 0, 0));
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 3, 0));
-                break;
-            case 3:
-                BtnTextSet("도와준다", "돕지 않는다", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0.4f, 0, 0, 0, 0));
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 0, 3));
-                break;
-            case 4:
-                BtnTextSet("왼쪽으로회피", "오른쪽으로회피", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0, 0, 0));
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0.3f, 0, 0, 0, 0));
-                break;
-            case 5:
-                BtnTextSet("진실의 서", "영웅의 서", rand);
-                UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0.1f, 0, 0, 0));
-                UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(0, 0, 0, 0.1f, 0, 0));
-                break;
-            case 6:
-                yield return new WaitForSeconds(1.0f);
-                UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true);
-                break;
-        }
+        yield return new WaitForSeconds(1.0f);        
+        UiManager.Instance.FirstRandomSelectBtn.gameObject.SetActive(true);
+        UiManager.Instance.SecondRandomSelectBtn.gameObject.SetActive(true);
+        
+        BtnTextSet(DataManager.Instance.RandomSceneData[rand].FristBtn, DataManager.Instance.RandomSceneData[rand].SecondBtn, rand);
+
+        float[] RecoveryAmount = DataManager.Instance.RandomSceneData[rand].RecoveryAmount;  // 두개의 선택지를 위해 배열로      
+        float[] ReduceAmount = DataManager.Instance.RandomSceneData[rand].ReduceAmount;
+        float[] AtkIncPer = DataManager.Instance.RandomSceneData[rand].AtkIncPer;
+        float[] DefIncPer = DataManager.Instance.RandomSceneData[rand].DefIncPer;
+        int[] Cri = DataManager.Instance.RandomSceneData[rand].Cri;
+        int[] Dod = DataManager.Instance.RandomSceneData[rand].Dod;        
+        UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(RecoveryAmount[0], ReduceAmount[0], AtkIncPer[0], DefIncPer[0], Cri[0], Dod[0])); // HP회복량, HP감소량, 공격력 증가량, 방어력 증가량, 치명타, 회피율                
+        UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => BtnOnClickEvent(RecoveryAmount[1], ReduceAmount[1], AtkIncPer[1], DefIncPer[1], Cri[1], Dod[1])); 
     }
 
     public void BtnTextSet(string firstText, string SecondText, int rand)
     {
         UiManager.Instance.FirstRandomSelectText.text = firstText;
         UiManager.Instance.SecondRandomSelectText.text = SecondText;
-        UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => StartCoroutine(PrintRandomSelectResult(FirstRandomResultDialogData, rand)));
-        UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => StartCoroutine(PrintRandomSelectResult(SecondRandomResultDialogData, rand)));
+        UiManager.Instance.FirstRandomSelectBtn.onClick.AddListener(() => StartCoroutine(PrintRandomSelectResult(DataManager.Instance.RandomSceneData[rand].FirstDialog)));
+        UiManager.Instance.SecondRandomSelectBtn.onClick.AddListener(() => StartCoroutine(PrintRandomSelectResult(DataManager.Instance.RandomSceneData[rand].SecondDialog)));
     }
 
     public void BtnOnClickEvent(float RecoveryAmount, float ReduceAmount, float AtkIncPer, float DefIncPer, int Cri, int Dod)
@@ -287,17 +258,18 @@ public class DialogManager : MonoBehaviour
         PlayerTable.Instance.Defense += DefIncPer * PlayerTable.Instance.Defense;
         PlayerTable.Instance.Critical += Cri;
         PlayerTable.Instance.Dodge += Dod;
-    }    
+    }
 
-    public IEnumerator PrintRandomSelectResult(Dictionary<int, string[]> DialogData, int rand)
+    public IEnumerator PrintRandomSelectResult(Dialogs[] Dialog)
     {
         UiManager.Instance.DialogText.text = "";
-        for (int i = 0; i < DialogData[rand].Length; i++)
-        {                        
+        DialogFlag = true;
+        for (int i = 0; i < Dialog.Length; i++)
+        {
             yield return new WaitUntil(() => DialogFlag == true);
             {
                 DialogFlag = false;
-                //getDialog(DialogData, rand, i);
+                getDialog(Dialog, i, Dialog.Length);
             }
         }
         yield return new WaitForSeconds(0.4f);
@@ -318,7 +290,7 @@ public class DialogManager : MonoBehaviour
         if (PlayerTable.Instance.playerSkillList[2].Name != "")
         {
             PlayerTable.Instance.ThirdSkillAvailableCount += 2;
-            if(PlayerTable.Instance.ThirdSkillAvailableCount > PlayerTable.Instance.thirdCount) PlayerTable.Instance.ThirdSkillAvailableCount = PlayerTable.Instance.thirdCount;    
+            if (PlayerTable.Instance.ThirdSkillAvailableCount > PlayerTable.Instance.thirdCount) PlayerTable.Instance.ThirdSkillAvailableCount = PlayerTable.Instance.thirdCount;
         }
         if (PlayerTable.Instance.playerSkillList[3].Name != "")
         {
@@ -331,6 +303,7 @@ public class DialogManager : MonoBehaviour
             if (PlayerTable.Instance.FifthSkillAvailableCount > PlayerTable.Instance.fifthCount) PlayerTable.Instance.FifthSkillAvailableCount = PlayerTable.Instance.fifthCount;
         }
     }
+
 }
 
 
