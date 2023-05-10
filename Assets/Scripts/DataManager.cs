@@ -22,7 +22,7 @@ public class SceneData
 public class RandomSceneData
 {
     public int Index;
-    public string FristBtn;
+    public string FirstBtn;
     public string SecondBtn;
     public float[] RecoveryAmount;
     public float[] ReduceAmount;
@@ -76,7 +76,7 @@ public class DataManager : MonoBehaviour
         }
 
         sceneData = JsonConvert.DeserializeObject<SceneData[]>(DialogFile.text);  // 대사저장
-        RandomSceneData = JsonConvert.DeserializeObject<RandomSceneData[]>(RandomDialogFile.text); // 랜덤이벤트 대사저장
+        RandomSceneData = JsonConvert.DeserializeObject<RandomSceneData[]>(RandomDialogFile.text); // 랜덤이벤트 대사저장        
     }  
 }
 

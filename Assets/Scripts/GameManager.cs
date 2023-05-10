@@ -21,7 +21,10 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager _Instance;
 
-    public SpriteRenderer FadeObj; // 페이드 오브젝트    
+    public SpriteRenderer FadeObj; // 페이드 오브젝트 
+    public SpriteRenderer IncreaseFadeObj;
+    public SpriteRenderer DecreaseFadeObj;
+
     public int NowRound
     {
         get => _NowRound;                        

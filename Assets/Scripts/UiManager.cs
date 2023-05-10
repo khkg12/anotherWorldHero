@@ -21,7 +21,9 @@ public class UiManager : MonoBehaviour
         }
     }
     private static UiManager _Instance;
-    public TextMeshProUGUI DialogText;    
+    public TextMeshProUGUI DialogText;
+    public TextMeshProUGUI talkerName;
+    public GameObject CliokAlarm;
 
     public Image ItemSelectUI;        
     public Image SkillSelectUI;

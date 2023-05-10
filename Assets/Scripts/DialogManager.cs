@@ -39,8 +39,7 @@ public class DialogManager : MonoBehaviour
     public bool ClickFlag = false;
     public bool SkipFlag = false;    
 
-    public TextMeshProUGUI talkerName;
-    public GameObject CliokAlarm;
+    
 
     void Awake()
     {                
@@ -125,14 +124,13 @@ public class DialogManager : MonoBehaviour
     
     public IEnumerator getDialog(Dialogs[] Dialog, int lineIndex, int LastIndex)
     {
-        string[] DialogSplit = Dialog[lineIndex].Line.Split(" ");
+        string[] DialogSplit = Dialog[lineIndex].Line.Split(" ");        
         string TalkerName = Dialog[lineIndex].Talker;
-        talkerName.text = TalkerName;
+        UiManager.Instance.talkerName.text = TalkerName;
         ClickFlag = false;
         SkipFlag = false;
         foreach (string Split in DialogSplit)
-        {
-            // 마우스클릭시 UiManager를 sceneData.Dialog[lineIndex].Line로 변경 foreach문 break;
+        {            
             if (ClickFlag == true)
             {
                 UiManager.Instance.DialogText.text = Dialog[lineIndex].Line;
@@ -143,7 +141,7 @@ public class DialogManager : MonoBehaviour
                 UiManager.Instance.DialogText.text += Split + " ";
             }
         }        
-        if(lineIndex < LastIndex - 1) CliokAlarm.gameObject.SetActive(true); // 대화의 마지막은 클릭알람을 띄워선 안되므로 현재의 대화인덱스가 마지막대화인덱스보다 작을때만
+        if(lineIndex < LastIndex - 1) UiManager.Instance.CliokAlarm.gameObject.SetActive(true); // 대화의 마지막은 클릭알람을 띄워선 안되므로 현재의 대화인덱스가 마지막대화인덱스보다 작을때만
         UiManager.Instance.DialogText.text += "\n";
         SkipFlag = true;        
     }
@@ -158,7 +156,7 @@ public class DialogManager : MonoBehaviour
         {            
             yield return new WaitUntil(() => DialogFlag == true);
             {
-                CliokAlarm.gameObject.SetActive(false);
+                UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
                 UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;
                 StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].Dialog, i, DialogSize));                
@@ -167,7 +165,7 @@ public class DialogManager : MonoBehaviour
         yield return new WaitForSeconds(1f);        
         switch (DataManager.Instance.sceneData[NowRound].Situation)
         {
-            case "Blessing": // case추가 예를들어 아래코드를 진행해야 하는 NowRound가 10이면 case : 10 추가
+            case "Blessing": 
                 UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true);
                 break;
             case "Dialog":
@@ -208,7 +206,7 @@ public class DialogManager : MonoBehaviour
     // 테스트용 코드
 
     public IEnumerator nextRandomDialog()
-    {
+    {        
         RandomBackGround.gameObject.SetActive(true);
         GameManager.Instance.FadeObj.gameObject.SetActive(true);
         UiManager.Instance.DialogText.text = "";
@@ -217,20 +215,22 @@ public class DialogManager : MonoBehaviour
         RandomEventList.RemoveAt(0);
         RandomBackGround.sprite = BackGroundTable.Instance.RandomBackGroundImageList[rand].bgSprite;
         DialogFlag = true;
-        int size = DataManager.Instance.RandomSceneData[rand].Dialog.Length;
+        int size = DataManager.Instance.RandomSceneData[rand].Dialog.Length;        
         for (int i = 0; i < size; i++) // jsonData로 변경
         {
             yield return new WaitUntil(() => DialogFlag == true);
             {
-                DialogFlag = false;
-                getDialog(DataManager.Instance.RandomSceneData[rand].Dialog, i, size);
+                UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
+                UiManager.Instance.DialogText.text = "";
+                DialogFlag = false;                
+                StartCoroutine(getDialog(DataManager.Instance.RandomSceneData[rand].Dialog, i, size));
             }
         }
         yield return new WaitForSeconds(1.0f);        
         UiManager.Instance.FirstRandomSelectBtn.gameObject.SetActive(true);
         UiManager.Instance.SecondRandomSelectBtn.gameObject.SetActive(true);
         
-        BtnTextSet(DataManager.Instance.RandomSceneData[rand].FristBtn, DataManager.Instance.RandomSceneData[rand].SecondBtn, rand);
+        BtnTextSet(DataManager.Instance.RandomSceneData[rand].FirstBtn, DataManager.Instance.RandomSceneData[rand].SecondBtn, rand);
 
         float[] RecoveryAmount = DataManager.Instance.RandomSceneData[rand].RecoveryAmount;  // 두개의 선택지를 위해 배열로      
         float[] ReduceAmount = DataManager.Instance.RandomSceneData[rand].ReduceAmount;
@@ -252,6 +252,14 @@ public class DialogManager : MonoBehaviour
 
     public void BtnOnClickEvent(float RecoveryAmount, float ReduceAmount, float AtkIncPer, float DefIncPer, int Cri, int Dod)
     {
+        if(ReduceAmount > 0) // 체력 피해량이 존재할 때만 대미지 입는 애니 or 오브젝트 설정
+        {
+            GameManager.Instance.DecreaseFadeObj.gameObject.SetActive(true);
+        }
+        else
+        {
+            GameManager.Instance.IncreaseFadeObj.gameObject.SetActive(true);
+        }
         PlayerTable.Instance.Hp += RecoveryAmount * PlayerTable.Instance.MaxHp;
         PlayerTable.Instance.Hp -= ReduceAmount * PlayerTable.Instance.MaxHp;
         PlayerTable.Instance.Atk += AtkIncPer * PlayerTable.Instance.Atk;
@@ -268,8 +276,10 @@ public class DialogManager : MonoBehaviour
         {
             yield return new WaitUntil(() => DialogFlag == true);
             {
+                UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
+                UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;
-                getDialog(Dialog, i, Dialog.Length);
+                StartCoroutine(getDialog(Dialog, i, Dialog.Length));
             }
         }
         yield return new WaitForSeconds(0.4f);

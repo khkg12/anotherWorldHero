@@ -195,6 +195,14 @@ MonoBehaviour:
     MonsterAni: {fileID: 0}
   MonsterNum: 0
   monsterSkillList:
+  - Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
+    SkillPercentage: 1.1
+    CriMultiple: 1.6
+    SkillDialog:
+    - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uB9C8\uAC80\uC2DD 1\uC2DD!
+      \n4.4 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
+    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
+    SkillTrigger: IsDemonSlayerSwordmanship
   - Name: "\uBCA0\uC5B4\uB118\uAE30\uAE30"
     SkillPercentage: 0.4
     CriMultiple: 1.3
@@ -211,11 +219,3 @@ MonoBehaviour:
       \n2.8 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
     SkillText: "\uC0C1\uB300\uB294 \uCC0C\uB974\uAE30 \uC790\uC138\uB97C \uCDE8\uD55C\uB2E4."
     SkillTrigger: IsDemonSlayerStabbing
-  - Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
-    SkillPercentage: 1.1
-    CriMultiple: 1.6
-    SkillDialog:
-    - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uB9C8\uAC80\uC2DD 1\uC2DD!
-      \n4.4 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
-    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
-    SkillTrigger: IsDemonSlayerSwordmanship

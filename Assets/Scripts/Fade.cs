@@ -6,6 +6,9 @@ public class Fade : MonoBehaviour
 {
     public float fadeTime;
     public SpriteRenderer fadeSprite;
+    public int R;
+    public int G;
+    public int B;
     
     private void OnEnable()
     {
@@ -15,13 +18,12 @@ public class Fade : MonoBehaviour
     {
         if(fadeTime > 0f)
         {
-            fadeSprite.color = new Color(0, 0, 0, fadeTime / 3);
+            fadeSprite.color = new Color(R, G, B, fadeTime / 3);
             fadeTime -= Time.deltaTime;
         }
         else
         {            
             gameObject.SetActive(false);            
-        }
-        
+        }        
     }
 }

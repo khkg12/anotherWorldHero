@@ -26,11 +26,9 @@ public class MainSceneObj : MonoBehaviour
             {
                 GoddessSprite.gameObject.SetActive(false);
             }
-            switch (GameManager.Instance.NowRound)
+            switch (DataManager.Instance.sceneData[GameManager.Instance.NowRound-1].Situation)
             {
-                case 3:
-                case 5:
-                case 8:
+                case "Battle":                
                     MonsterSprite.gameObject.SetActive(true);
                     MonsterSprite.sprite = MonsterTable.Instance.MonsterList[MonsterTable.Instance.MonsterNum].MonsterSprite;                                        
                     if(GameManager.Instance.IsAni == true)
