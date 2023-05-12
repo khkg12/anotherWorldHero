@@ -62,7 +62,7 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData = new Dictionary<int, string[]>();
         StartSecondRandomResultDialogData();        
 
-        RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
+        RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5 };
         
     }
 
@@ -95,8 +95,7 @@ public class DialogManager : MonoBehaviour
         RandomDialogData.Add(2, new string[] { "보물 상자를 발견했다.", "\n무게가 제법 묵직하다."});
         RandomDialogData.Add(3, new string[] { "어디선가 서글프게 우는 소리가 들린다.", "\n울음 소리가 나는 곳을 찾아가보니 구석 한편에서 숨죽여 울고 있는 소녀를 발견했다." });
         RandomDialogData.Add(4, new string[] { "숨겨진 트랩이 발동하면서 수십 개의 화살이 비처럼 쏟아져내렸다."});
-        RandomDialogData.Add(5, new string[] { "우연히 발견한 서고에 들어갔다.", "\n책들이 빼곡히 꽂힌 서가를 거닐다 눈에 띄는 책을 발견했다." });
-        RandomDialogData.Add(6, new string[] { "성스러운 기운을 내뿜는 검 한 자루가 땅에 굳건히 꽂혀있다.", "\n검의 손잡이를 잡으니 익숙한 힘이 느껴졌고, 이것이 전대 용사의 검이라는 사실을 알게 되었다.", "\n전대 용사의 축복이 흘러들어왔다."});
+        RandomDialogData.Add(5, new string[] { "우연히 발견한 서고에 들어갔다.", "\n책들이 빼곡히 꽂힌 서가를 거닐다 눈에 띄는 책을 발견했다." });        
     }
 
     public void StartFirstRandomResultDialogData() // 랜덤 선택지 첫번째 결과 대화창 저장
@@ -106,8 +105,7 @@ public class DialogManager : MonoBehaviour
         FirstRandomResultDialogData.Add(2, new string[] { "미믹이었다!.", "\n최대체력의 10%가 감소하였다." });
         FirstRandomResultDialogData.Add(3, new string[] { "소녀에게 가까이 다가갔다.", "\n그제서야 소녀가 몬스터인것을 깨달았다!", "\n몬스터에게 기습을 당하였다!", "\n최대 체력의 40%가 감소하였다." });
         FirstRandomResultDialogData.Add(4, new string[] { "왼쪽으로 회피 하였더니 2~3발의 화살만이 날라왔다.", "\n쉽게 방어해낼 수 있었다." });
-        FirstRandomResultDialogData.Add(5, new string[] { "진실이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n공격력이 10% 증가하였다!" });
-        
+        FirstRandomResultDialogData.Add(5, new string[] { "진실이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n공격력이 10% 증가하였다!" });        
     }
 
     public void StartSecondRandomResultDialogData() // 랜덤 선택지 두번째 결과 대화창 저장
@@ -117,8 +115,7 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData.Add(2, new string[] { "자세히 살펴보니 보물 상자 행세를 하는 미믹이었다.", "\n미믹이 공격하기 전에 선수를 쳐 치명상을 입힐 수 있었다.", "\n치명타 확률이 3% 증가하였다!" });
         SecondRandomResultDialogData.Add(3, new string[] { "자세히 살펴보니 소녀 행세를 하는 몬스터였다.", "\n몬스터가 기습했지만, 미리 간파한 덕에 공격을 피할 수 있었다.", "\n회피율이 3% 증가하였다!" });
         SecondRandomResultDialogData.Add(4, new string[] { "오른쪽으로 회피했더니 내가 있는 방향으로 대부분의 화살이 날아왔다!", "\n화살을 쳐냈지만 모든 화살을 막을 순 없었다.", "\n최대 체력의 30%가 감소하였다." });
-        SecondRandomResultDialogData.Add(5, new string[] { "영웅이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n방어력이 10% 증가하였다!" });
-        
+        SecondRandomResultDialogData.Add(5, new string[] { "영웅이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n방어력이 10% 증가하였다!" });        
     }
 
     
@@ -256,7 +253,7 @@ public class DialogManager : MonoBehaviour
         {
             GameManager.Instance.DecreaseFadeObj.gameObject.SetActive(true);
         }
-        else
+        else if(RecoveryAmount > 0)
         {
             GameManager.Instance.IncreaseFadeObj.gameObject.SetActive(true);
         }
@@ -289,7 +286,7 @@ public class DialogManager : MonoBehaviour
     }
 
     public void HpBtnEvent()
-    {
+    {        
         PlayerTable.Instance.Hp += (int)(0.3f * PlayerTable.Instance.MaxHp);
     }
 

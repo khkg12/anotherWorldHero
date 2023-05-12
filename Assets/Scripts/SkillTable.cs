@@ -23,13 +23,7 @@ public class SkillTable : ScriptableObject
     // 스킬선택 시 랜덤으로 돌릴 스킬리스트
     public List<BaseSkill> ActiveSkillList; 
     public List<PassiveSkill> PassiveSkillList;
-
-
-    private void OnEnable()
-    {
-        ActiveSkillList = new List<BaseSkill>() { Instance.doubleAttack, Instance.baldo, Instance.stunBoom }; // 스킬리스트 초기화
-    }
-    
+        
 
     // 플레이어 스킬
     public Attack attack;

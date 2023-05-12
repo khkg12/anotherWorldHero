@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         IsMonsterDead = false; // 몬스터 등장 씬 트리거정하는 변수 false로 초기화 (몬스터와 싸우기전이기때문)
         IsAni = true; // 처음엔 true여야 실행되므로 true로 초기화
+        SkillTable.Instance.ActiveSkillList = new List<BaseSkill>() { SkillTable.Instance.doubleAttack, SkillTable.Instance.baldo, SkillTable.Instance.stunBoom }; // 스킬리스트 초기화
     }
 
     public void LoadBattleScene() // 전투시작 버튼 눌렀을 때 호출되는 함수 -> 고로 전투씬을 띄움

@@ -17,7 +17,7 @@ MonoBehaviour:
     MonsterName: "\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC"
     MonsterHp: 50
     MonsterMaxHp: 50
-    MonsterAtk: 6
+    MonsterAtk: 10
     MonsterDodge: 5
     MonsterCri: 5
     MonsterStunStack: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     MonsterName: "\uB9C8\uC871 \uAD81\uC218"
     MonsterHp: 80
     MonsterMaxHp: 80
-    MonsterAtk: 5
+    MonsterAtk: 12
     MonsterDodge: 7
     MonsterCri: 7
     MonsterStunStack: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     MonsterName: "\uB9C8\uC871 \uC8FC\uC220\uC0AC"
     MonsterHp: 70
     MonsterMaxHp: 70
-    MonsterAtk: 9
+    MonsterAtk: 15
     MonsterDodge: 10
     MonsterCri: 10
     MonsterStunStack: 0
@@ -195,14 +195,6 @@ MonoBehaviour:
     MonsterAni: {fileID: 0}
   MonsterNum: 0
   monsterSkillList:
-  - Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
-    SkillPercentage: 1.1
-    CriMultiple: 1.6
-    SkillDialog:
-    - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uB9C8\uAC80\uC2DD 1\uC2DD!
-      \n4.4 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
-    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
-    SkillTrigger: IsDemonSlayerSwordmanship
   - Name: "\uBCA0\uC5B4\uB118\uAE30\uAE30"
     SkillPercentage: 0.4
     CriMultiple: 1.3
@@ -211,6 +203,14 @@ MonoBehaviour:
       \n1.6 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
     SkillText: "\uC0C1\uB300\uB294 \uAC80\uC744 \uBE44\uC2A4\uB4EC\uD788 \uB4E4\uC5C8\uB2E4."
     SkillTrigger: IsDemonSlayerSlash
+  - Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
+    SkillPercentage: 1.1
+    CriMultiple: 1.6
+    SkillDialog:
+    - "\n\n\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC\uC758 \uB9C8\uAC80\uC2DD 1\uC2DD!
+      \n4.4 \uB9CC\uD07C \uD53C\uD574\uB97C \uC785\uC5C8\uB2E4! (0)\uBC29\uC5B4\uD568"
+    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
+    SkillTrigger: IsDemonSlayerSwordmanship
   - Name: "\uAE09\uC18C\uCC0C\uB974\uAE30"
     SkillPercentage: 0.7
     CriMultiple: 1.6

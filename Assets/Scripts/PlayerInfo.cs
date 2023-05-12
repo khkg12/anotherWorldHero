@@ -53,9 +53,7 @@ public class PlayerInfo : MonoBehaviour
         SecondSkillBtn.onClick.AddListener(() => SkillUiSet(SecondSkillImage, SecondSkillName, PlayerTable.Instance.playerSkillList[1].SkillText));
         ThirdSkillBtn.onClick.AddListener(() => SkillUiSet(ThirdSkillImage, ThirdSkillName, PlayerTable.Instance.playerSkillList[2].SkillText));
         FourthSkillBtn.onClick.AddListener(() => SkillUiSet(FourthSkillImage, FourthSkillName, PlayerTable.Instance.playerSkillList[3].SkillText));
-        FifthSkillBtn.onClick.AddListener(() => SkillUiSet(FifthSkillImage, FifthSkillName, PlayerTable.Instance.playerSkillList[4].SkillText));
-        
-        
+        FifthSkillBtn.onClick.AddListener(() => SkillUiSet(FifthSkillImage, FifthSkillName, PlayerTable.Instance.playerSkillList[4].SkillText));                
     }
 
     public void SkillUiSet(Image skillImage, TextMeshProUGUI skillName, string[] skillOption)
