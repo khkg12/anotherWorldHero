@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MaxHp: 100
   _Hp: 100
-  _Atk: 10
+  _Atk: 13
   _NowAtk: 10
   _Defense: 10
   NowDefense: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   _StunStack: 0
   _ResChance: -2
   _IronBody: 0
-  _Scare: 0
+  _Scare: 2
   _FightingSpirit: 0
   _WillPower: 0
   playerSkillList:
@@ -73,6 +73,7 @@ MonoBehaviour:
     SkillTrigger: 
     AvailableCount: 0
   scareText:
+    StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4. 5Lv \uB2EC\uC131 \uD574\uAE08\uB2A5\uB825
       : \uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC740 \uACF5\uD3EC\uB85C 1\uD134
@@ -84,6 +85,7 @@ MonoBehaviour:
     - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 10 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 21 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   ironBodyText:
+    StatusName: "\uCCA0\uD1B5"
     OptionText: "\uB9E4 \uD134 \uB9C8\uB2E4 \uC77C\uC815 \uBC29\uC5B4\uB825\uC744
       \uAC00\uC9C4 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
     LevelText:
@@ -93,6 +95,7 @@ MonoBehaviour:
     - "\uBC29\uC5B4\uB825 6\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
     - "\uBC29\uC5B4\uB825 9\uC758 \uC2E4\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4. "
   fightingSpiritText:
+    StatusName: "\uBD88\uAD74"
     OptionText: "\uC804\uD22C \uC2DC 3\uD134\uB9C8\uB2E4 \uC77C\uC815 \uACF5\uACA9\uB825\uC774
       \uC99D\uAC00\uD569\uB2C8\uB2E4."
     LevelText:
@@ -102,6 +105,7 @@ MonoBehaviour:
     - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 3 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     - "3\uD134\uB9C8\uB2E4 \uACF5\uACA9\uB825\uC774 4 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   willPowerText:
+    StatusName: "\uC758\uC9C0"
     OptionText: "\uC801\uC758 \uAE30\uC808 \uACF5\uACA9\uC744 \uC77C\uC815 \uD69F\uC218
       \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     LevelText:

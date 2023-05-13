@@ -11,7 +11,7 @@ public class BlessingSelect : MonoBehaviour
     public Button SecondBtn;
     public Button ThirdBtn;
     public Button RerollBtn;
-    public Button ContinueBtn;
+    public Button ContinueBtn;    
 
     public List<Blessing> selectBlessingList;
     public Image BlessingGetUI; // 최종적으로 선택한 축복의 구체적 정보창
@@ -31,14 +31,21 @@ public class BlessingSelect : MonoBehaviour
     public TextMeshProUGUI ThirdBlessingName;
     public TextMeshProUGUI ThirdBlessingOption;
 
+    public int selectBlessingNum;
+        
 
     private void Start()
     {        
-        FirstBtn.onClick.AddListener(() => BlessingGet(selectBlessingList[0])); // 첫번째 버튼 눌렀을 때 첫번째 아이템 능력치 제공
-        SecondBtn.onClick.AddListener(() => BlessingGet(selectBlessingList[1]));
-        ThirdBtn.onClick.AddListener(() => BlessingGet(selectBlessingList[2]));
+        FirstBtn.onClick.AddListener(() => BlessingSelectUI(selectBlessingList[0])); // 첫번째 버튼 눌렀을 때 첫번째 아이템 능력치 제공
+        FirstBtn.onClick.AddListener(() => selectBlessingNum = 0);
+        SecondBtn.onClick.AddListener(() => BlessingSelectUI(selectBlessingList[1])); // delegate로 묶어야할듯 event나
+        SecondBtn.onClick.AddListener(() => selectBlessingNum = 1);
+        ThirdBtn.onClick.AddListener(() => BlessingSelectUI(selectBlessingList[2]));
+        ThirdBtn.onClick.AddListener(() => selectBlessingNum = 2);
+
         RerollBtn.onClick.AddListener(() => BlessingReroll());
-        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.BlessingSelectUI, selectBlessingList));        
+        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.BlessingSelectUI, selectBlessingList));
+        ContinueBtn.onClick.AddListener(() => BlessingGet(selectBlessingList[selectBlessingNum]));
     }
 
     public void OnEnable()
@@ -49,6 +56,93 @@ public class BlessingSelect : MonoBehaviour
         BlessingUISet(firstBlessingImage, firstBlessingName, firstBlessingOption, selectBlessingList[0]); // 첫번째 축복 ui 셋팅
         BlessingUISet(SecondBlessingImage, SecondBlessingName, SecondBlessingOption, selectBlessingList[1]);
         BlessingUISet(ThirdBlessingImage, ThirdBlessingName, ThirdBlessingOption, selectBlessingList[2]);
+    }
+
+    public void BlessingSelectUI(Blessing selectBlessing) 
+    {
+        BlessingGetOption.text = ""; // 축복 옵션 텍스트UI 초기화
+        BlessingGetUI.gameObject.SetActive(true);       
+        BlessingGetImage.sprite = selectBlessing.BlessingSprite;
+        BlessingGetName.text = selectBlessing.BlessingName;        
+
+        if (selectBlessing.maxHp > 0)
+        {
+            BlessingGetOption.text += $"최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} -> {PlayerTable.Instance.MaxHp + selectBlessing.maxHp}</color>" + "\n";
+        }        
+        if (selectBlessing.Atk > 0)
+        {
+            BlessingGetOption.text += $"공격력 : <color=#369341>{PlayerTable.Instance.Atk} -> {PlayerTable.Instance.Atk + selectBlessing.Atk}</color>" + "\n";
+        }
+        if (selectBlessing.Def > 0)
+        {
+            BlessingGetOption.text += $"방어력 : <color=#369341>{PlayerTable.Instance.Defense} -> {PlayerTable.Instance.Defense + selectBlessing.Def} </color>" + "\n";
+        }
+        if (selectBlessing.Cri > 0)
+        {
+            BlessingGetOption.text += $"치명타 : <color=#369341>{PlayerTable.Instance.Critical} -> {PlayerTable.Instance.Critical + selectBlessing.Cri}</color>" + "\n";
+        }
+        if (selectBlessing.Dod > 0)
+        {
+            BlessingGetOption.text += $"회피율 : <color=#369341>{PlayerTable.Instance.Dodge} ->  {PlayerTable.Instance.Dodge + selectBlessing.Dod}</color>" + "\n";
+        }
+
+        
+        if (selectBlessing.IronBodyPt > 0)
+        {
+            BlessingUIStatus(PlayerTable.Instance.ironBodyText , PlayerTable.Instance.IronBody, selectBlessing.IronBodyPt);
+        }
+        if (selectBlessing.ScarePt > 0)
+        {
+            BlessingUIStatus(PlayerTable.Instance.scareText, PlayerTable.Instance.Scare, selectBlessing.ScarePt);
+        }
+        if (selectBlessing.WillPowerPt > 0)
+        {
+            BlessingUIStatus(PlayerTable.Instance.willPowerText, PlayerTable.Instance.WillPower, selectBlessing.WillPowerPt);
+        }
+        if (selectBlessing.FightingSpiritPt > 0)
+        {
+            BlessingUIStatus(PlayerTable.Instance.fightingSpiritText, PlayerTable.Instance.FightingSpirit, selectBlessing.FightingSpiritPt);
+        }
+    }
+
+    public void BlessingUIStatus(StatusText statusText, int PlayerStatus, int BlessingStatus)
+    {        
+        if (PlayerStatus == 0)
+        {
+            BlessingGetOption.text += $"신규특성 : {statusText.StatusName} (Lv.{BlessingStatus})" + "\n";
+            BlessingGetOption.text += statusText.OptionText + "\n";
+            BlessingGetOption.text += $"Lv.{BlessingStatus} : " + statusText.LevelText[BlessingStatus - 1] + "\n";
+        }
+        else if(PlayerStatus == 5)
+        {
+            BlessingGetOption.text += $"{statusText.StatusName} (Lv.5)" + "\n";
+            BlessingGetOption.text += "이미 최고 레벨에 달성한 특성입니다." + "\n";
+        }
+        else
+        {
+            BlessingGetOption.text += $"{statusText.StatusName} (Lv.{PlayerStatus}) ->  (Lv.{PlayerStatus + BlessingStatus})" + "\n";
+            BlessingGetOption.text += statusText.OptionText + "\n";
+            if (PlayerStatus + BlessingStatus >= 5)
+            {
+                BlessingGetOption.text += $"Lv 5 : " + statusText.LevelText[4] + "\n";
+            }
+            else
+            {
+                BlessingGetOption.text += $"Lv {PlayerStatus + BlessingStatus} : " + statusText.LevelText[PlayerStatus + BlessingStatus - 1] + "\n";
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(BlessingGetUI.rectTransform); // 레이아웃 강제 재정렬 시켜주는 코드, content size filter가 즉각적으로 렌더링이 안되기때문에 넣어주는 코드
+    }
+
+    public void BlessingUISet(Image BlessingImage, TextMeshProUGUI BlessingName, TextMeshProUGUI BlessingOption, Blessing selectBlessing) // 축복 ui 셋팅 함수
+    {
+        BlessingOption.text = "";
+        BlessingImage.sprite = selectBlessing.BlessingSprite;
+        BlessingName.text = selectBlessing.BlessingName;
+        for (int i = 0; i < selectBlessing.Option.Length; i++)
+        {
+            BlessingOption.text += selectBlessing.Option[i] + "\n";
+        }
     }
 
     public void BlessingGet(Blessing selectBlessing) // 축복 버튼 클릭 시 호출되는 함수 능력치 강화 
@@ -66,50 +160,8 @@ public class BlessingSelect : MonoBehaviour
         PlayerTable.Instance.Atk += selectBlessing.Atk;
         PlayerTable.Instance.Defense += selectBlessing.Def;
         PlayerTable.Instance.Critical += selectBlessing.Cri;
-        PlayerTable.Instance.Dodge += selectBlessing.Dod;
-        
-        BlessingGetImage.sprite = selectBlessing.BlessingSprite;
-        BlessingGetName.text = selectBlessing.BlessingName;
-        for (int i = 0; i < selectBlessing.Option.Length; i++)
-        {
-            if (selectBlessing.Option[i].Contains("Lv")) // 특성값만 추가
-            {
-                BlessingGetOption.text += selectBlessing.Option[i] + "(최대 Lv. 5)\n";
-            }            
-        }
-
-        if (selectBlessing.maxHp > 0)
-        {
-            BlessingGetOption.text += $"최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} (+{selectBlessing.maxHp})</color>" + "\n";
-        }        
-        if (selectBlessing.Atk > 0)
-        {
-            BlessingGetOption.text += $"공격력 : <color=#369341>{PlayerTable.Instance.Atk} (+{selectBlessing.Atk})</color>" + "\n";
-        }
-        if (selectBlessing.Def > 0)
-        {
-            BlessingGetOption.text += $"방어력 : <color=#369341>{PlayerTable.Instance.Defense} (+{selectBlessing.Def})</color>" + "\n";
-        }
-        if (selectBlessing.Cri > 0)
-        {
-            BlessingGetOption.text += $"치명타 : <color=#369341>{PlayerTable.Instance.Critical}% (+{selectBlessing.Cri}%)</color>" + "\n";
-        }
-        if (selectBlessing.Dod > 0)
-        {
-            BlessingGetOption.text += $"회피율 : <color=#369341>{PlayerTable.Instance.Dodge}% (+{selectBlessing.Dod}%)</color>" + "\n";
-        }
-    }
-
-    public void BlessingUISet(Image BlessingImage, TextMeshProUGUI BlessingName, TextMeshProUGUI BlessingOption, Blessing selectBlessing) // 축복 ui 셋팅 함수
-    {
-        BlessingOption.text = "";
-        BlessingImage.sprite = selectBlessing.BlessingSprite;
-        BlessingName.text = selectBlessing.BlessingName;
-        for (int i = 0; i < selectBlessing.Option.Length; i++)
-        {
-            BlessingOption.text += selectBlessing.Option[i] + "\n";
-        }
-    }
+        PlayerTable.Instance.Dodge += selectBlessing.Dod;        
+    }    
 
     public void BlessingReroll()
     {

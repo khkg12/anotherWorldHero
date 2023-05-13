@@ -271,10 +271,10 @@ public class PlayerTable : ScriptableObject
 
     public List<BaseSkill> playerSkillList;
 
-    public ScareText scareText;
-    public IronBodyText ironBodyText;
-    public FightingSpiritText fightingSpiritText;
-    public WillPowerText willPowerText;
+    public StatusText scareText;
+    public StatusText ironBodyText;
+    public StatusText fightingSpiritText;
+    public StatusText willPowerText;
     public int playerSkillCount = 2;
 
     public int SecondSkillAvailableCount
@@ -303,31 +303,11 @@ public class PlayerTable : ScriptableObject
 }
 
 [System.Serializable]
-public class ScareText
+public class StatusText
 {
+    public string StatusName;
     public string OptionText;
     public string[] LevelText;      
-}
-
-[System.Serializable]
-public class IronBodyText
-{
-    public string OptionText;
-    public string[] LevelText;
-}
-
-[System.Serializable]
-public class FightingSpiritText
-{
-    public string OptionText;
-    public string[] LevelText;
-}
-
-[System.Serializable]
-public class WillPowerText
-{
-    public string OptionText;
-    public string[] LevelText;
 }
 
 
