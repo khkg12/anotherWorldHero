@@ -23,7 +23,7 @@ MonoBehaviour:
   _StunStack: 0
   _ResChance: -2
   _IronBody: 0
-  _Scare: 2
+  _Scare: 3
   _FightingSpirit: 0
   _WillPower: 0
   playerSkillList:
@@ -75,9 +75,7 @@ MonoBehaviour:
   scareText:
     StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4. 5Lv \uB2EC\uC131 \uD574\uAE08\uB2A5\uB825
-      : \uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC740 \uACF5\uD3EC\uB85C 1\uD134
-      \uAE30\uC808\uD569\uB2C8\uB2E4."
+      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4. "
     LevelText:
     - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 1 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     - "\uC801\uC758 \uACF5\uACA9\uB825\uC744 2 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."

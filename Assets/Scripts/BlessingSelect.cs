@@ -18,6 +18,8 @@ public class BlessingSelect : MonoBehaviour
     public TextMeshProUGUI BlessingGetName;
     public Image BlessingGetImage;
     public TextMeshProUGUI BlessingGetOption;
+    public Image NowBlessingLv;
+    public Image NextBlessingLv;
 
     public Image firstBlessingImage;
     public TextMeshProUGUI firstBlessingName;
@@ -67,23 +69,23 @@ public class BlessingSelect : MonoBehaviour
 
         if (selectBlessing.maxHp > 0)
         {
-            BlessingGetOption.text += $"최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} -> {PlayerTable.Instance.MaxHp + selectBlessing.maxHp}</color>" + "\n";
+            BlessingGetOption.text += $"<size=7>{{최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} -> {PlayerTable.Instance.MaxHp + selectBlessing.maxHp}</color></size>" + "\n\n";
         }        
         if (selectBlessing.Atk > 0)
         {
-            BlessingGetOption.text += $"공격력 : <color=#369341>{PlayerTable.Instance.Atk} -> {PlayerTable.Instance.Atk + selectBlessing.Atk}</color>" + "\n";
+            BlessingGetOption.text += $"<size=7>{{공격력 : <color=#369341>{PlayerTable.Instance.Atk} -> {PlayerTable.Instance.Atk + selectBlessing.Atk}</color></size>" + "\n\n";
         }
         if (selectBlessing.Def > 0)
         {
-            BlessingGetOption.text += $"방어력 : <color=#369341>{PlayerTable.Instance.Defense} -> {PlayerTable.Instance.Defense + selectBlessing.Def} </color>" + "\n";
+            BlessingGetOption.text += $"<size=7>{{방어력 : <color=#369341>{PlayerTable.Instance.Defense} -> {PlayerTable.Instance.Defense + selectBlessing.Def} </color></size>" + "\n\n";
         }
         if (selectBlessing.Cri > 0)
         {
-            BlessingGetOption.text += $"치명타 : <color=#369341>{PlayerTable.Instance.Critical} -> {PlayerTable.Instance.Critical + selectBlessing.Cri}</color>" + "\n";
+            BlessingGetOption.text += $"<size=7>{{치명타 : <color=#369341>{PlayerTable.Instance.Critical} -> {PlayerTable.Instance.Critical + selectBlessing.Cri}</color></size>" + "\n\n";
         }
         if (selectBlessing.Dod > 0)
         {
-            BlessingGetOption.text += $"회피율 : <color=#369341>{PlayerTable.Instance.Dodge} ->  {PlayerTable.Instance.Dodge + selectBlessing.Dod}</color>" + "\n";
+            BlessingGetOption.text += $"<size=7>{{회피율 : <color=#369341>{PlayerTable.Instance.Dodge} ->  {PlayerTable.Instance.Dodge + selectBlessing.Dod}</color></size>" + "\n\n";
         }
 
         
@@ -107,28 +109,34 @@ public class BlessingSelect : MonoBehaviour
 
     public void BlessingUIStatus(StatusText statusText, int PlayerStatus, int BlessingStatus)
     {        
-        if (PlayerStatus == 0)
+        if (PlayerStatus == 0) // 최초로 획득하는 경우
         {
-            BlessingGetOption.text += $"신규특성 : {statusText.StatusName} (Lv.{BlessingStatus})" + "\n";
-            BlessingGetOption.text += statusText.OptionText + "\n";
-            BlessingGetOption.text += $"Lv.{BlessingStatus} : " + statusText.LevelText[BlessingStatus - 1] + "\n";
+            BlessingGetOption.text += $"<size=7>신규특성 : {statusText.StatusName} (Lv.{BlessingStatus})</size>" + "\n\n";
+            BlessingGetOption.text += statusText.OptionText + "\n\n";            
+            NextBlessingLv.gameObject.SetActive(true);            
+            NextBlessingLv.GetComponentInChildren<TextMeshProUGUI>().text = $"Lv {PlayerStatus + BlessingStatus} : " + statusText.LevelText[PlayerStatus + BlessingStatus - 1] + "\n";
+
         }
-        else if(PlayerStatus == 5)
+        else if(PlayerStatus == 5) // 최고레벨일 경우
         {
             BlessingGetOption.text += $"{statusText.StatusName} (Lv.5)" + "\n";
             BlessingGetOption.text += "이미 최고 레벨에 달성한 특성입니다." + "\n";
         }
         else
         {
-            BlessingGetOption.text += $"{statusText.StatusName} (Lv.{PlayerStatus}) ->  (Lv.{PlayerStatus + BlessingStatus})" + "\n";
+            BlessingGetOption.text += $"<size=7>{statusText.StatusName} (Lv.{PlayerStatus}) ->  (Lv.{PlayerStatus + BlessingStatus})</size>" + "\n";
             BlessingGetOption.text += statusText.OptionText + "\n";
+            NowBlessingLv.gameObject.SetActive(true);
+            NextBlessingLv.gameObject.SetActive(true);
             if (PlayerStatus + BlessingStatus >= 5)
-            {
-                BlessingGetOption.text += $"Lv 5 : " + statusText.LevelText[4] + "\n";
+            {                
+                NowBlessingLv.GetComponentInChildren<TextMeshProUGUI>().text = $"Lv.{PlayerStatus} : " + statusText.LevelText[PlayerStatus - 1] + "\n";
+                NextBlessingLv.GetComponentInChildren<TextMeshProUGUI>().text = $"Lv 5 : " + statusText.LevelText[4] + "\n";                
             }
             else
             {
-                BlessingGetOption.text += $"Lv {PlayerStatus + BlessingStatus} : " + statusText.LevelText[PlayerStatus + BlessingStatus - 1] + "\n";
+                NowBlessingLv.GetComponentInChildren<TextMeshProUGUI>().text = $"Lv.{PlayerStatus} : " + statusText.LevelText[PlayerStatus - 1] + "\n";
+                NextBlessingLv.GetComponentInChildren<TextMeshProUGUI>().text = $"Lv {PlayerStatus + BlessingStatus} : " + statusText.LevelText[PlayerStatus + BlessingStatus - 1] + "\n";                
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(BlessingGetUI.rectTransform); // 레이아웃 강제 재정렬 시켜주는 코드, content size filter가 즉각적으로 렌더링이 안되기때문에 넣어주는 코드
