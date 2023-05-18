@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MaxHp: 100
   _Hp: 100
-  _Atk: 13
-  _NowAtk: 10
+  _Atk: 16
+  _NowAtk: 16
   _Defense: 10
   NowDefense: 0
   _Critical: 5
@@ -23,7 +23,7 @@ MonoBehaviour:
   _StunStack: 0
   _ResChance: -2
   _IronBody: 0
-  _Scare: 3
+  _Scare: 5
   _FightingSpirit: 0
   _WillPower: 0
   playerSkillList:
@@ -112,12 +112,12 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 3\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
-  playerSkillCount: 4
+  playerSkillCount: 2
   _SecondSkillAvailableCount: 8
   secondCount: 20
   ThirdSkillAvailableCount: 0
-  thirdCount: 3
-  FourthSkillAvailableCount: 9
-  fourthCount: 10
+  thirdCount: 0
+  FourthSkillAvailableCount: 0
+  fourthCount: 0
   FifthSkillAvailableCount: 0
   fifthCount: 0
