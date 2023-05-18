@@ -69,23 +69,23 @@ public class BlessingSelect : MonoBehaviour
 
         if (selectBlessing.maxHp > 0)
         {
-            BlessingGetOption.text += $"<size=7>{{최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} -> {PlayerTable.Instance.MaxHp + selectBlessing.maxHp}</color></size>" + "\n\n";
+            BlessingGetOption.text += $"<size=7>최대체력 : <color=#369341>{PlayerTable.Instance.MaxHp} -> {PlayerTable.Instance.MaxHp + selectBlessing.maxHp}</color></size>" + "\n\n";
         }        
         if (selectBlessing.Atk > 0)
         {
-            BlessingGetOption.text += $"<size=7>{{공격력 : <color=#369341>{PlayerTable.Instance.Atk} -> {PlayerTable.Instance.Atk + selectBlessing.Atk}</color></size>" + "\n\n";
+            BlessingGetOption.text += $"<size=7>공격력 : <color=#369341>{PlayerTable.Instance.Atk} -> {PlayerTable.Instance.Atk + selectBlessing.Atk}</color></size>" + "\n\n";
         }
         if (selectBlessing.Def > 0)
         {
-            BlessingGetOption.text += $"<size=7>{{방어력 : <color=#369341>{PlayerTable.Instance.Defense} -> {PlayerTable.Instance.Defense + selectBlessing.Def} </color></size>" + "\n\n";
+            BlessingGetOption.text += $"<size=7>방어력 : <color=#369341>{PlayerTable.Instance.Defense} -> {PlayerTable.Instance.Defense + selectBlessing.Def} </color></size>" + "\n\n";
         }
         if (selectBlessing.Cri > 0)
         {
-            BlessingGetOption.text += $"<size=7>{{치명타 : <color=#369341>{PlayerTable.Instance.Critical} -> {PlayerTable.Instance.Critical + selectBlessing.Cri}</color></size>" + "\n\n";
+            BlessingGetOption.text += $"<size=7>치명타 : <color=#369341>{PlayerTable.Instance.Critical} -> {PlayerTable.Instance.Critical + selectBlessing.Cri}</color></size>" + "\n\n";
         }
         if (selectBlessing.Dod > 0)
         {
-            BlessingGetOption.text += $"<size=7>{{회피율 : <color=#369341>{PlayerTable.Instance.Dodge} ->  {PlayerTable.Instance.Dodge + selectBlessing.Dod}</color></size>" + "\n\n";
+            BlessingGetOption.text += $"<size=7>회피율 : <color=#369341>{PlayerTable.Instance.Dodge} ->  {PlayerTable.Instance.Dodge + selectBlessing.Dod}</color></size>" + "\n\n";
         }
 
         
