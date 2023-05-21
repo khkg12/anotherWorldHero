@@ -226,6 +226,7 @@ public class DialogManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);        
         UiManager.Instance.FirstRandomSelectBtn.gameObject.SetActive(true);
         UiManager.Instance.SecondRandomSelectBtn.gameObject.SetActive(true);
+        UiManager.Instance.FadeImg.gameObject.SetActive(true);
         
         BtnTextSet(DataManager.Instance.RandomSceneData[rand].FirstBtn, DataManager.Instance.RandomSceneData[rand].SecondBtn, rand);
 

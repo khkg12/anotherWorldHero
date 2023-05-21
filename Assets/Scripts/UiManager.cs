@@ -51,7 +51,9 @@ public class UiManager : MonoBehaviour
 
     // 플레이어 정보창 버튼 
     public Button MainPlayerInfoBtn;
-    public Button PlayerInfoBtn;    
+    public Button PlayerInfoBtn;
+
+    public Image FadeImg;
 
 
 
