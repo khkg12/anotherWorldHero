@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using TMPro;
+using System.Threading;
+using UnityEditor.Experimental.GraphView;
 
 public class MonsterController : MonoBehaviour
 {
@@ -82,7 +84,79 @@ public class MonsterController : MonoBehaviour
             await Task.Delay(100);
             UiManager.Instance.ItemSelectUI.gameObject.SetActive(true);
         }
-    }    
+    }
+
+    public IEnumerator MonsterSingleDamaged(MonsterController nowMonster, BaseSkill Skill, string SkillType)
+    {
+        if (SkillType == "Physical")
+        {
+            BattleManager.Instance.MonsterPhysicalHitEffectList[0].gameObject.SetActive(false);
+            BattleManager.Instance.MonsterPhysicalHitEffectList[0].gameObject.SetActive(true);
+        }
+        else
+        {
+            BattleManager.Instance.MonsterMagicHitEffectList[0].gameObject.SetActive(false);
+            BattleManager.Instance.MonsterMagicHitEffectList[0].gameObject.SetActive(true);
+        }
+
+        if (BattleManager.Instance.CriAttack(PlayerTable.Instance.Critical)) // 치명타 공격이라면
+        {
+            nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
+            BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name} 스킬 적중! \n{BattleManager.Instance.PlayerCriAttackAmount} 만큼 피해를 입혔다!";
+            BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
+        }
+        else
+        {
+            nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
+            BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! \n{BattleManager.Instance.PlayerAttackAmount} 만큼 피해를 입혔다!";
+            BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
+        }
+        yield return null;
+    }
+
+    public IEnumerator MonsterMultiDamaged(MonsterController nowMonster, BaseSkill Skill, int SkillTimes, string SkillType)
+    {
+        for (int i = 0; i < SkillTimes; i++)
+        {
+            // 스킬이펙트 실행
+            if (SkillType == "Physical")
+            {
+                BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(false);
+                BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                BattleManager.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(false);
+                BattleManager.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(true);
+            }
+
+            if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
+            {
+                nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
+                BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name} 스킬 적중! \n{BattleManager.Instance.PlayerCriAttackAmount} 만큼 피해를 입혔다!";
+                BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
+            }
+            else
+            {
+                nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
+                BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! \n{BattleManager.Instance.PlayerAttackAmount} 만큼 피해를 입혔다!";
+                BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
+            }
+            BattleManager.Instance.SkillCount += 1;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    public void startMonsterSingleDamaged(BaseSkill Skill, string SkillType)
+    {
+        StartCoroutine(MonsterSingleDamaged(BattleManager.Instance.nowmonster, Skill, SkillType));
+    }
+
+    public void startMonsterMultiDamaged(BaseSkill Skill, int SkillTimes, string SkillType)
+    {
+        StartCoroutine(MonsterMultiDamaged(BattleManager.Instance.nowmonster, Skill, SkillTimes, SkillType));
+    }
+
 
     public void MonsterSet(int MonsterNum)
     {
@@ -95,8 +169,7 @@ public class MonsterController : MonoBehaviour
         nowMonsterDodge = nowMonster.MonsterDodge;
         nowMonsterCri = nowMonster.MonsterCri;
         nowMonsterStunStack = nowMonster.MonsterStunStack;
-        monsterNameText.text = nowMonster.MonsterName;
-        monsterAni.runtimeAnimatorController = nowMonster.MonsterAni;
+        monsterNameText.text = nowMonster.MonsterName;        
 
         // 몬스터 정보창 UI
         monsterInfoNameText.text = nowMonster.MonsterName;

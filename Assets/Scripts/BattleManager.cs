@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.EventSystems;
 using System.Threading.Tasks;
+using UnityEditor.Experimental.GraphView;
 
 public class BattleManager : MonoBehaviour
 {
@@ -49,6 +50,12 @@ public class BattleManager : MonoBehaviour
     public List<TextMeshProUGUI> PlayerDamageTextList; 
     public List<TextMeshProUGUI> MonsterDamageTextList;
 
+    public List<GameObject> PlayerPhysicalHitEffectList;
+    public List<GameObject> PlayerMagicHitEffectList;
+
+    public List<GameObject> MonsterPhysicalHitEffectList;
+    public List<GameObject> MonsterMagicHitEffectList;
+
     // 배틀라운드
     public int BattleRound;
 
@@ -65,7 +72,10 @@ public class BattleManager : MonoBehaviour
     public float DefenseAmount;
     public float AttackAmount;
     public float CriDefenseAmount;
-    public float CriAttackAmount;    
+    public float CriAttackAmount;
+
+    public float PlayerAttackAmount;
+    public float PlayerCriAttackAmount;
 
 
     private void Start()
@@ -117,7 +127,7 @@ public class BattleManager : MonoBehaviour
         MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
         monsterSkill = MonsterTable.Instance.monsterSkillList[0];
 
-        BattleDialogText.text += $"\n{monsterSkill.SkillText}\n무엇을 할까?";
+        BattleDialogText.text += $"{monsterSkill.SkillText}\n무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
     }
@@ -151,10 +161,11 @@ public class BattleManager : MonoBehaviour
     IEnumerator BtnClickEvent(int SkillNum) 
     {        
         playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
-        Debug.Log(playerSkill);
-        /*MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
-        monsterSkill = MonsterTable.Instance.monsterSkillList[0];*/ // 뒤로 이동
+        Debug.Log(playerSkill);        
         PlayerTable.Instance.IronBody = PlayerTable.Instance.IronBody; // 철통 스킬 매턴마다 발동        
+
+        PlayerAttackAmount = PlayerTable.Instance.NowAtk * playerSkill.SkillPercentage; // 플레이어가 몬스터에게 줄 대미지 설정
+        PlayerCriAttackAmount = PlayerTable.Instance.NowAtk * playerSkill.SkillPercentage * playerSkill.CriMultiple;
 
         yield return new WaitForEndOfFrame();
         {
@@ -276,7 +287,7 @@ public class BattleManager : MonoBehaviour
     }
     public void FloatingText(List<TextMeshProUGUI> DamageTextList, float Damage, int SkillCount)
     {
-        DamageTextList[SkillCount].text = $"-{Damage}";
+        DamageTextList[SkillCount].text = $"{Damage}";
         DamageTextList[SkillCount].gameObject.SetActive(true);
     }
     public bool CriAttack(int CriticalRate) // 크리티컬 확률

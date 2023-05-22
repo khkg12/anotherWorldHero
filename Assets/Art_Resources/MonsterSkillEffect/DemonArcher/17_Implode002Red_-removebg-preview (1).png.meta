@@ -1,0 +1,762 @@
+fileFormatVersion: 2
+guid: 204512ca233960f4c81b721be6d4fd11
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 506.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31212b36b79a24e44a920472e70e5106
+      internalID: -1181924442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 506.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f557fe9a367ed439561273c9fb320e
+      internalID: -685285455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 506.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa15016b47b27b41a17f13fba301bbf
+      internalID: -561857029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 422.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7747d5603af43454ead19bf050b98a0d
+      internalID: -1151413653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 422.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9728b0be63aeeac4aa4f9ff62cd6096a
+      internalID: 207120379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 422.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e3ab552c73bb848a47b0445520426f
+      internalID: -1676459763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 422.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be978b96fa7c04f4493ad1f15596fd3f
+      internalID: 1216003857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 422.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a076f30dde02ce45966183a1887f3a5
+      internalID: -479719398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 338.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954ddb8e1f99773408152a1d701bcd1d
+      internalID: 271398035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 338.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd9de9442d6d5449ad0819780706109
+      internalID: 1813739077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_10
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 338.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d6deea8c10bef458f1e4c07efbb8d9
+      internalID: 796842879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_11
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 338.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a56b84cac459c44ab73ef7f24a09cf
+      internalID: 1391276752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 338.5714
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d444a426b5d2af4cb7e60658cbeafec
+      internalID: 854910380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 254.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a89e3b8d26794247bfa1bfed74a1b78
+      internalID: 1785294174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_14
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 254.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad327a66f4133ef44a9828c42d263f72
+      internalID: 334672555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_15
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 254.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72971764cae51db4e850c950f638237c
+      internalID: 1941645134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_16
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 254.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c81cdd3094e7ce42ae4b40ae9aeac5e
+      internalID: 495766060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_17
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 254.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84078552cd455ab4588b46eb129b01e6
+      internalID: -508972724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfaada88411d1d4f963036cfe0d15a5
+      internalID: -619416224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_19
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 170.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8faa849af1e6f3f408ea6473b5ad00be
+      internalID: 350691524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_20
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 170.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21160ac98e928f48bd69bf037c1255f
+      internalID: -373452900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_21
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 170.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0ca4b31685c934eb0b5a032346bcfc
+      internalID: -538917000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 170.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf62d16a75eb64697809b53ea91163
+      internalID: 359679034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2836d75024ea19458683a5b72e01fce
+      internalID: 131949682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_24
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 86.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73ff064f00e48740b77dc322acdcb8e
+      internalID: -858243614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_25
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 86.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddfe9437a9bfba4bbda5d2b0311e693
+      internalID: -1977988425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_26
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 86.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb59d1625d262fa43b69bfc84a7eeab7
+      internalID: -1305385062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 17_Implode002Red_-removebg-preview (1)_27
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 86.57143
+        width: 84.4
+        height: 84.42857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278f4de0f9bab7344a8d29dd46f3babf
+      internalID: -886513643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: add7af487ad010a449c51f8d132b728c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      17_Implode002Red_-removebg-preview (1)_19: 350691524
+      17_Implode002Red_-removebg-preview (1)_26: -1305385062
+      17_Implode002Red_-removebg-preview (1)_18: -619416224
+      17_Implode002Red_-removebg-preview (1)_0: -1181924442
+      17_Implode002Red_-removebg-preview (1)_5: -1676459763
+      17_Implode002Red_-removebg-preview (1)_21: -538917000
+      17_Implode002Red_-removebg-preview (1)_10: 796842879
+      17_Implode002Red_-removebg-preview (1)_24: -858243614
+      17_Implode002Red_-removebg-preview (1)_17: -508972724
+      17_Implode002Red_-removebg-preview (1)_27: -886513643
+      17_Implode002Red_-removebg-preview (1)_1: -685285455
+      17_Implode002Red_-removebg-preview (1)_22: 359679034
+      17_Implode002Red_-removebg-preview (1)_20: -373452900
+      17_Implode002Red_-removebg-preview (1)_16: 495766060
+      17_Implode002Red_-removebg-preview (1)_23: 131949682
+      17_Implode002Red_-removebg-preview (1)_6: 1216003857
+      17_Implode002Red_-removebg-preview (1)_15: 1941645134
+      17_Implode002Red_-removebg-preview (1)_13: 1785294174
+      17_Implode002Red_-removebg-preview (1)_12: 854910380
+      17_Implode002Red_-removebg-preview (1)_11: 1391276752
+      17_Implode002Red_-removebg-preview (1)_14: 334672555
+      17_Implode002Red_-removebg-preview (1)_7: -479719398
+      17_Implode002Red_-removebg-preview (1)_8: 271398035
+      17_Implode002Red_-removebg-preview (1)_3: -1151413653
+      17_Implode002Red_-removebg-preview (1)_9: 1813739077
+      17_Implode002Red_-removebg-preview (1)_25: -1977988425
+      17_Implode002Red_-removebg-preview (1)_4: 207120379
+      17_Implode002Red_-removebg-preview (1)_2: -561857029
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
   _MaxHp: 250
-  _Hp: 51.5
+  _Hp: 71
   _Atk: 10
   _NowAtk: 10
   _Defense: 10
   NowDefense: 0
   _Critical: 23
   _Dodge: 11
-  _StunStack: -1
-  _ResChance: -5
+  _StunStack: -5
+  _ResChance: -13
   _IronBody: 2
   _Scare: 0
   _FightingSpirit: 0
@@ -116,9 +116,9 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
   playerSkillCount: 3
-  _SecondSkillAvailableCount: 0
+  _SecondSkillAvailableCount: 19
   secondCount: 20
-  ThirdSkillAvailableCount: 0
+  ThirdSkillAvailableCount: 3
   thirdCount: 3
   FourthSkillAvailableCount: 0
   fourthCount: 0

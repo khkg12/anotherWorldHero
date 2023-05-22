@@ -21,8 +21,7 @@ MonoBehaviour:
     MonsterDodge: 5
     MonsterCri: 5
     MonsterStunStack: 0
-    MonsterAni: {fileID: 9100000, guid: 50ffec0821dd474459a3831beafe028b, type: 2}
-  - MonsterSprite: {fileID: 21300000, guid: f172a5711830b144cb028d1f39f4fc0c, type: 3}
+  - MonsterSprite: {fileID: 21300000, guid: 3274590191f263943b3858369e7e6793, type: 3}
     MonsterName: "\uB9C8\uC871 \uAD81\uC218"
     MonsterHp: 80
     MonsterMaxHp: 80
@@ -30,7 +29,6 @@ MonoBehaviour:
     MonsterDodge: 7
     MonsterCri: 7
     MonsterStunStack: 0
-    MonsterAni: {fileID: 9100000, guid: 2901ff28f3783ee429cdbe25abf1c138, type: 2}
   - MonsterSprite: {fileID: 21300000, guid: 3274590191f263943b3858369e7e6793, type: 3}
     MonsterName: "\uB9C8\uC871 \uC8FC\uC220\uC0AC"
     MonsterHp: 70
@@ -39,7 +37,6 @@ MonoBehaviour:
     MonsterDodge: 10
     MonsterCri: 10
     MonsterStunStack: 0
-    MonsterAni: {fileID: 9100000, guid: 68c3490012fa5fd48835391f5908b2c2, type: 2}
   - MonsterSprite: {fileID: 0}
     MonsterName: "\uB9C8\uC871 \uAE30\uC0AC\uB2E8\uC7A5"
     MonsterHp: 120
@@ -48,7 +45,6 @@ MonoBehaviour:
     MonsterDodge: 12
     MonsterCri: 12
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: "\uB4C0\uB77C\uD55C"
     MonsterHp: 200
@@ -57,7 +53,6 @@ MonoBehaviour:
     MonsterDodge: 15
     MonsterCri: 15
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -66,7 +61,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -75,7 +69,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -84,7 +77,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -93,7 +85,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -102,7 +93,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -111,7 +101,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -120,7 +109,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -129,7 +117,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -138,7 +125,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -147,7 +133,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -156,7 +141,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -165,7 +149,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -174,7 +157,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -183,7 +165,6 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
   - MonsterSprite: {fileID: 0}
     MonsterName: 
     MonsterHp: 0
@@ -192,24 +173,17 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-    MonsterAni: {fileID: 0}
-  MonsterNum: 2
+  MonsterNum: 0
   monsterSkillList:
-  - Name: "\uC2A4\uD134\uBCFC"
-    SkillPercentage: 2
-    CriMultiple: 2
-    SkillDialog: []
-    SkillText: "\uC801\uC774 \uC54C \uC218 \uC5C6\uB294 \uC8FC\uBB38\uC744 \uC678\uC6B4\uB2E4."
-    SkillTrigger: IsStunBall
-  - Name: "\uB2E4\uD06C\uB77C\uC774\uD2B8\uB2DD"
-    SkillPercentage: 0.8
-    CriMultiple: 1.5
-    SkillDialog: []
-    SkillText: "\uBAB8\uC774 \uCC0C\uB9BF\uD558\uACE0 \uB5A8\uB824\uC628\uB2E4."
-    SkillTrigger: IsDarkLight
-  - Name: "\uC5D0\uB108\uC9C0\uBCFC\uD2B8"
-    SkillPercentage: 1.5
-    CriMultiple: 1.5
-    SkillDialog: []
-    SkillText: "\uC801\uC758 \uC190\uC5D0 \uAE30\uC6B4\uC774 \uBAA8\uC778\uB2E4."
-    SkillTrigger: IsEnergy
+  - Name: "\uB9C8\uAC80\uC2DD 1\uC2DD"
+    SkillPercentage: 1.1
+    CriMultiple: 1.6
+    SkillText: "\uC0C1\uB300\uB294 \uC790\uC138\uB97C \uAC00\uB2E4\uB4EC\uACE0 \uC788\uB2E4."
+  - Name: "\uAE09\uC18C\uCC0C\uB974\uAE30"
+    SkillPercentage: 0.7
+    CriMultiple: 1.6
+    SkillText: "\uC0C1\uB300\uB294 \uCC0C\uB974\uAE30 \uC790\uC138\uB97C \uCDE8\uD55C\uB2E4."
+  - Name: "\uBCA0\uC5B4\uB118\uAE30\uAE30"
+    SkillPercentage: 0.4
+    CriMultiple: 1.3
+    SkillText: "\uC0C1\uB300\uB294 \uAC80\uC744 \uBE44\uC2A4\uB4EC\uD788 \uB4E4\uC5C8\uB2E4."
