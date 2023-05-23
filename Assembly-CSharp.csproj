@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\BlessingTable.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\StunEffect.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\BattleDialogController.cs" />
     <Compile Include="Assets\Scripts\DontDestroyCanvas.cs" />
     <Compile Include="Assets\Scripts\Fade.cs" />
     <Compile Include="Assets\Scripts\ItemTable.cs" />
@@ -85,7 +86,6 @@
     <Compile Include="Assets\Scripts\ItemSelect.cs" />
     <Compile Include="Assets\Scripts\DialogText.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
-    <Compile Include="Assets\Scripts\BattleScripts\BattleDialogController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

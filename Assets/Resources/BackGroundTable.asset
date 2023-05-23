@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainBackGroundImageList:
   - bgName: "\uC5EC\uC2E0\uC758 \uC2E0\uC804"
-    bgSprite: {fileID: 21300000, guid: 3ffa2854add45844cb754dc6be669c67, type: 3}
+    bgSprite: {fileID: 21300000, guid: c1c81eccd4af13a46b893674d6e0033c, type: 3}
   - bgName: "\uB9C8\uC655\uC131"
     bgSprite: {fileID: 21300000, guid: 390ab2a5ea598f3438f6c03d56275793, type: 3}
   - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5"

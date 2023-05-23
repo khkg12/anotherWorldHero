@@ -2493,7 +2493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD22C\uC9C0\uC758 \uC6A9\uC0AC"
+  m_text: "\uC6A9\uC0AC \uBC15\uD76C\uC7AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd390649f31551845a9a816a2d07b2aa, type: 2}
   m_sharedMaterial: {fileID: -901066840977388970, guid: bd390649f31551845a9a816a2d07b2aa, type: 2}
@@ -9087,8 +9087,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
