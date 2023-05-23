@@ -127,7 +127,7 @@ public class BattleManager : MonoBehaviour
         MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
         monsterSkill = MonsterTable.Instance.monsterSkillList[0];
 
-        BattleDialogText.text += $"{monsterSkill.SkillText}\n무엇을 할까?";
+        BattleDialogText.text = $"{monsterSkill.SkillText}\n무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
     }
@@ -169,9 +169,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         {
-            BtnEnable(false); // 버튼 비활성화
-            BattleDialogText.text = "";
-            playerSkill.SkillDialog[0] = "";            
+            BtnEnable(false); // 버튼 비활성화                                  
         }        
                 
         yield return new WaitForSeconds(0.1f);
@@ -218,7 +216,7 @@ public class BattleManager : MonoBehaviour
     {
         if (PlayerTable.Instance.StunStack >= 1)
         {
-            BattleDialogText.text += "\n\n기절상태! 움직일 수 없다!";
+            BattleDialogText.text += "\n기절상태! 움직일 수 없다!";
             nowplayer.StunEffect.gameObject.SetActive(true);
             PlayerTable.Instance.StunStack -= 1;
             return;
@@ -263,7 +261,7 @@ public class BattleManager : MonoBehaviour
     {
         if (nowmonster.nowMonsterStunStack >= 1)
         {
-            BattleDialogText.text += "\n\n적은 기절상태로 인해 움직일 수 없다!";
+            BattleDialogText.text += "\n적은 기절상태로 인해 움직일 수 없다!";
             nowmonster.nowMonsterStunStack -= 1;
             return;
         }

@@ -60,13 +60,13 @@ public class PlayerController : MonoBehaviour
         if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
         {
             playerDamaged(BattleManager.Instance.CriAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"치명타!! {nowMonster.nowMonsterName}의 {SkillName}! \n{BattleManager.Instance.CriAttackAmount} 만큼 피해를 입었다! ({BattleManager.Instance.CriDefenseAmount})방어함\n\n";
+            BattleManager.Instance.BattleDialogText.text += $"\n치명타!! 적의 {SkillName}! {BattleManager.Instance.CriAttackAmount}피해! ({BattleManager.Instance.CriDefenseAmount}방어)";
             BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, BattleManager.Instance.CriAttackAmount, BattleManager.Instance.SkillCount);
         }
         else
         {
             playerDamaged(BattleManager.Instance.AttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"{nowMonster.nowMonsterName}의 {SkillName}! \n{BattleManager.Instance.AttackAmount} 만큼 피해를 입었다! ({BattleManager.Instance.DefenseAmount})방어함\n\n";
+            BattleManager.Instance.BattleDialogText.text += $"\n적의 {SkillName}! {BattleManager.Instance.AttackAmount}피해! ({BattleManager.Instance.DefenseAmount}방어)";
             BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, BattleManager.Instance.AttackAmount, BattleManager.Instance.SkillCount);
         }
         yield return null;  
@@ -91,13 +91,13 @@ public class PlayerController : MonoBehaviour
             if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
             {
                 playerDamaged(BattleManager.Instance.CriAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"치명타!! {nowMonster.nowMonsterName}의 {SkillName}! \n{BattleManager.Instance.CriAttackAmount} 만큼 피해를 입었다! ({BattleManager.Instance.CriDefenseAmount})방어함\n\n";
+                BattleManager.Instance.BattleDialogText.text += $"\n치명타!! 적의 {SkillName}! {BattleManager.Instance.CriAttackAmount}피해! ({BattleManager.Instance.CriDefenseAmount}방어)";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, BattleManager.Instance.CriAttackAmount, BattleManager.Instance.SkillCount);
             }
             else
             {
                 playerDamaged(BattleManager.Instance.AttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"{nowMonster.nowMonsterName}의 {SkillName}! \n{BattleManager.Instance.AttackAmount} 만큼 피해를 입었다! ({BattleManager.Instance.DefenseAmount})방어함\n\n";
+                BattleManager.Instance.BattleDialogText.text += $"\n적의 {SkillName}! {BattleManager.Instance.AttackAmount}피해! ({BattleManager.Instance.DefenseAmount}방어)";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, BattleManager.Instance.AttackAmount, BattleManager.Instance.SkillCount);
             }
             BattleManager.Instance.SkillCount += 1;
@@ -120,27 +120,6 @@ public class PlayerController : MonoBehaviour
         PlayerTable.Instance.Hp = 0.5f * PlayerTable.Instance.MaxHp;
         PlayerTable.Instance.ResChance -= 1;
     }
-
-    /*
-    public void UsePlayerSkill() // 단타스킬이 아닌 타수가 2개이상인 스킬 사용함수
-    {
-        float DamageAmount = PlayerTable.Instance.NowAtk * BattleManager.Instance.playerSkill.SkillPercentage;
-        float CriDamageAmount = DamageAmount * BattleManager.Instance.playerSkill.CriMultiple;
-        
-        if (BattleManager.Instance.CriAttack(PlayerTable.Instance.Critical)) // 치명타 공격이라면
-        {
-            BattleManager.Instance.nowmonster.MonsterDamaged(CriDamageAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n치명타!! {CriDamageAmount} 만큼 피해를 입혔다!";
-            BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, CriDamageAmount, BattleManager.Instance.SkillCount);                       
-        }
-        else
-        {
-            BattleManager.Instance.nowmonster.MonsterDamaged(DamageAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n{DamageAmount} 만큼 피해를 입혔다!";
-            BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, DamageAmount, BattleManager.Instance.SkillCount);      
-        }
-        BattleManager.Instance.SkillCount += 1;
-    } */
 }
 
 

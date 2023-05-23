@@ -40,7 +40,7 @@ public class SkillTable : ScriptableObject
     {        
         if (BattleManager.Instance.DodgeSucess(monster.nowMonsterDodge))
         {
-            BattleManager.Instance.BattleDialogText.text += $"\n\n공격이 빗나갔다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n공격이 빗나갔다!";
             monster.monsterAni.SetTrigger("IsDodge");
         }
         else
@@ -54,7 +54,7 @@ public class SkillTable : ScriptableObject
     {
         if (BattleManager.Instance.DodgeSucess(monster.nowMonsterDodge))
         {
-            BattleManager.Instance.BattleDialogText.text += $"\n\n공격이 빗나갔다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n공격이 빗나갔다!";
             monster.monsterAni.SetTrigger("IsDodge");
         }
         else
@@ -68,7 +68,7 @@ public class SkillTable : ScriptableObject
     {
         if (BattleManager.Instance.DodgeSucess(monster.nowMonsterDodge))
         {
-            BattleManager.Instance.BattleDialogText.text += $"\n\n공격이 빗나갔다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n공격이 빗나갔다!";
             monster.monsterAni.SetTrigger("IsDodge");
         }
         else
@@ -103,7 +103,7 @@ public class SkillTable : ScriptableObject
         if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
         {
             player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n\n적의 공격을 회피하였다!";            
+            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";            
         }
         else
         {
@@ -117,7 +117,7 @@ public class SkillTable : ScriptableObject
         if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
         {
             player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n\n적의 공격을 회피하였다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";
             return;
         }
         else
@@ -132,7 +132,7 @@ public class SkillTable : ScriptableObject
         if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
         {
             player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n\n적의 공격을 회피하였다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";
         }
         else
         {
@@ -305,7 +305,7 @@ public class DoubleAttack : BaseSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.PlayerMultiAttackSkill(monster, player, this, 2, "Pysical");
+        SkillTable.Instance.PlayerMultiAttackSkill(monster, player, this, 2, "Physical");
     }
 }
 

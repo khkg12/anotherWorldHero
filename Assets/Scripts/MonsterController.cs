@@ -102,13 +102,13 @@ public class MonsterController : MonoBehaviour
         if (BattleManager.Instance.CriAttack(PlayerTable.Instance.Critical)) // 치명타 공격이라면
         {
             nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name} 스킬 적중! \n{BattleManager.Instance.PlayerCriAttackAmount} 만큼 피해를 입혔다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
             BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
         }
         else
         {
             nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! \n{BattleManager.Instance.PlayerAttackAmount} 만큼 피해를 입혔다!";
+            BattleManager.Instance.BattleDialogText.text += $"\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
             BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
         }
         yield return null;
@@ -121,25 +121,25 @@ public class MonsterController : MonoBehaviour
             // 스킬이펙트 실행
             if (SkillType == "Physical")
             {
-                BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(false);
-                BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(true);
+                BattleManager.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(false);
+                BattleManager.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(true);
             }
             else
             {
-                BattleManager.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(false);
-                BattleManager.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(true);
+                BattleManager.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(false);
+                BattleManager.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(true);
             }
 
             if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
             {
                 nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name} 스킬 적중! \n{BattleManager.Instance.PlayerCriAttackAmount} 만큼 피해를 입혔다!";
+                BattleManager.Instance.BattleDialogText.text += $"\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
             }
             else
             {
                 nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! \n{BattleManager.Instance.PlayerAttackAmount} 만큼 피해를 입혔다!";
+                BattleManager.Instance.BattleDialogText.text += $"\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
             }
             BattleManager.Instance.SkillCount += 1;
@@ -178,34 +178,6 @@ public class MonsterController : MonoBehaviour
         monsterAtkText.text = $"공격력 : {nowMonster.MonsterAtk}";
         monsterCriText.text = $"치명타 : {nowMonster.MonsterCri}%";
         monsterDodText.text = $"회피율 : {nowMonster.MonsterDodge}%";
-    }
-
-    public void UseMonsterSkill() // 단타스킬이 아닌 타수가 2개이상인 스킬 사용함수
-    {
-        float DefenseAmount = PlayerTable.Instance.NowDefense - nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage <= 0 ?
-            PlayerTable.Instance.NowDefense : nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage;
-        float AttackAmount = PlayerTable.Instance.NowDefense - nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage <= 0 ?
-            nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage - PlayerTable.Instance.NowDefense : 0;
-        float CriDefenseAmount = PlayerTable.Instance.NowDefense - nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple <= 0 ?
-            PlayerTable.Instance.NowDefense : nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple;
-        float CriAttackAmount = PlayerTable.Instance.NowDefense - nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple <= 0 ?
-            nowMonsterAtk * BattleManager.Instance.monsterSkill.SkillPercentage * BattleManager.Instance.monsterSkill.CriMultiple - PlayerTable.Instance.NowDefense : 0;
-
-        
-
-        if (BattleManager.Instance.CriAttack(nowMonsterCri)) // 치명타 공격이라면
-        {
-            BattleManager.Instance.nowplayer.playerDamaged(CriAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n치명타! {CriAttackAmount} 만큼 피해를 입었다! ({CriDefenseAmount})방어함";
-            BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, CriAttackAmount, BattleManager.Instance.SkillCount);
-        }
-        else
-        {
-            BattleManager.Instance.nowplayer.playerDamaged(AttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n {AttackAmount} 만큼 피해를 입었다! ({DefenseAmount})방어함";
-            BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, AttackAmount, BattleManager.Instance.SkillCount);
-        }
-        BattleManager.Instance.SkillCount += 1;
     }
 }
  
