@@ -29,7 +29,8 @@ public class DialogManager : MonoBehaviour
     
     public bool DialogFlag = true;
     public bool ClickFlag = false;
-    public bool SkipFlag = false;    
+    public bool SkipFlag = false;
+    public bool nextDialogFlag = false;
 
     
 
@@ -137,7 +138,7 @@ public class DialogManager : MonoBehaviour
             {
                 UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
                 UiManager.Instance.DialogText.text = "";
-                DialogFlag = false;
+                DialogFlag = false;                
                 StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].Dialog, i, DialogSize));                
             }                                    
         }        
@@ -145,13 +146,14 @@ public class DialogManager : MonoBehaviour
         switch (DataManager.Instance.sceneData[NowRound].Situation)
         {
             case "Blessing": 
-                UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true);
+                UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true); // 버튼을 클릭했을 때 true값을 주고 그 값이 true라면 다음 코루틴실행하는 방식                
                 break;
             case "Dialog":
                 UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
                 break;
             case "Battle":
                 UiManager.Instance.StartBattleBtn.gameObject.SetActive(true);
+                yield return null;
                 break;
             case "Victory":
                 UiManager.Instance.RandomSelectBtn.gameObject.SetActive(true);
@@ -170,6 +172,21 @@ public class DialogManager : MonoBehaviour
                 GameManager.Instance.IsAni = true;
                 break;
         }
+        yield return new WaitUntil(() => nextDialogFlag == true);
+        DialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;        
+        for (int i = 0; i < DialogSize; i++)
+        {
+            yield return new WaitUntil(() => DialogFlag == true);
+            {
+                UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
+                UiManager.Instance.DialogText.text = "";
+                DialogFlag = false;
+                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].selectDialog, i, DialogSize));
+            }
+        }
+        yield return new WaitForSeconds(1f);
+        UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
+        nextDialogFlag = false;
     }
 
     

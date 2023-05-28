@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
             FadeObj.gameObject.SetActive(true);            
         }       
     }
-    public int _NowRound;
+    public int _NowRound;    
 
     // 플레이어 정보창
     public Image PlayerInfoUI;

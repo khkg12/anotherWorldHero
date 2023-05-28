@@ -2,8 +2,9 @@
     {
         "Round" : 0,
         "Situation":"Blessing",
+        "standingCg":"Goddess",
         "Dialog" : [
-            {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
+            {"Talker":"<color=purple>여 신", "Line":"반가워 정신이 좀 드니?"},
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
             {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
             {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
@@ -22,11 +23,16 @@
             {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"},
             {"Talker":"<color=purple>여 신", "Line":"내 축복은 한가지만 고를 수 있어. 너가 받고 싶은 능력을 골라봐."},
             {"Talker":"<color=purple>여 신", "Line":"축복을 받으면 마왕성 근처로 보내줄게. 축복말고도 공포저항, 호승심 같은 능력치를 올려뒀으니 힘내라구!"}
+        ],
+        "selectDialog" : [                                
+            {"Talker":"박희재", "Line":"오옷 엄청난 힘이!!"},
+            {"Talker":"<color=purple>여 신", "Line":"넌 이제 모든지 할 수 있을꺼야!"}            
         ]
     },
     {
         "Round" : 1,
         "Situation":"Dialog",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"박희재", "Line":"저기 보이는 성이 마왕성인가보군"},
             {"Talker":"박희재", "Line":"그나저나 공포심이 전혀들지 않는 걸보니 신기하네."},            
@@ -38,6 +44,7 @@
     {
         "Round" : 2,
         "Situation":"Battle",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"<color=red>마족전사", "Line":"크아아아아아!!! 인간 놈이 겁도 없이 마왕성에 들어왔구나!"},
             {"Talker":"박희재", "Line":"딱봐도 말단 병사처럼 생겼군. 넌 내 실전경험의 제물이 되어줘야겠다, 와라!!"},
@@ -50,6 +57,7 @@
     {
         "Round" : 3,
         "Situation":"Victory",
+        "standingCg":"Goddess",
         "Dialog" : [            
             {"Talker":"박희재", "Line":"마족전사는 나의 회심의 일격에 쓰러졌다."},            
             {"Talker":"박희재", "Line":"그나저나 이 여신이 내려진 축복, 정말 사기적인 능력이잖아?"},            
@@ -61,6 +69,7 @@
     {
         "Round" : 4,
         "Situation":"Battle",
+        "standingCg":"Goddess",
         "Dialog" : [            
             {"Talker":"...", "Line":"슈우욱! 날라오는 화살을 간신히 쳐냈다!"},
             {"Talker":"<color=red>마족궁수", "Line":"대단하군. 그 거리에서 화살을 쳐내다니."},
@@ -71,6 +80,7 @@
     {
         "Round" : 5,
         "Situation":"Victory",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"박희재", "Line":"마족궁수는 나의 회심의 일격에 쓰러졌다."},            
             {"Talker":"박희재", "Line":"확실히 위로 올라갈수록 적들이 강해지는 것 같아.."},            
@@ -80,6 +90,7 @@
     {
         "Round" : 6,
         "Situation":"Skill",
+        "standingCg":"Goddess",
         "Dialog" : [            
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
             {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
@@ -102,6 +113,7 @@
     {
         "Round" : 7,
         "Situation":"Battle",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
@@ -125,6 +137,7 @@
     {
         "Round" : 8,
         "Situation":"Victory",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
@@ -148,6 +161,7 @@
     {
         "Round" : 9,
         "Situation":"Rest",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
@@ -171,6 +185,7 @@
     {
         "Round" : 10,
         "Situation":"Battle",
+        "standingCg":"Goddess",
         "Dialog" : [
             {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
             {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},

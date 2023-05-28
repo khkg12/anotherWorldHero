@@ -175,15 +175,16 @@ MonoBehaviour:
     MonsterStunStack: 0
   MonsterNum: 1
   monsterSkillList:
-  - Name: "\uB2E4\uD06C\uB77C\uC774\uD2B8\uB2DD"
-    SkillPercentage: 0.8
+  - Name: "\uB354\uBE14 \uC0F7"
+    SkillPercentage: 0.7
     CriMultiple: 1.5
-    SkillText: "\uBAB8\uC774 \uCC0C\uB9BF\uD558\uACE0 \uB5A8\uB824\uC628\uB2E4."
-  - Name: "\uC2A4\uD134\uBCFC"
-    SkillPercentage: 2
-    CriMultiple: 2
-    SkillText: "\uC801\uC774 \uC54C \uC218 \uC5C6\uB294 \uC8FC\uBB38\uC744 \uC678\uC6B4\uB2E4."
-  - Name: "\uC5D0\uB108\uC9C0\uBCFC\uD2B8"
-    SkillPercentage: 1.5
+    SkillText: "\uC801\uC740 \uC7AC\uBE60\uB974\uAC8C \uD654\uC0B4\uC744 \uC954\uB2E4."
+  - Name: "\uB2E4\uD06C \uC560\uB85C\uC6B0"
+    SkillPercentage: 1.2
     CriMultiple: 1.5
-    SkillText: "\uC801\uC758 \uC190\uC5D0 \uAE30\uC6B4\uC774 \uBAA8\uC778\uB2E4."
+    SkillText: "\uAC15\uB825\uD55C \uAE30\uC6B4\uC774 \uC801\uC758 \uD654\uC0B4\uC5D0
+      \uC751\uC9D1\uB41C\uB2E4."
+  - Name: "\uC560\uB85C\uC6B0 \uC0F7"
+    SkillPercentage: 0.9
+    CriMultiple: 1.5
+    SkillText: "\uC801\uC740 \uD65C\uC2DC\uC704\uB97C \uB2F9\uAE34\uB2E4."

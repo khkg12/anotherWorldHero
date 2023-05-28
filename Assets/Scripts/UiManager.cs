@@ -21,6 +21,8 @@ public class UiManager : MonoBehaviour
         }
     }
     private static UiManager _Instance;
+
+    public TextMeshProUGUI RoundText;
     public TextMeshProUGUI DialogText;
     public TextMeshProUGUI talkerName;
     public GameObject CliokAlarm;
@@ -74,6 +76,7 @@ public class UiManager : MonoBehaviour
     private void Update()
     {
         HpText.text = $"{PlayerTable.Instance.Hp}/{PlayerTable.Instance.MaxHp}";
+        RoundText.text = $"{GameManager.Instance.NowRound} / 12";
     }
 }
 

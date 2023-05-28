@@ -16,7 +16,9 @@ public class SceneData
 {
     public int Round;
     public string Situation;
+    public string standingCg;
     public Dialogs[] Dialog;
+    public Dialogs[] selectDialog;
 }
 
 public class RandomSceneData

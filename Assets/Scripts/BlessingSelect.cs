@@ -46,8 +46,10 @@ public class BlessingSelect : MonoBehaviour
         ThirdBtn.onClick.AddListener(() => selectBlessingNum = 2);
 
         RerollBtn.onClick.AddListener(() => BlessingReroll());
-        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.BlessingSelectUI, selectBlessingList));
+        // ContinueBtn.onClick.AddListener(() => DialogManager.Instance.NextPage(UiManager.Instance.BlessingSelectUI, selectBlessingList));
+        ContinueBtn.onClick.AddListener(() => DialogManager.Instance.nextDialogFlag = true);        
         ContinueBtn.onClick.AddListener(() => BlessingGet(selectBlessingList[selectBlessingNum]));
+        ContinueBtn.onClick.AddListener(() => gameObject.SetActive(false));
     }
 
     public void OnEnable()
