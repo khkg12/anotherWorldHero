@@ -10,7 +10,7 @@ public class MainSceneObj : MonoBehaviour
     string MonsterTrigger;    
 
     private void Start()
-    {        
+    {                
         StartCoroutine(UpdateCoroutine());        
     }
 

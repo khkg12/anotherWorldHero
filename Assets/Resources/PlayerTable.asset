@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
-  _MaxHp: 250
-  _Hp: 14.300001
-  _Atk: 18.3
-  _NowAtk: 18.3
-  _Defense: 10
+  _MaxHp: 480
+  _Hp: 271.25
+  _Atk: 31.35
+  _NowAtk: 31.35
+  _Defense: 30
   NowDefense: 0
-  _Critical: 31
+  _Critical: 19
   _Dodge: 11
-  _StunStack: -1
-  _ResChance: -32
-  _IronBody: 2
+  _StunStack: -5
+  _ResChance: -4
+  _IronBody: 4
   _Scare: 2
   _FightingSpirit: 0
   _WillPower: 5
@@ -48,28 +48,22 @@ MonoBehaviour:
     - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
     SkillTrigger: IsDefense
     AvailableCount: 20
-  - Name: "\uBC1C\uB3C4"
-    SkillPercentage: 2
-    SkillDialog:
-    - 
-    CriMultiple: 2
-    SkillSprite: {fileID: 21300000, guid: 8cc7ca0e29ced7b4f84e8c4ef7deb28b, type: 3}
-    SkillText:
-    - "\uACF5\uACA9\uB825\uC758 200%\uB85C \uC801\uC744 \uACF5\uACA9"
-    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 200%)"
-    SkillTrigger: IsBaldo
-    AvailableCount: 3
-  - Name: "\uB354\uBE14 \uC5B4\uD0DD"
-    SkillPercentage: 0.9
-    SkillDialog:
-    - 
-    CriMultiple: 1.3
-    SkillSprite: {fileID: 21300000, guid: 53085f18b2c38eb4e8539c23811c3347, type: 3}
-    SkillText:
-    - "\uACF5\uACA9\uB825\uC758 90%\uB85C \uB450\uBC88 \uACF5\uACA9"
-    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 130%)"
-    SkillTrigger: IsDoubleAttack
-    AvailableCount: 10
+  - Name: 
+    SkillPercentage: 0
+    SkillDialog: []
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
+    SkillText: []
+    SkillTrigger: 
+    AvailableCount: 0
+  - Name: 
+    SkillPercentage: 0
+    SkillDialog: []
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
+    SkillText: []
+    SkillTrigger: 
+    AvailableCount: 0
   - Name: 
     SkillPercentage: 0
     SkillDialog: []
@@ -118,12 +112,12 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 3\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
-  playerSkillCount: 4
-  _SecondSkillAvailableCount: 13
+  playerSkillCount: 2
+  _SecondSkillAvailableCount: 20
   secondCount: 20
   ThirdSkillAvailableCount: 0
-  thirdCount: 3
-  FourthSkillAvailableCount: 21
-  fourthCount: 10
+  thirdCount: 0
+  FourthSkillAvailableCount: 0
+  fourthCount: 0
   FifthSkillAvailableCount: 0
-  fifthCount: 0
+  fifthCount: 5

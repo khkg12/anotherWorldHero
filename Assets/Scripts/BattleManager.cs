@@ -81,7 +81,7 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         BtnEnable(true); 
-        BattleRound = 1;
+        BattleRound = 1;        
         PlayerTable.Instance.NowDefense = 0; // 전투시작 시 방어도 초기화
         PlayerTable.Instance.StunStack = 0; // 전투시작 시 기절스택 초기화        
         PlayerTable.Instance.Scare = PlayerTable.Instance.Scare; // 첫 배틀씬 입장 후 시작시 공포특성 적용        

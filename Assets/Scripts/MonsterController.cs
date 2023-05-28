@@ -102,13 +102,13 @@ public class MonsterController : MonoBehaviour
         if (BattleManager.Instance.CriAttack(PlayerTable.Instance.Critical)) // 치명타 공격이라면
         {
             nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
+            BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
             BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
         }
         else
         {
             nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
-            BattleManager.Instance.BattleDialogText.text += $"\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
+            BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
             BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
         }
         yield return null;
@@ -133,13 +133,13 @@ public class MonsterController : MonoBehaviour
             if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
             {
                 nowMonster.MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
+                BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
             }
             else
             {
                 nowMonster.MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
+                BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
                 BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
             }
             BattleManager.Instance.SkillCount += 1;

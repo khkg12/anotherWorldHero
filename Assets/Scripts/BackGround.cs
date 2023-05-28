@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BackGround : MonoBehaviour
 {
-    public SpriteRenderer BackGroundSprite;    
+    public SpriteRenderer BackGroundSprite;
+    private List<BgImage> BgImageList; // 보스를 잡고 액트의 넘버가 변경될 때 act에 맞는 리스트로 변경하는 함수를 event에 등록해서 사용해볼것 
 
     private void Start()
     {

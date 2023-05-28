@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MonsterTable
   m_EditorClassIdentifier: 
   MonsterList:
-  - MonsterSprite: {fileID: 21300000, guid: 3274590191f263943b3858369e7e6793, type: 3}
+  - MonsterSprite: {fileID: 21300000, guid: 1dc122fd4cfd1e9489c76f1932b94dde, type: 3}
     MonsterName: "\uD558\uAE09 \uB9C8\uC871\uAE30\uC0AC"
     MonsterHp: 50
     MonsterMaxHp: 50
@@ -173,8 +173,12 @@ MonoBehaviour:
     MonsterDodge: 0
     MonsterCri: 0
     MonsterStunStack: 0
-  MonsterNum: 2
+  MonsterNum: 1
   monsterSkillList:
+  - Name: "\uB2E4\uD06C\uB77C\uC774\uD2B8\uB2DD"
+    SkillPercentage: 0.8
+    CriMultiple: 1.5
+    SkillText: "\uBAB8\uC774 \uCC0C\uB9BF\uD558\uACE0 \uB5A8\uB824\uC628\uB2E4."
   - Name: "\uC2A4\uD134\uBCFC"
     SkillPercentage: 2
     CriMultiple: 2
@@ -183,7 +187,3 @@ MonoBehaviour:
     SkillPercentage: 1.5
     CriMultiple: 1.5
     SkillText: "\uC801\uC758 \uC190\uC5D0 \uAE30\uC6B4\uC774 \uBAA8\uC778\uB2E4."
-  - Name: "\uB2E4\uD06C\uB77C\uC774\uD2B8\uB2DD"
-    SkillPercentage: 0.8
-    CriMultiple: 1.5
-    SkillText: "\uBAB8\uC774 \uCC0C\uB9BF\uD558\uACE0 \uB5A8\uB824\uC628\uB2E4."

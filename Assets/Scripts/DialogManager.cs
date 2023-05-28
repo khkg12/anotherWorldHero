@@ -23,15 +23,7 @@ public class DialogManager : MonoBehaviour
         }
     }
     private static DialogManager _Instance;
-    
-    // 스토리 텍스트 저장 오브젝트
-    public Dictionary<int, string[]> DialogData;
-    // 랜덤 이벤트 텍스트 저장 오브젝트
-    public Dictionary<int, string[]> RandomDialogData;
-    // 랜덤 이벤트 첫번째 버튼 결과 텍스트 저장 오브젝트
-    public Dictionary<int, string[]> FirstRandomResultDialogData;
-    // 랜덤 이벤트 두번째 버튼 결과 텍스트 저장 오브젝트
-    public Dictionary<int, string[]> SecondRandomResultDialogData;
+        
     // 랜덤 이벤트 인덱스 리스트
     public List<int> RandomEventList;
     
@@ -52,18 +44,8 @@ public class DialogManager : MonoBehaviour
         {
             Destroy(gameObject);
         }        
-
-        DialogData = new Dictionary<int, string[]>();
-        StartDialogData();
-        RandomDialogData = new Dictionary<int, string[]>();
-        StartRandomDialogData();
-        FirstRandomResultDialogData = new Dictionary<int, string[]>();
-        StartFirstRandomResultDialogData();
-        SecondRandomResultDialogData = new Dictionary<int, string[]>();
-        StartSecondRandomResultDialogData();        
-
-        RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5 };
-        
+    
+        RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5 };        
     }
 
     private void Start()
@@ -74,7 +56,7 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void StartDialogData() // 일반 대화창 저장 함수
+    /*public void StartDialogData() // 일반 대화창 저장 함수
     {
         DialogData.Add(0, new string[] { "안녕? 반가워 정신이 좀 드니? 나는 여신이야.", "\n넌 지금 교통사고로 인해 혼수상태에 빠져있지.", "\n너가 이세계의 마왕을 처리해주면 너를 건강한 몸으로 혼수상태에서 깨어나게 해줄게." });
         DialogData.Add(1, new string[] { "마왕성 입구에 도착했다!!", "\n살벌한 분위기를 풍긴다", "\n문을 열자 거대한 소리를 내며 문은 천천히 열리기 시작했다." });
@@ -116,7 +98,7 @@ public class DialogManager : MonoBehaviour
         SecondRandomResultDialogData.Add(3, new string[] { "자세히 살펴보니 소녀 행세를 하는 몬스터였다.", "\n몬스터가 기습했지만, 미리 간파한 덕에 공격을 피할 수 있었다.", "\n회피율이 3% 증가하였다!" });
         SecondRandomResultDialogData.Add(4, new string[] { "오른쪽으로 회피했더니 내가 있는 방향으로 대부분의 화살이 날아왔다!", "\n화살을 쳐냈지만 모든 화살을 막을 순 없었다.", "\n최대 체력의 30%가 감소하였다." });
         SecondRandomResultDialogData.Add(5, new string[] { "영웅이라는 단어가 적힌 책을 펼쳤다.", "\n그 순간 몸에 알 수 없는 강력한 기운이 들어왔다.", "\n방어력이 10% 증가하였다!" });        
-    }
+    }*/
 
     
     public IEnumerator getDialog(Dialogs[] Dialog, int lineIndex, int LastIndex)
@@ -198,9 +180,7 @@ public class DialogManager : MonoBehaviour
         UiImage.gameObject.SetActive(false);        
     }
     
-    public SpriteRenderer RandomBackGround;
-    
-    // 테스트용 코드
+    public SpriteRenderer RandomBackGround;        
 
     public IEnumerator nextRandomDialog()
     {        
@@ -311,7 +291,6 @@ public class DialogManager : MonoBehaviour
             if (PlayerTable.Instance.FifthSkillAvailableCount > PlayerTable.Instance.fifthCount) PlayerTable.Instance.FifthSkillAvailableCount = PlayerTable.Instance.fifthCount;
         }
     }
-
 }
 
 
