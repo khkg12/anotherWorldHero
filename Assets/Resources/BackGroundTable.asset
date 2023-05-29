@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainBackGroundImageList:
   - bgName: "\uC5EC\uC2E0\uC758 \uC2E0\uC804"
-    bgSprite: {fileID: 21300000, guid: 7b74823397602904e815ea11ac2101cc, type: 3}
+    bgSprite: {fileID: 21300000, guid: a412a0d5a0f0a844ab0e84582164515b, type: 3}
   - bgName: "\uB9C8\uC655\uC131"
-    bgSprite: {fileID: 21300000, guid: 390ab2a5ea598f3438f6c03d56275793, type: 3}
+    bgSprite: {fileID: 21300000, guid: e09fbc11c3e852b40a73573295112f69, type: 3}
   - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5"
-    bgSprite: {fileID: 21300000, guid: fa5f21e6de1662f4697671e48e5373d2, type: 3}
+    bgSprite: {fileID: 21300000, guid: dbd92665797434a4090eccaf572320a8, type: 3}
   - bgName: "\uB9C8\uC655\uC131 \uACC4\uB2E8"
     bgSprite: {fileID: 21300000, guid: 3fe6dc1feb8403f4caa066736d6ea28a, type: 3}
   - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5 2"
@@ -76,7 +76,7 @@ MonoBehaviour:
   - bgName: 
     bgSprite: {fileID: 21300000, guid: c1c81eccd4af13a46b893674d6e0033c, type: 3}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 3975ae69a09ccda42a990c018195cb81, type: 3}
+    bgSprite: {fileID: 21300000, guid: 858cae7c0f320834c8bd8183e924b69a, type: 3}
   - bgName: 
     bgSprite: {fileID: 21300000, guid: c1c81eccd4af13a46b893674d6e0033c, type: 3}
   - bgName: 

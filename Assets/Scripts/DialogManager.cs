@@ -130,6 +130,7 @@ public class DialogManager : MonoBehaviour
     {        
         RandomBackGround.gameObject.SetActive(false);
         GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠
+        GameManager.Instance.RoundChangeAction();
         DialogFlag = true;
         int DialogSize = DataManager.Instance.sceneData[NowRound].Dialog.Length;
         for (int i = 0; i < DialogSize; i++)
