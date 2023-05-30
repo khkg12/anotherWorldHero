@@ -5,6 +5,9 @@ using UnityEngine;
 public class Fade : MonoBehaviour
 {
     public float fadeTime;
+    public float fadeSpeed; 
+    private float fadetime;
+    
     public SpriteRenderer fadeSprite;
     public int R;
     public int G;
@@ -12,14 +15,14 @@ public class Fade : MonoBehaviour
     
     private void OnEnable()
     {
-        fadeTime = 1.8f;
+        fadetime = fadeTime;
     }
     void Update()
     {
-        if(fadeTime > 0f)
+        if(fadetime > 0f)
         {
-            fadeSprite.color = new Color(R, G, B, fadeTime / 3);
-            fadeTime -= Time.deltaTime;
+            fadeSprite.color = new Color(R, G, B, fadetime / fadeSpeed);
+            fadetime -= Time.deltaTime;
         }
         else
         {            

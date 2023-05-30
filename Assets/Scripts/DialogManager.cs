@@ -31,7 +31,6 @@ public class DialogManager : MonoBehaviour
     public bool ClickFlag = false;
     public bool SkipFlag = false;
     public bool nextDialogFlag = false;
-
     
 
     void Awake()
@@ -48,6 +47,12 @@ public class DialogManager : MonoBehaviour
     
         RandomEventList = new List<int> { 0, 1, 2, 3, 4, 5 };        
     }
+
+    private void OnEnable() // awake에 넣어서 널레퍼런스로 참조되던 문제를 DialogManager는 계속 유지되는 객체이므로 한번생성될 때 한번만 이함수가 실행됨, 따라서 구독상태유지
+    {
+        GameManager.Instance.AfterVictory += StartNextDialog;
+    }        
+        
 
     private void Start()
     {
@@ -151,6 +156,7 @@ public class DialogManager : MonoBehaviour
                 break;
             case "Dialog":
                 UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
+                yield return null;
                 break;
             case "Battle":
                 UiManager.Instance.StartBattleBtn.gameObject.SetActive(true);
@@ -163,18 +169,25 @@ public class DialogManager : MonoBehaviour
                 break;
             case "Skill":
                 UiManager.Instance.SkillSelectBtn.gameObject.SetActive(true);
+                yield return null;
                 break;
             case "Rest":
                 UiManager.Instance.HpBtn.gameObject.SetActive(true);
                 UiManager.Instance.SkillPtBtn.gameObject.SetActive(true);
                 UiManager.Instance.HpBtn.onClick.AddListener(() => HpBtnEvent());
-                UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());
-                MonsterTable.Instance.MonsterNum += 1; // 전투에서 승리하고 다음 라운드로 넘어간 뒤 MonsterNum을 올려줌
+                UiManager.Instance.SkillPtBtn.onClick.AddListener(() => SkillBtnEvent());                
                 GameManager.Instance.IsAni = true;
+                yield return null;
+                break;
+            case "Boss":
+                // 자비베풀기 AND 처단하기 -> 선택한 버튼에 따라서 각기 다른 대사출력시키기
+                // 몬스터 damaged함수에서 몬스터체력 0일때 보스라면 아이템UI가 아니라 다른거 띄우기
+
                 break;
         }
         yield return new WaitUntil(() => nextDialogFlag == true);
-        DialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;        
+        DialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;
+        DialogFlag = true;
         for (int i = 0; i < DialogSize; i++)
         {
             yield return new WaitUntil(() => DialogFlag == true);
@@ -196,6 +209,11 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(nextDialog(GameManager.Instance.NowRound));
         list = list.OrderBy(i => Random.value).ToList(); // start에서만 한번 랜덤화 되기 때문에 대화가종료되고 아이템 선택 시 한번 더 랜덤화 시켜 다음 등장 시 동일하지 않도록 함
         UiImage.gameObject.SetActive(false);        
+    }
+    
+    public void StartNextDialog()
+    {
+        StartCoroutine(nextDialog(GameManager.Instance.NowRound));
     }
     
     public SpriteRenderer RandomBackGround;        

@@ -21,189 +21,102 @@
             {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
             {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
             {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"},
-            {"Talker":"<color=purple>여 신", "Line":"내 축복은 한가지만 고를 수 있어. 너가 받고 싶은 능력을 골라봐."},
-            {"Talker":"<color=purple>여 신", "Line":"축복을 받으면 마왕성 근처로 보내줄게. 축복말고도 공포저항, 호승심 같은 능력치를 올려뒀으니 힘내라구!"}
+            {"Talker":"<color=purple>여 신", "Line":"내 축복은 한가지만 고를 수 있어. 너가 받고 싶은 능력을 골라봐."}            
         ],
         "selectDialog" : [                                
-            {"Talker":"박희재", "Line":"오옷 엄청난 힘이!!"},
-            {"Talker":"<color=purple>여 신", "Line":"넌 이제 모든지 할 수 있을꺼야!"}            
+            {"Talker":"박희재", "Line":"(축복을 받고 마왕성으로 텔레포트)"}            
         ]
     },
     {
         "Round" : 1,
         "Situation":"Dialog",
-        "standingCg":"Goddess",
+        "standingCg":"Player",
         "Dialog" : [
-            {"Talker":"박희재", "Line":"저기 보이는 성이 마왕성인가보군"},
-            {"Talker":"박희재", "Line":"그나저나 공포심이 전혀들지 않는 걸보니 신기하네."},            
-            {"Talker":"박희재", "Line":"그리고 무엇보다 그 누구랑 싸워도 질 것같다는 기분이 들지않아."},            
-            {"Talker":"박희재", "Line":"반드시 쓰러뜨리고 내가 사는 세계로 돌아가겠어."},            
-            {"Talker":"박희재", "Line":"그럼 들어가 볼까! 마왕성 안으로!!"}            
+            {"Talker":"박희재", "Line":"(마왕성 앞 도착한 뒤 상승한 능력언급 및 각오다짐)"}            
         ]
     },
     {
         "Round" : 2,
         "Situation":"Battle",
-        "standingCg":"Goddess",
+        "standingCg":"Monster",
         "Dialog" : [
-            {"Talker":"<color=red>마족전사", "Line":"크아아아아아!!! 인간 놈이 겁도 없이 마왕성에 들어왔구나!"},
-            {"Talker":"박희재", "Line":"딱봐도 말단 병사처럼 생겼군. 넌 내 실전경험의 제물이 되어줘야겠다, 와라!!"},
-            {"Talker":"<color=red>마족전사", "Line":"죽고 싶어 환장했구나!! 잠깐,, 이 역겨운 기운은 설마?"},
-            {"Talker":"<color=red>마족전사", "Line":"네 놈. 그 빌어먹을 여신의 축복을 받은 것이냐?"},
-            {"Talker":"박희재", "Line":"알 거 없고 죽어라!!"}
+            {"Talker":"<color=red>마족전사", "Line":"(몬스터 등장 및 전투시작 전 대사)"}            
 
         ]
     },
     {
         "Round" : 3,
         "Situation":"Victory",
-        "standingCg":"Goddess",
-        "Dialog" : [            
-            {"Talker":"박희재", "Line":"마족전사는 나의 회심의 일격에 쓰러졌다."},            
-            {"Talker":"박희재", "Line":"그나저나 이 여신이 내려진 축복, 정말 사기적인 능력이잖아?"},            
-            {"Talker":"박희재", "Line":"아무리 움직여도 전혀 지치지가 않아. 더군다나 이 말도안되는 신체능력까지!!"},            
-            {"Talker":"박희재", "Line":"좋아. 몸을 더 써보면서 실전감각과 기술을 익히면 마왕을 잡을 수 있을꺼야."},            
-            {"Talker":"박희재", "Line":"지체할 시간이 없어. 얼른 꼭대기로 올라가자."}                       
+        "standingCg":"Player",
+        "Dialog" : [                        
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사)"}                       
         ]
     },
     {
         "Round" : 4,
         "Situation":"Battle",
-        "standingCg":"Goddess",
-        "Dialog" : [            
-            {"Talker":"...", "Line":"슈우욱! 날라오는 화살을 간신히 쳐냈다!"},
-            {"Talker":"<color=red>마족궁수", "Line":"대단하군. 그 거리에서 화살을 쳐내다니."},
-            {"Talker":"박희재", "Line":"(..진짜 죽을뻔했네!!) 깜짝 놀라게 하고 있군. 기습이 통하지 않았으니 이제 죽어야겠지?"},
-            {"Talker":"<color=red>마족궁수", "Line":"크크.. 네 칼이 내게 닿는게 빠를까? 내 화살이 너를 뚫는게 빠를까?"}            
+        "standingCg":"Monster",
+        "Dialog" : [                        
+            {"Talker":"<color=red>마족궁수", "Line":"(몬스터 등장 및 전투시작 전 대사)"}                
         ]
     },     
     {
         "Round" : 5,
         "Situation":"Victory",
-        "standingCg":"Goddess",
+        "standingCg":"Player",
         "Dialog" : [
-            {"Talker":"박희재", "Line":"마족궁수는 나의 회심의 일격에 쓰러졌다."},            
-            {"Talker":"박희재", "Line":"확실히 위로 올라갈수록 적들이 강해지는 것 같아.."},            
-            {"Talker":"박희재", "Line":"성을 오르기전에 새로운 전투기술을 익혀봐야 겠어."}                  
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사, 스킬의 필요성 언급)"}                   
         ]
     },
     {
         "Round" : 6,
         "Situation":"Skill",
-        "standingCg":"Goddess",
-        "Dialog" : [            
-            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
-            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
-            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
-            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
-            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
-            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
-            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
-            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
-            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
-            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
-            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"}
+        "standingCg":"Player",
+        "Dialog" : [                        
+            {"Talker":"박희재", "Line":"(수련 후 스킬습득 대사)"}
         ]
     },
     {
         "Round" : 7,
         "Situation":"Battle",
-        "standingCg":"Goddess",
+        "standingCg":"Monster",
         "Dialog" : [
-            {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
-            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
-            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
-            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
-            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
-            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
-            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
-            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
-            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
-            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
-            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
-            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"}
+            {"Talker":"<color=red>마족 주술사", "Line":"(몬스터 등장 및 전투시작 전 대사)"}                
         ]
     },
     {
         "Round" : 8,
         "Situation":"Victory",
-        "standingCg":"Goddess",
+        "standingCg":"Player",
         "Dialog" : [
-            {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
-            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
-            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
-            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
-            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
-            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
-            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
-            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
-            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
-            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
-            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
-            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"}
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사)"}                   
         ]
     },
     {
         "Round" : 9,
         "Situation":"Rest",
-        "standingCg":"Goddess",
-        "Dialog" : [
-            {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
-            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
-            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
-            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
-            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
-            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
-            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
-            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
-            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
-            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
-            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
-            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"}
+        "standingCg":"Player",
+        "Dialog" : [            
+            {"Talker":"박희재", "Line":"(보스 전투 전 휴식 대사)"}
         ]
     },
     {
         "Round" : 10,
         "Situation":"Battle",
-        "standingCg":"Goddess",
+        "standingCg":"Monster",
         "Dialog" : [
-            {"Talker":"<color=purple>여 신", "Line":"안녕 반가워 정신이 좀 드니?"},
-            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
-            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
-            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
-            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
-            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
-            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
-            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
-            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
-            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
-            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
-            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
-            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
-            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"}
+            {"Talker":"<color=red>듀라한", "Line":"(보스 등장 및 보스전 시작 전 대사)"}                
+        ]
+    },
+    {
+        "Round" : 11,
+        "Situation":"Boss",
+        "standingCg":"Monster",
+        "Dialog" : [
+            {"Talker":"<color=red>듀라한", "Line":"(전투 후 보스와 대화, 자비베풀지 처단할지 고민하기 전 마지막 대화)"}                
+        ],
+        "selectDialog" : [                                
+            {"Talker":"박희재", "Line":"(자비를 베풀었을 경우 호감작 대사)"}            
         ]
     }
 ]

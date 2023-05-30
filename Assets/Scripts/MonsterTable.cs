@@ -35,5 +35,6 @@ public class Monster
     public int MonsterAtk;
     public int MonsterDodge;
     public int MonsterCri;
-    public int MonsterStunStack;        
+    public int MonsterStunStack;
+    public bool IsMonsterBoss;
 }

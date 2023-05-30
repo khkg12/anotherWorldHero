@@ -16,6 +16,7 @@ public class MonsterController : MonoBehaviour
     public int nowMonsterDodge;
     public int nowMonsterCri;
     public int nowMonsterStunStack;
+    public bool IsMonsterBoss;
 
     public Image nowMonsterHpBar;    
     public Animator monsterAni;
@@ -63,6 +64,11 @@ public class MonsterController : MonoBehaviour
                 monSkIllList.Add(SkillTable.Instance.demonShamanEnergyBolt);
                 monSkIllList.Add(SkillTable.Instance.demonShamanDarkLightning);
                 break;
+            case 3:
+                monSkIllList.Add(SkillTable.Instance.demonShamanStunBall);
+                monSkIllList.Add(SkillTable.Instance.demonShamanEnergyBolt);
+                monSkIllList.Add(SkillTable.Instance.demonShamanDarkLightning);
+                break;
         }
     }
 
@@ -75,14 +81,22 @@ public class MonsterController : MonoBehaviour
     {        
         nowMonsterHp -= DamageAmount;
         monsterAni.SetTrigger("IsHit");
-        if (nowMonsterHp <= 0) // 승리하였을 때 전투가 끝나므로 사실상 전투가 끝나고 실행될 코드들 집어넣음
+        if (nowMonsterHp <= 0 && IsMonsterBoss == false) // 승리하였을 때 전투가 끝나므로 사실상 전투가 끝나고 실행될 코드들 집어넣음
         {
-            await Task.Delay(200);
+            await Task.Delay(200);                
             GameManager.Instance.IsMonsterDead = true; // 몬스터의 체력이 0, 즉 죽으면 플래그 true
             GameManager.Instance.IsAni = true;
             GameManager.Instance.LoadMainScene();
             await Task.Delay(100);
             UiManager.Instance.ItemSelectUI.gameObject.SetActive(true);
+        }
+        else if(nowMonsterHp <= 0 && IsMonsterBoss == true)
+        {            
+            // 몬스터 사망 애니
+            await Task.Delay(500);
+            GameManager.Instance.LoadMainScene();
+            GameManager.Instance.AfterVictory();
+            // nextDialog를 실행시켜야함 어떻게실행시킬지?
         }
     }
 
@@ -170,7 +184,7 @@ public class MonsterController : MonoBehaviour
         nowMonsterCri = nowMonster.MonsterCri;
         nowMonsterStunStack = nowMonster.MonsterStunStack;
         monsterNameText.text = nowMonster.MonsterName;        
-
+        IsMonsterBoss = nowMonster.IsMonsterBoss;
         // 몬스터 정보창 UI
         monsterInfoNameText.text = nowMonster.MonsterName;
         MonsterImage.sprite = nowMonster.MonsterSprite;

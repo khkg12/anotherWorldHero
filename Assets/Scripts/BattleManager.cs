@@ -157,7 +157,7 @@ public class BattleManager : MonoBehaviour
     {
         StartCoroutine("BtnClickEvent", SkillNum);
     }    
-
+    
     IEnumerator BtnClickEvent(int SkillNum) 
     {        
         playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
@@ -175,6 +175,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         {
             PlayerSkillEvent(playerSkill, SkillNum);
+            if (nowmonster.nowMonsterHp <= 0) StopAllCoroutines();
             DefenseAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage <= 0 ? //160 ~ 167 몬스터 스킬 함수에서 사용할 변수값들 플레이어스킬쓴뒤 설정
             PlayerTable.Instance.NowDefense : nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage;
             AttackAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage <= 0 ?

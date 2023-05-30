@@ -6,6 +6,7 @@ public class MainSceneObj : MonoBehaviour
 {
     public SpriteRenderer GoddessSprite;
     public SpriteRenderer MonsterSprite;
+    public SpriteRenderer BossSprite;
     public Animator MonsterObjAni;
     string MonsterTrigger;    
 
@@ -14,7 +15,7 @@ public class MainSceneObj : MonoBehaviour
         StartCoroutine(UpdateCoroutine());        
     }
 
-    private IEnumerator UpdateCoroutine()
+    /*private IEnumerator UpdateCoroutine()
     {        
         while (true)
         {
@@ -45,5 +46,39 @@ public class MainSceneObj : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-    }    
+    }*/
+
+    private IEnumerator UpdateCoroutine()
+    {
+        while (true)
+        {            
+            switch (DataManager.Instance.sceneData[GameManager.Instance.NowRound - 1].standingCg)
+            {
+                case "Goddess":
+                    GoddessSprite.gameObject.SetActive(true);
+                    break;
+                case "Monster":
+                    MonsterSprite.gameObject.SetActive(true);
+                    MonsterSprite.sprite = MonsterTable.Instance.MonsterList[MonsterTable.Instance.MonsterNum].MonsterSprite;
+                    if (GameManager.Instance.IsAni == true)
+                    {
+                        MonsterTrigger = GameManager.Instance.IsMonsterDead == true ? "IsDead" : "IsAppear";
+                        MonsterObjAni.SetTrigger(MonsterTrigger);
+                        GameManager.Instance.IsMonsterDead = false;
+                        GameManager.Instance.IsAni = false;
+                    }
+                    break;
+                case "Boss":
+                    BossSprite.gameObject.SetActive(true);
+                    BossSprite.sprite = MonsterTable.Instance.MonsterList[MonsterTable.Instance.MonsterNum].MonsterSprite;
+                    break;
+                default:
+                    MonsterSprite.gameObject.SetActive(false);
+                    GoddessSprite.gameObject.SetActive(false);
+                    BossSprite.gameObject.SetActive(false);
+                    break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }  
 }

@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer IncreaseFadeObj;
     public SpriteRenderer DecreaseFadeObj;
     public Action RoundChangeAction; // Action : 매개변수가 없는 void타입의 함수만 등록가능한 delegate 명령어 
+    public Action AfterVictory;
 
+    public int NowAct;
     public int NowRound
     {
         get => _NowRound;                        
@@ -84,13 +86,16 @@ public class GameManager : MonoBehaviour
         BackGroundAnimator = GetComponentsInChildren<Animator>()[0];
 
         RoundChangeAction += Fade; // 라운드가 변할 시 사용될 함수들 중 하나인 fade등록
-        RoundChangeAction += NowRoundChangedEvent; // action에 등록
+        RoundChangeAction += NowRoundChangedEvent; // action에 등록        
+
+        AfterVictory += LoadMainScene;
 
         SkillTable.Instance.ActiveSkillList = new List<BaseSkill>() { SkillTable.Instance.doubleAttack, SkillTable.Instance.baldo, SkillTable.Instance.stunBoom }; // 스킬리스트 초기화
     }
 
     public void LoadBattleScene() // 전투시작 버튼 눌렀을 때 호출되는 함수 -> 고로 전투씬을 띄움
     {
+        // 배틀 이미지 띄우기
         SceneManager.LoadScene("BattleScene");        
     }
     public void LoadMainScene()

@@ -26,7 +26,7 @@ public class SkillTable : ScriptableObject
 
     // 스킬선택 시 랜덤으로 돌릴 스킬리스트
     public List<BaseSkill> ActiveSkillList; 
-    public List<PassiveSkill> PassiveSkillList;
+    public List<PassiveSkill> PassiveSkillList;    
         
 
     // 플레이어 스킬
@@ -81,12 +81,14 @@ public class SkillTable : ScriptableObject
     } // 몬스터 기절공격스킬 함수
 
 
+    
 
     // 몬스터 스킬    
     // 마족기사
     public DemonSlayerSlash demonSlayerSlash;
     public DemonSlayerStabbing demonSlayerStabbing;
-    public DemonSlayerSwordsmanship demonSlayerSwordsmanship;
+    public DemonSlayerSwordsmanship demonSlayerSwordsmanship;    
+
     // 마족궁수
     public DemonArcherArrowShot demonArcherArrowShot;
     public DemonArcherDoubleShot demonArcherDouble;
@@ -95,6 +97,7 @@ public class SkillTable : ScriptableObject
     public DemonShamanEnergyBolt demonShamanEnergyBolt;
     public DemonShamanDarkLightning demonShamanDarkLightning;
     public DemonShamanStunBall demonShamanStunBall;
+    
 
 
     // 몬스터 단타공격스킬 함수, monster 및 player를 battlaManager의 함수실행에 skilloption을 실행할 때 매개변수로 nowPlayer, nowMonster를 받는다
