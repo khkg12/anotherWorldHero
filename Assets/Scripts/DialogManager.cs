@@ -166,6 +166,7 @@ public class DialogManager : MonoBehaviour
                 UiManager.Instance.RandomSelectBtn.gameObject.SetActive(true);
                 MonsterTable.Instance.MonsterNum += 1; // 전투에서 승리하고 다음 라운드로 넘어간 뒤 MonsterNum을 올려줌
                 GameManager.Instance.IsAni = true;
+                yield return null;
                 break;
             case "Skill":
                 UiManager.Instance.SkillSelectBtn.gameObject.SetActive(true);
@@ -182,25 +183,35 @@ public class DialogManager : MonoBehaviour
             case "Boss":
                 // 자비베풀기 AND 처단하기 -> 선택한 버튼에 따라서 각기 다른 대사출력시키기
                 // 몬스터 damaged함수에서 몬스터체력 0일때 보스라면 아이템UI가 아니라 다른거 띄우기
-
+                UiManager.Instance.MercyBtn.gameObject.SetActive(true); // 클릭 시 nextDialogFlag = true; 따라서 아래 코루틴 실행
+                UiManager.Instance.PunishBtn.gameObject.SetActive(true);
                 break;
         }
-        yield return new WaitUntil(() => nextDialogFlag == true);
-        DialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;
-        DialogFlag = true;
-        for (int i = 0; i < DialogSize; i++)
+                
+        int SelectDialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;
+        Debug.Log(SelectDialogSize + " dsadsa");
+        if (SelectDialogSize != 0)
         {
-            yield return new WaitUntil(() => DialogFlag == true);
+            yield return new WaitUntil(() => nextDialogFlag == true);
+            DialogFlag = true;
+            for (int i = 0; i < SelectDialogSize; i++)
             {
-                UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
-                UiManager.Instance.DialogText.text = "";
-                DialogFlag = false;
-                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].selectDialog, i, DialogSize));
+                yield return new WaitUntil(() => DialogFlag == true);
+                {
+                    UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
+                    UiManager.Instance.DialogText.text = "";
+                    DialogFlag = false;
+                    StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].selectDialog, i, SelectDialogSize));
+                }
             }
+            yield return new WaitForSeconds(1f);
+            UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
+            nextDialogFlag = false;
         }
-        yield return new WaitForSeconds(1f);
-        UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
-        nextDialogFlag = false;
+        else
+        {
+            yield return null;
+        }
     }
 
     

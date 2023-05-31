@@ -65,7 +65,7 @@ public class DataManager : MonoBehaviour
 
     public TextMeshProUGUI talkerName;    
 
-    private void Awake()
+    private void OnEnable()
     {
         var thisObj = FindObjectsOfType<DataManager>();
         if(thisObj.Length == 1)

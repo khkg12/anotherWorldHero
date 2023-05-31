@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Text;
 using UnityEngine.EventSystems;
+using System;
 
 public class UiManager : MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class UiManager : MonoBehaviour
     public Button HpBtn;
     public Button SkillPtBtn;
 
+    //보스전 승리후 선택지 버튼
+    public Button MercyBtn;
+    public Button PunishBtn;
+
     // 메인씬 캐릭터 hp
     public TextMeshProUGUI HpText;
 
@@ -57,7 +62,7 @@ public class UiManager : MonoBehaviour
 
     public Image FadeImg;
 
-
+    public Action RestBtnEvent; // act추가하고 rest시 취할 action 테스트할것 onenable, destroy 적용시켜 해볼것
 
     private void Start()
     {                           
@@ -71,7 +76,9 @@ public class UiManager : MonoBehaviour
         PlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
         HpBtn.onClick.AddListener(() => StartCoroutine(DialogManager.Instance.nextDialog(GameManager.Instance.NowRound)));
         SkillPtBtn.onClick.AddListener(() => StartCoroutine(DialogManager.Instance.nextDialog(GameManager.Instance.NowRound)));
-    }
+        MercyBtn.onClick.AddListener(() => DialogManager.Instance.nextDialogFlag = true); // 보스sprite 놀라면서 수줍어 하는 애니실행시키기
+        PunishBtn.onClick.AddListener(() => ItemSelectUI.gameObject.SetActive(true)); // 보스disappear 애니 실행
+    }    
 
     private void Update()
     {

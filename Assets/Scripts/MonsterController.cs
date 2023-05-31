@@ -93,8 +93,7 @@ public class MonsterController : MonoBehaviour
         else if(nowMonsterHp <= 0 && IsMonsterBoss == true)
         {            
             // 몬스터 사망 애니
-            await Task.Delay(500);
-            GameManager.Instance.LoadMainScene();
+            await Task.Delay(500);            
             GameManager.Instance.AfterVictory();
             // nextDialog를 실행시켜야함 어떻게실행시킬지?
         }
