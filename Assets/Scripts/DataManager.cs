@@ -56,7 +56,15 @@ public class DataManager : MonoBehaviour
 
 
     [SerializeField]
-    private TextAsset DialogFile;
+    private TextAsset FirstActDialogFile;
+    [SerializeField]
+    private TextAsset SecondActDialogFile;
+    [SerializeField]
+    private TextAsset ThirdActDialogFile;
+    [SerializeField]
+    private TextAsset FourthActDialogFile;
+
+
     public SceneData[] sceneData;
 
     [SerializeField]
@@ -77,9 +85,26 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        sceneData = JsonConvert.DeserializeObject<SceneData[]>(DialogFile.text);  // 대사저장
-        RandomSceneData = JsonConvert.DeserializeObject<RandomSceneData[]>(RandomDialogFile.text); // 랜덤이벤트 대사저장        
-    }  
+        sceneData = JsonConvert.DeserializeObject<SceneData[]>(FirstActDialogFile.text);  // 대사저장
+        RandomSceneData = JsonConvert.DeserializeObject<RandomSceneData[]>(RandomDialogFile.text); // 랜덤이벤트 대사저장
+        DialogManager.Instance.ActChangeAction += NowActChangeEvent; 
+    }
+
+    private void NowActChangeEvent()
+    {
+        switch (GameManager.Instance.NowAct)
+        {
+            case 2:
+                sceneData = JsonConvert.DeserializeObject<SceneData[]>(SecondActDialogFile.text);
+                break;
+            case 3:
+                sceneData = JsonConvert.DeserializeObject<SceneData[]>(ThirdActDialogFile.text);
+                break;
+            case 4:
+                sceneData = JsonConvert.DeserializeObject<SceneData[]>(FourthActDialogFile.text);
+                break;
+        }        
+    }
 }
 
 

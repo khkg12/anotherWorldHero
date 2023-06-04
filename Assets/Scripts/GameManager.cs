@@ -83,14 +83,18 @@ public class GameManager : MonoBehaviour
         IsAni = true; // 처음엔 true여야 실행되므로 true로 초기화
 
         BackGroundSprite = GetComponentsInChildren<SpriteRenderer>()[0]; //자식오브젝트에 있으므로 가져옴
-        BackGroundAnimator = GetComponentsInChildren<Animator>()[0];
-
-        RoundChangeAction += Fade; // 라운드가 변할 시 사용될 함수들 중 하나인 fade등록
-        RoundChangeAction += NowRoundChangedEvent; // action에 등록        
+        BackGroundAnimator = GetComponentsInChildren<Animator>()[0];        
 
         AfterVictory += LoadMainScene;
 
         SkillTable.Instance.ActiveSkillList = new List<BaseSkill>() { SkillTable.Instance.doubleAttack, SkillTable.Instance.baldo, SkillTable.Instance.stunBoom }; // 스킬리스트 초기화
+    }
+
+    private void OnEnable()
+    {
+        RoundChangeAction += Fade; // 라운드가 변할 시 사용될 함수들 중 하나인 fade등록
+        RoundChangeAction += NowRoundChangedEvent; // action에 등록        
+        DialogManager.Instance.ActChangeAction += NowActChangeEvent;
     }
 
     public void LoadBattleScene() // 전투시작 버튼 눌렀을 때 호출되는 함수 -> 고로 전투씬을 띄움
@@ -124,5 +128,10 @@ public class GameManager : MonoBehaviour
         transform.position = new Vector2(0, 0);
         BackGroundAnimator.Rebind();
         BackGroundAnimator.enabled = true;
+    }
+
+    private void NowActChangeEvent()
+    {
+        BgImageList = BackGroundTable.Instance.MainBackGroundImageList; // ACT별 배경리스트 따로만들고 ACT에 따라 그 리스트를 넣어줌
     }
 }

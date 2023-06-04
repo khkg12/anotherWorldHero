@@ -170,7 +170,6 @@ public class MonsterController : MonoBehaviour
         StartCoroutine(MonsterMultiDamaged(BattleManager.Instance.nowmonster, Skill, SkillTimes, SkillType));
     }
 
-
     public void MonsterSet(int MonsterNum)
     {
         Monster nowMonster = MonsterTable.Instance.MonsterList[MonsterNum];
@@ -192,5 +191,6 @@ public class MonsterController : MonoBehaviour
         monsterCriText.text = $"치명타 : {nowMonster.MonsterCri}%";
         monsterDodText.text = $"회피율 : {nowMonster.MonsterDodge}%";
     }
+    
 }
  

@@ -8,6 +8,8 @@ using UnityEditor.TextCore.Text;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
+using System;
 
 public class DialogManager : MonoBehaviour
 {
@@ -31,7 +33,8 @@ public class DialogManager : MonoBehaviour
     public bool ClickFlag = false;
     public bool SkipFlag = false;
     public bool nextDialogFlag = false;
-    
+
+    public Action ActChangeAction;
 
     void Awake()
     {                
@@ -50,7 +53,7 @@ public class DialogManager : MonoBehaviour
 
     private void OnEnable() // awake에 넣어서 널레퍼런스로 참조되던 문제를 DialogManager는 계속 유지되는 객체이므로 한번생성될 때 한번만 이함수가 실행됨, 따라서 구독상태유지
     {
-        GameManager.Instance.AfterVictory += StartNextDialog;
+        GameManager.Instance.AfterVictory += StartNextDialog;        
     }        
         
 
@@ -132,12 +135,13 @@ public class DialogManager : MonoBehaviour
     }
 
     public IEnumerator nextDialog(int NowRound)
-    {        
+    {
+        SceneData sceneData = DataManager.Instance.sceneData[NowRound];
         RandomBackGround.gameObject.SetActive(false);
         GameManager.Instance.NowRound += 1;  // 함수 실행 후 다음에 또 실행 시 다음라운드 스트링을 출력하기 위해 미리 하나올려둠
         GameManager.Instance.RoundChangeAction();
         DialogFlag = true;
-        int DialogSize = DataManager.Instance.sceneData[NowRound].Dialog.Length;
+        int DialogSize = sceneData.Dialog.Length;
         for (int i = 0; i < DialogSize; i++)
         {            
             yield return new WaitUntil(() => DialogFlag == true);
@@ -145,11 +149,11 @@ public class DialogManager : MonoBehaviour
                 UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
                 UiManager.Instance.DialogText.text = "";
                 DialogFlag = false;                
-                StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].Dialog, i, DialogSize));                
+                StartCoroutine(getDialog(sceneData.Dialog, i, DialogSize));                
             }                                    
         }        
         yield return new WaitForSeconds(1f);        
-        switch (DataManager.Instance.sceneData[NowRound].Situation)
+        switch (sceneData.Situation)
         {
             case "Blessing": 
                 UiManager.Instance.BlessingSelectBtn.gameObject.SetActive(true); // 버튼을 클릭했을 때 true값을 주고 그 값이 true라면 다음 코루틴실행하는 방식                
@@ -184,12 +188,11 @@ public class DialogManager : MonoBehaviour
                 // 자비베풀기 AND 처단하기 -> 선택한 버튼에 따라서 각기 다른 대사출력시키기
                 // 몬스터 damaged함수에서 몬스터체력 0일때 보스라면 아이템UI가 아니라 다른거 띄우기
                 UiManager.Instance.MercyBtn.gameObject.SetActive(true); // 클릭 시 nextDialogFlag = true; 따라서 아래 코루틴 실행
-                UiManager.Instance.PunishBtn.gameObject.SetActive(true);
+                UiManager.Instance.PunishBtn.gameObject.SetActive(true); // 여기서 선택가능한 특성능력치ui는 종료되고나서 아래함수를 실행시켜야함, blessingUI와 같게 설계 이유는 208코드
                 break;
         }
                 
-        int SelectDialogSize = DataManager.Instance.sceneData[NowRound].selectDialog.Length;
-        Debug.Log(SelectDialogSize + " dsadsa");
+        int SelectDialogSize = sceneData.selectDialog.Length;        
         if (SelectDialogSize != 0)
         {
             yield return new WaitUntil(() => nextDialogFlag == true);
@@ -201,11 +204,17 @@ public class DialogManager : MonoBehaviour
                     UiManager.Instance.CliokAlarm.gameObject.SetActive(false);
                     UiManager.Instance.DialogText.text = "";
                     DialogFlag = false;
-                    StartCoroutine(getDialog(DataManager.Instance.sceneData[NowRound].selectDialog, i, SelectDialogSize));
+                    StartCoroutine(getDialog(sceneData.selectDialog, i, SelectDialogSize));
                 }
             }
             yield return new WaitForSeconds(1f);
-            UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
+            if(sceneData.Situation == "Boss") // 보스를 처리하고 다음 계속하기에서는 act가 변경되어야함
+            {
+                GameManager.Instance.NowAct += 1;
+                ActChangeAction();
+                // ACT가 변경되었을 때 실행될 함수모음 Action만들기
+            }            
+            UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);            
             nextDialogFlag = false;
         }
         else

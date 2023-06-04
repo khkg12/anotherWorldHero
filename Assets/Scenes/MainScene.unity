@@ -20176,9 +20176,11 @@ MonoBehaviour:
   selectPassiveSkillList: []
   ActiveSkillGetUI: {fileID: 254864232}
   ActiveSkillGetImage: {fileID: 44531645}
+  getActiveSkillName: {fileID: 153791252}
   ActiveSkillGetOption: {fileID: 1606338425}
   PassiveSkillGetUI: {fileID: 1540163145}
   PassiveSkillGetImage: {fileID: 1274072685}
+  getPassiveSkillName: {fileID: 1616242809}
   PassiveSkillGetOption: {fileID: 1975205193}
   ActiveSkillImage: {fileID: 2070682180}
   ActiveSkillName: {fileID: 1093874199}
@@ -26938,7 +26940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160d9faf04a13f7429b40faf2bd233f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  FirstActDialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  SecondActDialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  ThirdActDialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
+  FourthActDialogFile: {fileID: 4900000, guid: d4c8023e6ffc3c14f96370c9cd0242d6, type: 3}
   RandomDialogFile: {fileID: 4900000, guid: 3b84c367a529ca9419d62fe3962b5147, type: 3}
   talkerName: {fileID: 1438420725}
 --- !u!1 &1916996841

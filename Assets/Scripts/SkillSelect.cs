@@ -17,10 +17,12 @@ public class SkillSelect : MonoBehaviour
     public List<PassiveSkill> selectPassiveSkillList;
     public Image ActiveSkillGetUI; // 최종적으로 선택한 액티브스킬의 구체적 정보창
     public Image ActiveSkillGetImage;
+    public TextMeshProUGUI getActiveSkillName;
     public TextMeshProUGUI ActiveSkillGetOption;
 
     public Image PassiveSkillGetUI; // 최종적으로 선택한 패시브스킬의 구체적 정보창
     public Image PassiveSkillGetImage;
+    public TextMeshProUGUI getPassiveSkillName;
     public TextMeshProUGUI PassiveSkillGetOption;
 
     public Image ActiveSkillImage;
@@ -85,7 +87,7 @@ public class SkillSelect : MonoBehaviour
                 break;
         }
 
-        
+        getActiveSkillName.text = selectSkill.Name;
         ActiveSkillGetImage.sprite = selectSkill.SkillSprite;
         for (int i = 0; i < selectSkill.SkillText.Length; i++)
         {
@@ -102,8 +104,9 @@ public class SkillSelect : MonoBehaviour
         PlayerTable.Instance.Atk += selectSkill.Atk;
         PlayerTable.Instance.Defense += selectSkill.Def;
         PlayerTable.Instance.Critical += selectSkill.Cri;
-        PlayerTable.Instance.Dodge += selectSkill.Dod;        
-        
+        PlayerTable.Instance.Dodge += selectSkill.Dod;
+
+        getPassiveSkillName.text = selectSkill.Name;
         PassiveSkillGetImage.sprite = selectSkill.Skillsprite;
         for (int i = 0; i < selectSkill.SkillText.Length; i++)
         {

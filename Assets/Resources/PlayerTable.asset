@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
-  _MaxHp: 1060
-  _Hp: 598
-  _Atk: 51.8788
-  _NowAtk: 51.8788
-  _Defense: 55
-  NowDefense: 9
-  _Critical: 44
+  _MaxHp: 100
+  _Hp: 25.299995
+  _Atk: 50
+  _NowAtk: 50
+  _Defense: 10
+  NowDefense: 0
+  _Critical: 14
   _Dodge: 5
-  _StunStack: -5
-  _ResChance: 0
-  _IronBody: 5
-  _Scare: 5
+  _StunStack: 0
+  _ResChance: -1
+  _IronBody: 0
+  _Scare: 2
   _FightingSpirit: 0
-  _WillPower: 5
+  _WillPower: 0
   playerSkillList:
   - Name: "\uACF5\uACA9"
     SkillPercentage: 1
@@ -48,39 +48,37 @@ MonoBehaviour:
     - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
     SkillTrigger: IsDefense
     AvailableCount: 20
-  - Name: "\uBC1C\uB3C4"
-    SkillPercentage: 2
+  - Name: "\uC2A4\uD134\uBD90"
+    SkillPercentage: 0.8
     SkillDialog:
     - 
-    CriMultiple: 2
-    SkillSprite: {fileID: 21300000, guid: 8cc7ca0e29ced7b4f84e8c4ef7deb28b, type: 3}
+    CriMultiple: 1.4
+    SkillSprite: {fileID: 21300000, guid: df5153fca31c9bf47b2d36359b5dd373, type: 3}
     SkillText:
-    - "\uACF5\uACA9\uB825\uC758 200%\uB85C \uC801\uC744 \uACF5\uACA9"
-    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 200%)"
-    SkillTrigger: IsBaldo
-    AvailableCount: 3
-  - Name: "\uB354\uBE14 \uC5B4\uD0DD"
-    SkillPercentage: 0.9
+    - "\uACF5\uACA9\uB825\uC758 80%\uB85C \uACF5\uACA9 \uBC0F \uC801 \uAE30\uC808"
+    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 140%)"
+    SkillTrigger: IsStunBoom
+    AvailableCount: 5
+  - Name: 
+    SkillPercentage: 0
     SkillDialog:
     - 
-    CriMultiple: 1.3
-    SkillSprite: {fileID: 21300000, guid: 53085f18b2c38eb4e8539c23811c3347, type: 3}
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
     SkillText:
-    - "\uACF5\uACA9\uB825\uC758 90%\uB85C \uB450\uBC88 \uACF5\uACA9"
-    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 130%)"
-    SkillTrigger: IsDoubleAttack
-    AvailableCount: 10
-  - Name: "\uBC1C\uB3C4"
-    SkillPercentage: 2
+    - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
+    SkillTrigger: 
+    AvailableCount: 0
+  - Name: 
+    SkillPercentage: 0
     SkillDialog:
     - 
-    CriMultiple: 2
-    SkillSprite: {fileID: 21300000, guid: 8cc7ca0e29ced7b4f84e8c4ef7deb28b, type: 3}
+    CriMultiple: 0
+    SkillSprite: {fileID: 0}
     SkillText:
-    - "\uACF5\uACA9\uB825\uC758 200%\uB85C \uC801\uC744 \uACF5\uACA9"
-    - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 200%)"
-    SkillTrigger: IsBaldo
-    AvailableCount: 3
+    - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
+    SkillTrigger: 
+    AvailableCount: 0
   scareText:
     StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
@@ -121,12 +119,12 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 3\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
-  playerSkillCount: 5
-  _SecondSkillAvailableCount: 18
+  playerSkillCount: 3
+  _SecondSkillAvailableCount: 14
   secondCount: 20
-  ThirdSkillAvailableCount: 0
-  thirdCount: 3
+  ThirdSkillAvailableCount: 3
+  thirdCount: 5
   FourthSkillAvailableCount: 0
-  fourthCount: 10
+  fourthCount: 0
   FifthSkillAvailableCount: 0
-  fifthCount: 3
+  fifthCount: 0

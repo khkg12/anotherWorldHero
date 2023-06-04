@@ -36,7 +36,7 @@ public class UiManager : MonoBehaviour
     public Button ItemSelectBtn;
     public Button BlessingSelectBtn;
     public Button SkillSelectBtn;
-    public Button NextRoundBtn;
+    public Button NextRoundBtn;    
     public Button RandomSelectBtn;
 
     // 랜덤 선택지 버튼
