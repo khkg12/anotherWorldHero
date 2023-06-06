@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24531df52928aa944b0b21d373be707a, type: 3}
-  m_Name: DemonSlayerSlash
+  m_Name: DarkArrow
   m_EditorClassIdentifier: 
-  Name: "\uBCA0\uC5B4\uAC00\uB974\uAE30"
-  SkillPercentage: 1.5
+  Name: "\uB2E4\uD06C \uC560\uB85C\uC6B0"
+  SkillPercentage: 1
   CriMultiple: 1.5
-  SkillText: "\uC801\uC740 \uAC80\uC744 \uBE44\uC2A4\uB4EC\uD788 \uB4E4\uC5C8\uB2E4."
+  SkillText: "\uC801\uC758 \uD654\uC0B4\uC5D0 \uAE30\uC6B4\uC774 \uC9D1\uC911\uB41C\uB2E4."
   SkillTimes: 1
-  SkillType: Physical
+  SkillType: Magic

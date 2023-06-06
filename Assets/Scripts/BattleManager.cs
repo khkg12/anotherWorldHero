@@ -124,7 +124,6 @@ public class BattleManager : MonoBehaviour
         DiscardBtn.onClick.AddListener(() => GameManager.Instance.LoadDeadScene());
 
         // 처음 전투를 시작할 때                
-
         nowmonster.monSkIllList = nowmonster.monSkIllList.OrderBy(i => Random.value).ToList();
         monsterSkill = nowmonster.monSkIllList[0];
 

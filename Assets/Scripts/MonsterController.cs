@@ -17,6 +17,7 @@ public class MonsterController : MonoBehaviour
     public int nowMonsterCri;
     public int nowMonsterStunStack;
     public bool IsMonsterBoss;
+    public List<MonsterSkill> monSkIllList;
 
     public Image nowMonsterHpBar;    
     public Animator monsterAni;
@@ -39,38 +40,26 @@ public class MonsterController : MonoBehaviour
     }
     public float _nowMonsterAtk;
 
-    public List<MonsterSkill> monSkIllList;    
+    private List<Monster> monsterList;
 
     private void Awake()
-    {        
-        
-        MonsterSet(MonsterTable.Instance.MonsterNum); // 몬스터 스탯 설정        
-
-        /*monSkIllList = MonsterTable.Instance.monsterSkillList;
-        monSkIllList.Clear();  // 몬스터 스킬리스트 초기화
-        switch (MonsterTable.Instance.MonsterNum)
+    {
+        switch (GameManager.Instance.NowAct)
         {
-            case 0: // 마족기사일 때
-                monSkIllList.Add(SkillTable.Instance.demonSlayerSlash);
-                monSkIllList.Add(SkillTable.Instance.demonSlayerStabbing);
-                monSkIllList.Add(SkillTable.Instance.demonSlayerSwordsmanship);                
-                break;
             case 1:
-                monSkIllList.Add(SkillTable.Instance.demonArcherArrowShot);
-                monSkIllList.Add(SkillTable.Instance.demonArcherDouble);
-                monSkIllList.Add(SkillTable.Instance.demonArcherDarkArrow);
+                monsterList = MonsterTable.Instance.MonsterList;
                 break;
             case 2:
-                monSkIllList.Add(SkillTable.Instance.demonShamanStunBall);
-                monSkIllList.Add(SkillTable.Instance.demonShamanEnergyBolt);
-                monSkIllList.Add(SkillTable.Instance.demonShamanDarkLightning);
+                monsterList = MonsterTable.Instance.SecondActMonsterList;
                 break;
             case 3:
-                monSkIllList.Add(SkillTable.Instance.demonShamanStunBall);
-                monSkIllList.Add(SkillTable.Instance.demonShamanEnergyBolt);
-                monSkIllList.Add(SkillTable.Instance.demonShamanDarkLightning);
+                monsterList = MonsterTable.Instance.ThirdActMonsterList;
                 break;
-        }*/
+            case 4:
+                monsterList = MonsterTable.Instance.FourthActMonsterList;
+                break;
+        }
+        MonsterSet(MonsterTable.Instance.MonsterNum); // 몬스터 스탯 설정                
     }
 
     public void Update()
@@ -173,7 +162,7 @@ public class MonsterController : MonoBehaviour
 
     public void MonsterSet(int MonsterNum)
     {
-        Monster nowMonster = MonsterTable.Instance.MonsterList[MonsterNum];
+        Monster nowMonster = monsterList[MonsterNum];
         nowMonsterSprite.sprite = nowMonster.MonsterSprite;
         nowMonsterName = nowMonster.MonsterName;
         nowMonsterHp = nowMonster.MonsterHp;

@@ -17,12 +17,12 @@ public class MonsterTable : ScriptableObject
         }
     }
     private static MonsterTable _Instance;
-
     
-
     public List<Monster> MonsterList;
-    public int MonsterNum;
-    public List<MonsterSkill> monsterSkillList;
+    public List<Monster> SecondActMonsterList;
+    public List<Monster> ThirdActMonsterList;
+    public List<Monster> FourthActMonsterList;
+    public int MonsterNum;    
 }
 
 [System.Serializable]

@@ -81,29 +81,21 @@ public class SkillTable : ScriptableObject
         }
     } // 몬스터 기절공격스킬 함수
 
-
-
-
-    // 몬스터 스킬    
-    // 마족기사    
-    public DemonSlayerSlash demonSlayerSlash;
-    public DemonSlayerStabbing demonSlayerStabbing;
-    public DemonSlayerSwordsmanship demonSlayerSwordsmanship;           
-
-    // 마족궁수
-    public DemonArcherArrowShot demonArcherArrowShot;
-    public DemonArcherDoubleShot demonArcherDouble;
-    public DemonArcherDarkArrow demonArcherDarkArrow;
-    
-    // 마족 주술사
-    public DemonShamanEnergyBolt demonShamanEnergyBolt;
-    public DemonShamanDarkLightning demonShamanDarkLightning;
-    public DemonShamanStunBall demonShamanStunBall;
-
-    //듀라한
-    
-    
-
+    public void PlayerDotAttackSkill(MonsterController monster, PlayerController player, BaseSkill skill, string SkillType)
+    {
+        if (BattleManager.Instance.DodgeSucess(monster.nowMonsterDodge))
+        {
+            BattleManager.Instance.BattleDialogText.text += $"\n공격이 빗나갔다!";
+            monster.monsterAni.SetTrigger("IsDodge");
+        }
+        else
+        {
+            player.playerAni.SetTrigger("IsAttack");
+            monster.startMonsterSingleDamaged(skill, SkillType);
+            monster.nowMonsterStunStack += 1; // 기절 스택 추가
+            BattleManager.Instance.BattleDialogText.text += "\n적을 기절시켰다!";
+        }
+    } // 몬스터 기절공격스킬 함수
 
     // 몬스터 단타공격스킬 함수, monster 및 player를 battlaManager의 함수실행에 skilloption을 실행할 때 매개변수로 nowPlayer, nowMonster를 받는다
     public void MonsterSingleAttackSkill(MonsterController monster, PlayerController player, string Name, string SkillType) // string 배열은 참조형식이기 때문에 ref사용, 없으면 오류발생 
@@ -173,84 +165,6 @@ public class MonsterSkill : ScriptableObject
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }
 }
 
-// 마족 기사 스킬
-[System.Serializable]
-public class DemonSlayerSlash : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-[System.Serializable]
-public class DemonSlayerStabbing : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-[System.Serializable]
-public class DemonSlayerSwordsmanship : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-
-// 마족 궁수 스킬
-[System.Serializable]
-public class DemonArcherArrowShot : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-[System.Serializable]
-public class DemonArcherDoubleShot : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, SkillTimes, SkillType); // 더블 애로우 2번공격이므로 2매개변수넣어줌
-    }
-}
-[System.Serializable]
-public class DemonArcherDarkArrow : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-
-// 마족 주술사 스킬
-[System.Serializable]
-public class DemonShamanEnergyBolt : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
-    }
-}
-[System.Serializable]
-public class DemonShamanDarkLightning : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, SkillTimes, SkillType);
-    }
-}
-[System.Serializable]
-public class DemonShamanStunBall : MonsterSkill
-{
-    public override void SkillOption(MonsterController monster, PlayerController player)
-    {
-        SkillTable.Instance.MonsterStunAttackSkill(monster, player, Name, SkillType);
-    }
-}
-
 // 플레이어 패시브 스킬 클래스
 [System.Serializable]
 public class PassiveSkill
@@ -267,7 +181,7 @@ public class PassiveSkill
 
 // 플레이어 액티브 스킬 클래스
 [System.Serializable]
-public class BaseSkill
+public class BaseSkill 
 {
     public string Name;
     public float SkillPercentage;    

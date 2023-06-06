@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
             case 4:
                 BgImageList = BackGroundTable.Instance.FourthActBgList;
                 break;
-        }        
+        }
+        MonsterTable.Instance.MonsterNum = 0; // 몬스터 넘버초기화
     }
 }
