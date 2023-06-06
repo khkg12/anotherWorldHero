@@ -86,6 +86,9 @@
     <Compile Include="Assets\Scripts\ItemSelect.cs" />
     <Compile Include="Assets\Scripts\DialogText.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkill\MonsterSingleSkill.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkill\MonsterMultiSkill.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkill\MonsterStunSkill.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

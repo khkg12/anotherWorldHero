@@ -53,7 +53,8 @@ public class DialogManager : MonoBehaviour
 
     private void OnEnable() // awake에 넣어서 널레퍼런스로 참조되던 문제를 DialogManager는 계속 유지되는 객체이므로 한번생성될 때 한번만 이함수가 실행됨, 따라서 구독상태유지
     {
-        GameManager.Instance.AfterVictory += StartNextDialog;        
+        GameManager.Instance.AfterVictory += StartNextDialog;
+        ActChangeAction += NowActChangeEvent;
     }        
         
 
@@ -210,11 +211,13 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             if(sceneData.Situation == "Boss") // 보스를 처리하고 다음 계속하기에서는 act가 변경되어야함
             {
-                GameManager.Instance.NowAct += 1;
-                ActChangeAction();
-                // ACT가 변경되었을 때 실행될 함수모음 Action만들기
+                GameManager.Instance.NowAct += 1;                
+                UiManager.Instance.NextActBtn.gameObject.SetActive(true);
+            }
+            else
+            {
+                UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);
             }            
-            UiManager.Instance.NextRoundBtn.gameObject.SetActive(true);            
             nextDialogFlag = false;
         }
         else
@@ -236,6 +239,12 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(nextDialog(GameManager.Instance.NowRound));
     }
     
+    private void NowActChangeEvent()
+    {
+        GameManager.Instance.NowRound = 0;
+        StartNextDialog();
+    }
+
     public SpriteRenderer RandomBackGround;        
 
     public IEnumerator nextRandomDialog()

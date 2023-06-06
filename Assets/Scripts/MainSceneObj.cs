@@ -55,7 +55,7 @@ public class MainSceneObj : MonoBehaviour
             switch (DataManager.Instance.sceneData[GameManager.Instance.NowRound - 1].standingCg)
             {
                 case "Goddess":
-                    GoddessSprite.gameObject.SetActive(true);
+                    GoddessSprite.gameObject.SetActive(true); // 스프라이트 enum or 배열에 idle, shy, happy 등을 넣어두고 가져오기
                     break;
                 case "Monster":
                     MonsterSprite.gameObject.SetActive(true);

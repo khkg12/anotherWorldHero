@@ -39,20 +39,21 @@ public class MonsterController : MonoBehaviour
     }
     public float _nowMonsterAtk;
 
-    List<MonsterSkill> monSkIllList;    
+    public List<MonsterSkill> monSkIllList;    
 
     private void Awake()
     {        
-        monSkIllList = MonsterTable.Instance.monsterSkillList;
+        
         MonsterSet(MonsterTable.Instance.MonsterNum); // 몬스터 스탯 설정        
 
+        /*monSkIllList = MonsterTable.Instance.monsterSkillList;
         monSkIllList.Clear();  // 몬스터 스킬리스트 초기화
         switch (MonsterTable.Instance.MonsterNum)
         {
             case 0: // 마족기사일 때
                 monSkIllList.Add(SkillTable.Instance.demonSlayerSlash);
                 monSkIllList.Add(SkillTable.Instance.demonSlayerStabbing);
-                monSkIllList.Add(SkillTable.Instance.demonSlayerSwordsmanship);
+                monSkIllList.Add(SkillTable.Instance.demonSlayerSwordsmanship);                
                 break;
             case 1:
                 monSkIllList.Add(SkillTable.Instance.demonArcherArrowShot);
@@ -69,7 +70,7 @@ public class MonsterController : MonoBehaviour
                 monSkIllList.Add(SkillTable.Instance.demonShamanEnergyBolt);
                 monSkIllList.Add(SkillTable.Instance.demonShamanDarkLightning);
                 break;
-        }
+        }*/
     }
 
     public void Update()
@@ -183,6 +184,7 @@ public class MonsterController : MonoBehaviour
         nowMonsterStunStack = nowMonster.MonsterStunStack;
         monsterNameText.text = nowMonster.MonsterName;        
         IsMonsterBoss = nowMonster.IsMonsterBoss;
+        monSkIllList = nowMonster.monsterSkillList;
         // 몬스터 정보창 UI
         monsterInfoNameText.text = nowMonster.MonsterName;
         MonsterImage.sprite = nowMonster.MonsterSprite;

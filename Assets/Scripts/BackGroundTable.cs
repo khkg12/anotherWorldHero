@@ -18,7 +18,11 @@ public class BackGroundTable : ScriptableObject
     }
     private static BackGroundTable _Instance;
 
-    public List<BgImage> MainBackGroundImageList;
+    public List<BgImage> FirstActBgList;
+    public List<BgImage> SecondActBgList;
+    public List<BgImage> ThirdActBgList;
+    public List<BgImage> FourthActBgList;
+
     public List<BgImage> RandomBackGroundImageList;
     public List<BgImage> BattleBackGroundImageList;
 }

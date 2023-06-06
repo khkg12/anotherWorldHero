@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using System.Globalization;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "SkillTable", menuName = "ScriptableObjects/SkillTable", order = 3)]
 public class SkillTable : ScriptableObject
@@ -81,22 +82,26 @@ public class SkillTable : ScriptableObject
     } // 몬스터 기절공격스킬 함수
 
 
-    
+
 
     // 몬스터 스킬    
-    // 마족기사
+    // 마족기사    
     public DemonSlayerSlash demonSlayerSlash;
     public DemonSlayerStabbing demonSlayerStabbing;
-    public DemonSlayerSwordsmanship demonSlayerSwordsmanship;    
+    public DemonSlayerSwordsmanship demonSlayerSwordsmanship;           
 
     // 마족궁수
     public DemonArcherArrowShot demonArcherArrowShot;
     public DemonArcherDoubleShot demonArcherDouble;
     public DemonArcherDarkArrow demonArcherDarkArrow;
+    
     // 마족 주술사
     public DemonShamanEnergyBolt demonShamanEnergyBolt;
     public DemonShamanDarkLightning demonShamanDarkLightning;
     public DemonShamanStunBall demonShamanStunBall;
+
+    //듀라한
+    
     
 
 
@@ -157,12 +162,14 @@ public class SkillTable : ScriptableObject
 
 // 몬스터 스킬 클래스
 [System.Serializable]
-public class MonsterSkill
+public class MonsterSkill : ScriptableObject
 {
     public string Name;
     public float SkillPercentage;
     public float CriMultiple;
     public string SkillText; // 몬스터가 무슨 공격을 할지 암시하는 텍스트    
+    public int SkillTimes;
+    public string SkillType;
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }
 }
 
@@ -172,7 +179,7 @@ public class DemonSlayerSlash : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Physical");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 [System.Serializable]
@@ -180,7 +187,7 @@ public class DemonSlayerStabbing : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Physical");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 [System.Serializable]
@@ -188,7 +195,7 @@ public class DemonSlayerSwordsmanship : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Physical");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 
@@ -198,7 +205,7 @@ public class DemonArcherArrowShot : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Physical");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 [System.Serializable]
@@ -206,7 +213,7 @@ public class DemonArcherDoubleShot : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, 2, "Physical"); // 더블 애로우 2번공격이므로 2매개변수넣어줌
+        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, SkillTimes, SkillType); // 더블 애로우 2번공격이므로 2매개변수넣어줌
     }
 }
 [System.Serializable]
@@ -214,7 +221,7 @@ public class DemonArcherDarkArrow : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Physical");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 
@@ -224,7 +231,7 @@ public class DemonShamanEnergyBolt : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, "Magic");
+        SkillTable.Instance.MonsterSingleAttackSkill(monster, player, Name, SkillType);
     }
 }
 [System.Serializable]
@@ -232,7 +239,7 @@ public class DemonShamanDarkLightning : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, 3, "Magic");
+        SkillTable.Instance.MonsterMultiAttackSkill(monster, player, Name, SkillTimes, SkillType);
     }
 }
 [System.Serializable]
@@ -240,7 +247,7 @@ public class DemonShamanStunBall : MonsterSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.MonsterStunAttackSkill(monster, player, Name, "Magic");
+        SkillTable.Instance.MonsterStunAttackSkill(monster, player, Name, SkillType);
     }
 }
 
@@ -263,14 +270,14 @@ public class PassiveSkill
 public class BaseSkill
 {
     public string Name;
-    public float SkillPercentage;
-    public string[] SkillDialog;
+    public float SkillPercentage;    
     public float CriMultiple;
     public Sprite SkillSprite;
-    public string[] SkillText; // 스킬에 대한 설명
-    public string SkillTrigger;
+    public string[] SkillText; // 스킬에 대한 설명    
     public int AvailableCount;
-      
+    public string SkillType;
+    public int SkillTimes;
+    // 공격타입 : 단수공격, 멀티공격
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }    
 }
 
@@ -279,7 +286,7 @@ public class Attack : BaseSkill
 {    
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, "Physical"); // 배틀매니저에서 monster를 nowmonster로 받고 this는 자기자신, 즉 스킬
+        SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, SkillType); // 배틀매니저에서 monster를 nowmonster로 받고 this는 자기자신, 즉 스킬
     }    
 }
 
@@ -288,7 +295,7 @@ public class StunAttack : BaseSkill
 {    
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.PlayerStunAttackSkill(monster, player, this, "Magic");
+        SkillTable.Instance.PlayerStunAttackSkill(monster, player, this, SkillType);
     }
 }
 
@@ -308,7 +315,7 @@ public class DoubleAttack : BaseSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.PlayerMultiAttackSkill(monster, player, this, 2, "Physical");
+        SkillTable.Instance.PlayerMultiAttackSkill(monster, player, this, SkillTimes, SkillType);
     }
 }
 
@@ -317,7 +324,7 @@ public class Baldo : BaseSkill
 {
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
-        SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, "Physical");
+        SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, SkillType);
     }
 }
 

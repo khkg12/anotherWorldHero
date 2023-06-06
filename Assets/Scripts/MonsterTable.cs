@@ -37,4 +37,5 @@ public class Monster
     public int MonsterCri;
     public int MonsterStunStack;
     public bool IsMonsterBoss;
+    public List<MonsterSkill> monsterSkillList;
 }

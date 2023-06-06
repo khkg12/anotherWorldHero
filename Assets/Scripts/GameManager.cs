@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
         BackGroundAnimator = GetComponentsInChildren<Animator>()[0];        
 
         AfterVictory += LoadMainScene;
+        NowAct = 1;
+        BgImageList = BackGroundTable.Instance.FirstActBgList;
 
         SkillTable.Instance.ActiveSkillList = new List<BaseSkill>() { SkillTable.Instance.doubleAttack, SkillTable.Instance.baldo, SkillTable.Instance.stunBoom }; // 스킬리스트 초기화
     }
@@ -124,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     private void NowRoundChangedEvent() // NowRound가 변경되었을 때 이벤트 등록
     {
-        BackGroundSprite.sprite = BackGroundTable.Instance.MainBackGroundImageList[NowRound - 1].bgSprite;
+        BackGroundSprite.sprite = BgImageList[NowRound - 1].bgSprite;
         transform.position = new Vector2(0, 0);
         BackGroundAnimator.Rebind();
         BackGroundAnimator.enabled = true;
@@ -132,6 +134,17 @@ public class GameManager : MonoBehaviour
 
     private void NowActChangeEvent()
     {
-        BgImageList = BackGroundTable.Instance.MainBackGroundImageList; // ACT별 배경리스트 따로만들고 ACT에 따라 그 리스트를 넣어줌
+        switch (NowAct)
+        {
+            case 2:
+                BgImageList = BackGroundTable.Instance.SecondActBgList; // ACT별 배경리스트 따로만들고 ACT에 따라 그 리스트를 넣어줌
+                break;
+            case 3:
+                BgImageList = BackGroundTable.Instance.ThirdActBgList;
+                break;
+            case 4:
+                BgImageList = BackGroundTable.Instance.FourthActBgList;
+                break;
+        }        
     }
 }

@@ -123,9 +123,10 @@ public class BattleManager : MonoBehaviour
         ResBtn.onClick.AddListener(() => ResurrectionEvent());
         DiscardBtn.onClick.AddListener(() => GameManager.Instance.LoadDeadScene());
 
-        // 처음 전투를 시작할 때
-        MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤        
-        monsterSkill = MonsterTable.Instance.monsterSkillList[0];
+        // 처음 전투를 시작할 때                
+
+        nowmonster.monSkIllList = nowmonster.monSkIllList.OrderBy(i => Random.value).ToList();
+        monsterSkill = nowmonster.monSkIllList[0];
 
         BattleDialogText.text = $"{monsterSkill.SkillText}\n무엇을 할까?";
 
@@ -175,7 +176,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         {
             PlayerSkillEvent(playerSkill, SkillNum);
-            if (nowmonster.nowMonsterHp <= 0) StopAllCoroutines();
+            if (nowmonster.nowMonsterHp <= 0) StopAllCoroutines(); // 몬스터의 체력이 0이 되면 코루틴함수 종료
             DefenseAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage <= 0 ? //160 ~ 167 몬스터 스킬 함수에서 사용할 변수값들 플레이어스킬쓴뒤 설정
             PlayerTable.Instance.NowDefense : nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage;
             AttackAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage <= 0 ?
@@ -189,9 +190,9 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         {
             SkillCount = 0; // 플레이어 스킬 함수에서 skillcount(공유함)를 올리기 때문에 몬스터 스킬 함수 실행 전 초기화시킴
-            MonsterSkillEvent(monsterSkill);
-            MonsterTable.Instance.monsterSkillList = MonsterTable.Instance.monsterSkillList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤 , 몬스터가 스킬을 사용한 직후 다음에 사용할 스킬 정해둠       
-            monsterSkill = MonsterTable.Instance.monsterSkillList[0];
+            MonsterSkillEvent(monsterSkill);            
+            nowmonster.monSkIllList = nowmonster.monSkIllList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤 , 몬스터가 스킬을 사용한 직후 다음에 사용할 스킬 정해둠       
+            monsterSkill = nowmonster.monSkIllList[0];
         }                
 
         yield return new WaitForSeconds(1f);

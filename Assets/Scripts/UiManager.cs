@@ -37,7 +37,9 @@ public class UiManager : MonoBehaviour
     public Button BlessingSelectBtn;
     public Button SkillSelectBtn;
     public Button NextRoundBtn;    
+    public Button NextActBtn;
     public Button RandomSelectBtn;
+
 
     // 랜덤 선택지 버튼
     public Button FirstRandomSelectBtn;
@@ -78,6 +80,7 @@ public class UiManager : MonoBehaviour
         SkillPtBtn.onClick.AddListener(() => StartCoroutine(DialogManager.Instance.nextDialog(GameManager.Instance.NowRound)));
         MercyBtn.onClick.AddListener(() => DialogManager.Instance.nextDialogFlag = true); // 보스sprite 놀라면서 수줍어 하는 애니실행시키기
         PunishBtn.onClick.AddListener(() => ItemSelectUI.gameObject.SetActive(true)); // 보스disappear 애니 실행
+        NextActBtn.onClick.AddListener(() =>DialogManager.Instance.ActChangeAction());
     }    
 
     private void Update()

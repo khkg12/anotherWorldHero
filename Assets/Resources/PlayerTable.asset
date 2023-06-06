@@ -13,72 +13,67 @@ MonoBehaviour:
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
   _MaxHp: 100
-  _Hp: 25.299995
-  _Atk: 50
-  _NowAtk: 50
+  _Hp: 56
+  _Atk: 13
+  _NowAtk: 13
   _Defense: 10
   NowDefense: 0
-  _Critical: 14
+  _Critical: 5
   _Dodge: 5
-  _StunStack: 0
-  _ResChance: -1
+  _StunStack: -3
+  _ResChance: 0
   _IronBody: 0
   _Scare: 2
   _FightingSpirit: 0
-  _WillPower: 0
+  _WillPower: 3
   playerSkillList:
   - Name: "\uACF5\uACA9"
     SkillPercentage: 1
-    SkillDialog:
-    - 
     CriMultiple: 1.4
     SkillSprite: {fileID: 21300000, guid: 3925691c2a021aa429c1dc89712a1253, type: 3}
     SkillText:
     - "\uACF5\uACA9\uB825 100%\uC758 \uD53C\uD574\uB97C   \uC90D\uB2C8\uB2E4."
     - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 140%)"
-    SkillTrigger: IsAttack
     AvailableCount: 0
+    SkillType: 
+    SkillTimes: 0
   - Name: "\uBC29\uC5B4"
     SkillPercentage: 1
-    SkillDialog:
-    - 
     CriMultiple: 0
     SkillSprite: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}
     SkillText:
     - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
-    SkillTrigger: IsDefense
     AvailableCount: 20
+    SkillType: 
+    SkillTimes: 0
   - Name: "\uC2A4\uD134\uBD90"
     SkillPercentage: 0.8
-    SkillDialog:
-    - 
     CriMultiple: 1.4
     SkillSprite: {fileID: 21300000, guid: df5153fca31c9bf47b2d36359b5dd373, type: 3}
     SkillText:
     - "\uACF5\uACA9\uB825\uC758 80%\uB85C \uACF5\uACA9 \uBC0F \uC801 \uAE30\uC808"
     - "(\uD06C\uB9AC\uD2F0\uCEEC \uB300\uBBF8\uC9C0 140%)"
-    SkillTrigger: IsStunBoom
     AvailableCount: 5
+    SkillType: 
+    SkillTimes: 0
   - Name: 
     SkillPercentage: 0
-    SkillDialog:
-    - 
     CriMultiple: 0
     SkillSprite: {fileID: 0}
     SkillText:
     - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
-    SkillTrigger: 
     AvailableCount: 0
+    SkillType: 
+    SkillTimes: 0
   - Name: 
     SkillPercentage: 0
-    SkillDialog:
-    - 
     CriMultiple: 0
     SkillSprite: {fileID: 0}
     SkillText:
     - "\uBC29\uC5B4\uB825\uC758 100%\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD"
-    SkillTrigger: 
     AvailableCount: 0
+    SkillType: 
+    SkillTimes: 0
   scareText:
     StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
@@ -120,9 +115,9 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
   playerSkillCount: 3
-  _SecondSkillAvailableCount: 14
+  _SecondSkillAvailableCount: 13
   secondCount: 20
-  ThirdSkillAvailableCount: 3
+  ThirdSkillAvailableCount: 2
   thirdCount: 5
   FourthSkillAvailableCount: 0
   fourthCount: 0

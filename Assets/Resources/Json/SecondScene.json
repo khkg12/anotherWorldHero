@@ -1,0 +1,146 @@
+[
+    {
+        "Round" : 0,
+        "Situation":"Blessing",
+        "standingCg":"Goddess",
+        "Dialog" : [
+            {"Talker":"<color=purple>여 신", "Line":"반가워 정신이 좀 드니?"},
+            {"Talker":"박희재", "Line":"으윽.. 도대체 여긴 어디죠?"},
+            {"Talker":"<color=purple>여 신", "Line":"갑작스럽겠지만 넌 교통사고를 당하고 영혼만 이쪽으로 건너온거야."},
+            {"Talker":"박희재", "Line":"교,, 교통사고요?!?! 그럼 전 죽은건가요?"},
+            {"Talker":"<color=purple>여 신", "Line":"아니 아직 죽지는 않았어. 다만 혼수상태에 빠져있지."},
+            {"Talker":"박희재", "Line":"앗 그건 다행이군요. 그럼 전 이제 다시 돌아갈 수 있는거죠?"},
+            {"Talker":"<color=purple>여 신", "Line":"아니.. 미안하지만 그건 불가능해. 너의 영혼의 힘은 지금 매우 약해진 상태거든."},
+            {"Talker":"박희재", "Line":"이럴수가.. 그러면 제가 어떻게하면 원래 세계로 돌아갈 수 있는거죠!!"},
+            {"Talker":"<color=purple>여 신", "Line":"너가 이세계의 마왕을 쓰러뜨리면 돼."},
+            {"Talker":"박희재", "Line":"네?? 마..왕?이라고 하신건가요?"},
+            {"Talker":"<color=purple>여 신", "Line":"그래 마왕. 이세계에 존재하는 가장 강력한 영혼의 힘을 가진, 이세계의 멸망을 도모하는 존재."},
+            {"Talker":"박희재", "Line":"아니 그런 존재를 평범한 학생인 제가 어떻게 쓰러뜨립니까!!"},
+            {"Talker":"<color=purple>여 신", "Line":"가능해. 너가 나의 축복을 받고 싸울의지만 있다면."},
+            {"Talker":"박희재", "Line":"엥? 여신님의 축복이요? 그렇다면 여신님이 직접 마왕을 쓰러뜨리면 되는 거 아닌가요?"},
+            {"Talker":"<color=purple>여 신", "Line":"멍청아! 그게 불가능하니까 그러지! 당연히 여신인 내가 직접적으로 세계에 관여할 순 없어."},
+            {"Talker":"<color=purple>여 신", "Line":"(이런 애가 마왕을 쓰러뜨릴 수나 있으려나..)"},
+            {"Talker":"박희재", "Line":"(멍청이..?) 그걸 제가 어떻게 압니까? 흠.. 그렇다면 여신님의 축복은 어떠한 것들이 있습니까?"},
+            {"Talker":"<color=purple>여 신", "Line":"내 축복은 한가지만 고를 수 있어. 너가 받고 싶은 능력을 골라봐."}            
+        ],
+        "selectDialog" : [                                
+            {"Talker":"박희재", "Line":"(축복을 받고 마왕성으로 텔레포트)"}                     
+        ]
+    },
+    {
+        "Round" : 1,
+        "Situation":"Dialog",
+        "standingCg":"Player",
+        "Dialog" : [
+            {"Talker":"박희재", "Line":"(마왕성 앞 도착한 뒤 상승한 능력언급 및 각오다짐)"}            
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 2,
+        "Situation":"Battle",
+        "standingCg":"Monster",
+        "Dialog" : [
+            {"Talker":"<color=red>마족전사", "Line":"(몬스터 등장 및 전투시작 전 대사)"}            
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 3,
+        "Situation":"Victory",
+        "standingCg":"Player",
+        "Dialog" : [                        
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사)"}                       
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 4,
+        "Situation":"Battle",
+        "standingCg":"Monster",
+        "Dialog" : [                        
+            {"Talker":"<color=red>마족궁수", "Line":"(몬스터 등장 및 전투시작 전 대사)"}                
+        ],
+        "selectDialog" : [                                            
+        ]
+    },     
+    {
+        "Round" : 5,
+        "Situation":"Victory",
+        "standingCg":"Player",
+        "Dialog" : [
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사, 스킬의 필요성 언급)"}                   
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 6,
+        "Situation":"Skill",
+        "standingCg":"Player",
+        "Dialog" : [                        
+            {"Talker":"박희재", "Line":"(수련 후 스킬습득 대사)"}
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 7,
+        "Situation":"Battle",
+        "standingCg":"Monster",
+        "Dialog" : [
+            {"Talker":"<color=red>마족 주술사", "Line":"(몬스터 등장 및 전투시작 전 대사)"}                
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 8,
+        "Situation":"Victory",
+        "standingCg":"Player",
+        "Dialog" : [
+            {"Talker":"박희재", "Line":"(전투 승리 후 대사)"}                   
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 9,
+        "Situation":"Rest",
+        "standingCg":"Player",
+        "Dialog" : [            
+            {"Talker":"박희재", "Line":"(보스 전투 전 휴식 대사)"}
+        ],
+        "selectDialog" : [                                            
+        ]
+    },
+    {
+        "Round" : 10,
+        "Situation":"Battle",
+        "standingCg":"Monster",
+        "Dialog" : [
+            {"Talker":"<color=red>듀라한", "Line":"(보스 등장 및 보스전 시작 전 대사)"}                
+        ],
+        "selectDialog" : [                                        
+        ]
+    },
+    {
+        "Round" : 11,
+        "Situation":"Boss",
+        "standingCg":"Monster",
+        "Dialog" : [
+            {"Talker":"<color=red>듀라한", "Line":"(전투 후 보스와 대화, 자비베풀지 처단할지 고민하기 전 마지막 대화)"}                
+        ],
+        "selectDialog" : [                                
+            {"Talker":"박희재", "Line":"(자비를 베풀었을 경우 호감작 대사)"},
+            {"Talker":"<color=red>듀라한", "Line":"(자비를 베풀었을 경우 호감작 대사)"},
+            {"Talker":"박희재", "Line":"(자비를 베풀었을 경우 호감작 대사)"},
+            {"Talker":"<color=red>듀라한", "Line":"(자비를 베풀었을 경우 호감작 대사)"},
+            {"Talker":"박희재", "Line":"(자비를 베풀었을 경우 호감작 대사)"},
+            {"Talker":"<color=red>듀라한", "Line":"(자비를 베풀었을 경우 호감작 대사)"}          
+        ]
+    }    
+]

@@ -12,51 +12,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64293f58123bfce4fb582319f55373d6, type: 3}
   m_Name: BackGroundTable
   m_EditorClassIdentifier: 
-  MainBackGroundImageList:
-  - bgName: "\uC5EC\uC2E0\uC758 \uC2E0\uC804"
+  FirstActBgList:
+  - bgName: "\uC5EC\uC2E0\uC758 \uBC29"
     bgSprite: {fileID: 21300000, guid: a412a0d5a0f0a844ab0e84582164515b, type: 3}
-  - bgName: "\uB9C8\uC655\uC131"
-    bgSprite: {fileID: 21300000, guid: e09fbc11c3e852b40a73573295112f69, type: 3}
-  - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5"
+  - bgName: "\uB9C8\uC655\uC131\uC785\uAD6C"
     bgSprite: {fileID: 21300000, guid: dbd92665797434a4090eccaf572320a8, type: 3}
-  - bgName: "\uB9C8\uC655\uC131 \uACC4\uB2E8"
-    bgSprite: {fileID: 21300000, guid: 3fe6dc1feb8403f4caa066736d6ea28a, type: 3}
-  - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5 2"
-    bgSprite: {fileID: 21300000, guid: 3975ae69a09ccda42a990c018195cb81, type: 3}
-  - bgName: "\uB9C8\uC655\uC131 \uACC4\uB2E8"
-    bgSprite: {fileID: 21300000, guid: dc8cfab51d369b045a3aae6d5fafe1b2, type: 3}
-  - bgName: "\uC2A4\uD0AC\uBD81 \uC11C\uACE0"
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
-  - bgName: "\uBAAC\uC2A4\uD130\uB4F1\uC7A5 3"
-    bgSprite: {fileID: 21300000, guid: ca1a8bf71aa63f24bbc93bfb2e4e9119, type: 3}
-  - bgName: "\uB9C8\uC655\uC131 \uACC4\uB2E8"
-    bgSprite: {fileID: 21300000, guid: dc8cfab51d369b045a3aae6d5fafe1b2, type: 3}
-  - bgName: "\uD734\uC2DD\uC758 \uC2DC\uAC04"
-    bgSprite: {fileID: 21300000, guid: 190b7a766bd72914091d21b75c7d656e, type: 3}
+  - bgName: "\uB9C8\uC871\uC804\uC0AC \uB300\uCE58\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uB9C8\uC871\uC804\uC0AC \uC2B9\uB9AC\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uB9C8\uC871\uAD81\uC218 \uB300\uCE58\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uB9C8\uC871\uAD81\uC218 \uC2B9\uB9AC\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uC2A4\uD0AC\uC120\uD0DD \uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uB9C8\uC871 \uC8FC\uC220\uC0AC \uB300\uCE58\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uB9C8\uC871 \uC8FC\uC220\uC0AC \uC2B9\uB9AC\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uBCF4\uC2A4\uC804\uD22C \uC804 \uD734\uC2DD\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uBCF4\uC2A4 \uB300\uCE58\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  - bgName: "\uBCF4\uC2A4 \uC2B9\uB9AC\uBC30\uACBD"
+    bgSprite: {fileID: 0}
+  SecondActBgList:
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
   - bgName: 
-    bgSprite: {fileID: 21300000, guid: 0e65d0d4589003046bb2f941cea1564a, type: 3}
+    bgSprite: {fileID: 0}
+  ThirdActBgList:
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  FourthActBgList:
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
+  - bgName: 
+    bgSprite: {fileID: 0}
   RandomBackGroundImageList:
   - bgName: "\uC5F4\uB9E4"
     bgSprite: {fileID: 21300000, guid: dbad884662635c84386c0fb686cb53ed, type: 3}
