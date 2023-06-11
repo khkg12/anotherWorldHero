@@ -57,12 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerTable.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\MonsterClass.cs" />
     <Compile Include="Assets\Scripts\BackGroundTable.cs" />
     <Compile Include="Assets\Scripts\EffectScripts\ClickAlarmEffect.cs" />
     <Compile Include="Assets\Scripts\BlessingTable.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\StunEffect.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkill\MonsterStunSkill.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\Character.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterStunSkill.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\BattleDialogController.cs" />
     <Compile Include="Assets\Scripts\DontDestroyCanvas.cs" />
     <Compile Include="Assets\Scripts\Fade.cs" />
@@ -71,19 +73,23 @@
     <Compile Include="Assets\Scripts\EffectScripts\CircleEffect.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkill\MonsterSingleSkill.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\bm.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterSingleSkill.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerAttackSkill.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\pc.cs" />
     <Compile Include="Assets\Scripts\SkillSelect.cs" />
     <Compile Include="Assets\Scripts\CharacteristicInfo.cs" />
     <Compile Include="Assets\Scripts\Dead.cs" />
     <Compile Include="Assets\Scripts\BattleBackGround.cs" />
     <Compile Include="Assets\Scripts\DialogManager.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkill\MonsterMultiSkill.cs" />
+    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterMultiSkill.cs" />
     <Compile Include="Assets\Scripts\BlessingSelect.cs" />
     <Compile Include="Assets\Scripts\MainSceneObj.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\TouchPanel.cs" />
     <Compile Include="Assets\Scripts\MonsterTable.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
+    <Compile Include="Assets\Scripts\BattleScripts\mc.cs" />
     <Compile Include="Assets\Scripts\SkillTable.cs" />
     <Compile Include="Assets\Scripts\MonsterController.cs" />
     <Compile Include="Assets\Scripts\ItemSelect.cs" />

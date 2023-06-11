@@ -1,40 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Linq;
-using UnityEngine.EventSystems;
-using System.Threading.Tasks;
-using UnityEditor.Experimental.GraphView;
 
-public class BattleManager : MonoBehaviour
-{
-    public PlayerController nowplayer;        
-    public MonsterController nowmonster;    
+public class bm : MonoBehaviour
+{    
     //playerco monsterco이 서로 연관되게끔 계층구조를 관리하면 될듯ㅇ
 
-    public static BattleManager Instance
+    public static bm Instance
     {
         get
         {
             if (_Instance == null)
             {
-                _Instance = FindObjectOfType<BattleManager>();
+                _Instance = FindObjectOfType<bm>();
             }
             return _Instance;
         }
     }
-    private static BattleManager _Instance;
+    private static bm _Instance;
 
     //부활 및 포기 버튼 텍스트
     public Image ResurrectionUI;
     public Image ResurrectionConfirmUI;
-    public Button ResBtn;    
+    public Button ResBtn;
     public Button DiscardBtn;
     public TextMeshProUGUI ResConfirmText;
 
     //스킬버튼
+    /*
     public Button FirstSkillBtn;
     public Image FirstSkillImage;
     public Button SecondSkillBtn;
@@ -45,10 +41,10 @@ public class BattleManager : MonoBehaviour
     public Image FourthSkillImage;
     public Button FifthSkillBtn;
     public Image FifthSkillImage;
-
-    public TextMeshProUGUI BattleDialogText;
+    */
+    [SerializeField] private BattleDialogController battleDialogController;    
     // 대미지 텍스트    
-    public List<TextMeshProUGUI> PlayerDamageTextList; 
+    public List<TextMeshProUGUI> PlayerDamageTextList;
     public List<TextMeshProUGUI> MonsterDamageTextList;
 
     public List<GameObject> PlayerPhysicalHitEffectList;
@@ -64,25 +60,14 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI SecondSkillText;
     public TextMeshProUGUI ThirdSkillText;
     public TextMeshProUGUI FourthSkillText;
-    public TextMeshProUGUI FifthSkillText;
-
-    public BaseSkill playerSkill;
-    public MonsterSkill monsterSkill;
-    public int SkillCount; // 대미지 텍스트 갯수 변수
-
-    public float DefenseAmount;
-    public float AttackAmount;
-    public float CriDefenseAmount;
-    public float CriAttackAmount;
-
-    public float PlayerAttackAmount;
-    public float PlayerCriAttackAmount;
+    public TextMeshProUGUI FifthSkillText;        
 
 
     private void Start()
     {
-        BtnEnable(true); 
-        BattleRound = 1;        
+        /*
+        BtnEnable(true);
+        BattleRound = 1;
         // PlayerTable에 NowDefense를 두지말고 체력을 두지말고 player스크립트에 변수만들고 전투시작시 현재 playertable에 가지고 있는 값 넣기
         PlayerTable.Instance.NowDefense = 0; // 전투시작 시 방어도 초기화
         PlayerTable.Instance.StunStack = 0; // 전투시작 시 기절스택 초기화        
@@ -90,13 +75,14 @@ public class BattleManager : MonoBehaviour
         PlayerTable.Instance.NowAtk = PlayerTable.Instance.Atk; // 첫 시작시 투지특성인 3턴마다 공격력 증가시킬 NowAtk변수에 전투시에 변동되지않는 Player의 Atk 적용 NowAtk은 전투시에만 사용할 변수
         PlayerTable.Instance.WillPower = PlayerTable.Instance.WillPower; // 첫 시작시 의지특성 부여        
 
+        // 리스트로 변경
         FirstSkillImage.sprite = PlayerTable.Instance.playerSkillList[0].SkillSprite;
         SecondSkillImage.sprite = PlayerTable.Instance.playerSkillList[1].SkillSprite;
         ThirdSkillImage.sprite = PlayerTable.Instance.playerSkillList[2].SkillSprite; // 배틀씬의 세번째 스킬 이미지 선택한 스킬의 이미지로 채워짐            
         FourthSkillImage.sprite = PlayerTable.Instance.playerSkillList[3].SkillSprite;
         FifthSkillImage.sprite = PlayerTable.Instance.playerSkillList[4].SkillSprite;
-        
 
+        // for문
         if (PlayerTable.Instance.SecondSkillAvailableCount <= 0) // 전투시작 시 가능횟수가 0이라면 버튼을 비활성화
         {
             SecondSkillBtn.interactable = false;
@@ -104,19 +90,20 @@ public class BattleManager : MonoBehaviour
         if (PlayerTable.Instance.ThirdSkillAvailableCount <= 0)
         {
             ThirdSkillBtn.interactable = false;
-        }        
+        }
         if (PlayerTable.Instance.FourthSkillAvailableCount <= 0)
         {
             FourthSkillBtn.interactable = false;
-        }        
+        }
         if (PlayerTable.Instance.FifthSkillAvailableCount <= 0)
         {
             FifthSkillBtn.interactable = false;
         }
 
-        //스킬버튼 이벤트        
+        //스킬버튼 이벤트
+        //for문 
         FirstSkillBtn.onClick.AddListener(() => PressBtn(0));
-        SecondSkillBtn.onClick.AddListener(() => PressBtn(1));        
+        SecondSkillBtn.onClick.AddListener(() => PressBtn(1));
         ThirdSkillBtn.onClick.AddListener(() => PressBtn(2));
         FourthSkillBtn.onClick.AddListener(() => PressBtn(3));
         FifthSkillBtn.onClick.AddListener(() => PressBtn(4));
@@ -132,9 +119,10 @@ public class BattleManager : MonoBehaviour
         BattleDialogText.text = $"{monsterSkill.SkillText}\n무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
+        */
     }
 
-    private IEnumerator UpdateCoroutine()
+    private IEnumerator UpdateCoroutine() // 스킬사용횟수 차감하는 코드다음에 넣기
     {
         while (true)
         {
@@ -153,17 +141,17 @@ public class BattleManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-    }    
+    }
 
     public void PressBtn(int SkillNum)
     {
         StartCoroutine("BtnClickEvent", SkillNum);
-    }    
-    
-    IEnumerator BtnClickEvent(int SkillNum) 
-    {        
-        playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
-        Debug.Log(playerSkill);        
+    }
+
+    /*
+    IEnumerator BtnClickEvent(int SkillNum)
+    {
+        playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];        
         PlayerTable.Instance.IronBody = PlayerTable.Instance.IronBody; // 철통 스킬 매턴마다 발동        
 
         PlayerAttackAmount = PlayerTable.Instance.NowAtk * playerSkill.SkillPercentage; // 플레이어가 몬스터에게 줄 대미지 설정
@@ -172,8 +160,8 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         {
             BtnEnable(false); // 버튼 비활성화                                  
-        }        
-                
+        }
+
         yield return new WaitForSeconds(0.1f);
         {
             PlayerSkillEvent(playerSkill, SkillNum);
@@ -187,33 +175,33 @@ public class BattleManager : MonoBehaviour
             CriAttackAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage * monsterSkill.CriMultiple <= 0 ?
                 nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage * monsterSkill.CriMultiple - PlayerTable.Instance.NowDefense : 0;
         }
-        
+
         yield return new WaitForSeconds(1f);
         {
             SkillCount = 0; // 플레이어 스킬 함수에서 skillcount(공유함)를 올리기 때문에 몬스터 스킬 함수 실행 전 초기화시킴
-            MonsterSkillEvent(monsterSkill);            
+            MonsterSkillEvent(monsterSkill);
             nowmonster.monSkIllList = nowmonster.monSkIllList.OrderBy(i => Random.value).ToList(); // 몬스터 스킬 랜덤 , 몬스터가 스킬을 사용한 직후 다음에 사용할 스킬 정해둠       
             monsterSkill = nowmonster.monSkIllList[0];
-        }                
+        }
 
         yield return new WaitForSeconds(1f);
         {
             BattleDialogText.text += $"\n{monsterSkill.SkillText}";
             BattleRound += 1; // 어떻게할까가 대화창에 뜨기 직전에 배틀라운드 상승, UI도 추가할것
-            if(BattleRound % 3 == 0) // 3턴마다 공격력증가시키는 투지특성 발동
+            if (BattleRound % 3 == 0) // 3턴마다 공격력증가시키는 투지특성 발동
             {
                 PlayerTable.Instance.FightingSpirit = PlayerTable.Instance.FightingSpirit;
-            }                     
+            }
         }
-     
+
         yield return new WaitForSeconds(0.1f);
         {
             BattleDialogText.text += $"\n무엇을 할까?";
             BtnEnable(true);
             PlayerTable.Instance.NowDefense = 0; // 턴이 끝나면 방어도를 0으로
             SkillCount = 0;
-        }         
-    }    
+        }
+    }
 
     public void PlayerSkillEvent(BaseSkill playerSkill, int SkillNum)
     {
@@ -236,7 +224,7 @@ public class BattleManager : MonoBehaviour
                     }
                     break;
                 case 2:
-                    PlayerTable.Instance.ThirdSkillAvailableCount -= 1;                    
+                    PlayerTable.Instance.ThirdSkillAvailableCount -= 1;
                     if (PlayerTable.Instance.SecondSkillAvailableCount <= 0)
                     {
                         ThirdSkillBtn.interactable = false;
@@ -269,23 +257,28 @@ public class BattleManager : MonoBehaviour
             return;
         }
         else
-        {                
-            monsterSkill.SkillOption(nowmonster, nowplayer);                   
+        {
+            monsterSkill.SkillOption(nowmonster, nowplayer);
         }
     }
+    
     public void BtnEnable(bool isBtnOn)
     {
-        FirstSkillBtn.interactable = isBtnOn; 
-        if(PlayerTable.Instance.SecondSkillAvailableCount > 0) SecondSkillBtn.interactable = isBtnOn;
+        FirstSkillBtn.interactable = isBtnOn;
+        if (PlayerTable.Instance.SecondSkillAvailableCount > 0) SecondSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 3 && PlayerTable.Instance.ThirdSkillAvailableCount != 0) ThirdSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 4 && PlayerTable.Instance.FourthSkillAvailableCount != 0) FourthSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 5 && PlayerTable.Instance.FifthSkillAvailableCount != 0) FifthSkillBtn.interactable = isBtnOn;
-    }     
+    }
+
+    
+
     public void ResurrectionEvent() // 부활 버튼 클릭 시
     {
         nowplayer.playerResurrection();
         ResurrectionConfirmUI.gameObject.SetActive(true);
     }
+    */
     public void FloatingText(List<TextMeshProUGUI> DamageTextList, float Damage, int SkillCount)
     {
         DamageTextList[SkillCount].text = $"{Damage}";
@@ -304,5 +297,3 @@ public class BattleManager : MonoBehaviour
         else return false;
     }
 }
-
-

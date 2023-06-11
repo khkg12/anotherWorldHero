@@ -4,39 +4,63 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using TMPro;
-using System.Threading;
-using System.Xml.Linq;
+using UnityEngine.TextCore.Text;
 
-public class PlayerController : MonoBehaviour
+public class pc : MonoBehaviour
 {
-    public Image nowPlayerHpBar;    
-    public TextMeshProUGUI nowHpText;
-    public TextMeshProUGUI maxHpText;
-    public Animator playerAni;       
-    public Button PlayerInfoBtn;
+    [SerializeField] private Image nowPlayerHpBar;
+    [SerializeField] private TextMeshProUGUI nowHpText;
+    [SerializeField] private TextMeshProUGUI maxHpText;
+    [SerializeField] private Button PlayerInfoBtn;
+    [SerializeField] private GameObject StunEffect;
+    [SerializeField] private TextMeshProUGUI StunText;
+    [SerializeField] private List<Button> BtnSkill;
+    [SerializeField] private List<Image> ImageSkill;    
+    [SerializeField] private MonsterClass Target;
+    [SerializeField] private Animator characterAni;
+    private Character character;
 
-    public GameObject StunEffect;
-    public TextMeshProUGUI StunText;
+    private void Awake()
+    {        
+        character = GetComponent<Character>();        
+    }
 
     private void Start()
     {
-        nowPlayerHpBar.fillAmount = PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp;        
+        character.Initialize(Target, characterAni); // pc를 캐릭터 오브젝트에 붙히고, 초기화시킴
+        nowPlayerHpBar.fillAmount = PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp;
         nowHpText.text = $"{PlayerTable.Instance.Hp}";
         maxHpText.text = $"/ {PlayerTable.Instance.MaxHp}";
         PlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
-    }    
 
-    private void Update()
-    {        
-        nowPlayerHpBar.fillAmount = Mathf.Lerp(nowPlayerHpBar.fillAmount, PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp, Time.deltaTime * 5f);
-        nowHpText.text = $"{PlayerTable.Instance.Hp}";                            
+        for(int i = 0; i < character.skillList.Count; ++i)
+        {
+            // 활성화도 추가            
+            ImageSkill[i].sprite = character.skillList[i].SkillSprite;
+        }
+
+        BtnSkill[0].onClick.AddListener(() => character.UseSkill(0));
+        BtnSkill[1].onClick.AddListener(() => character.UseSkill(1));
+        BtnSkill[2].onClick.AddListener(() => character.UseSkill(2));
+        BtnSkill[3].onClick.AddListener(() => character.UseSkill(3));
+        BtnSkill[4].onClick.AddListener(() => character.UseSkill(4));
+        
     }
 
+    private void Update()
+    {
+        nowPlayerHpBar.fillAmount = Mathf.Lerp(nowPlayerHpBar.fillAmount, PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp, Time.deltaTime * 5f);
+        nowHpText.text = $"{PlayerTable.Instance.Hp}";
+    }
+    
+    
+
+    /*
     public async void playerDamaged(float DamageAmount)
     {
         double Damage = System.Math.Round(DamageAmount, 2);
         PlayerTable.Instance.Hp -= (float)Damage;
-        playerAni.SetTrigger("IsHit");
+        characterAni.SetTrigger("IsHit");
         if (PlayerTable.Instance.Hp <= 0)
         {
             await Task.Delay(100);
@@ -69,15 +93,15 @@ public class PlayerController : MonoBehaviour
             BattleManager.Instance.BattleDialogText.text += $"\n적의 {SkillName}! {BattleManager.Instance.AttackAmount}피해! ({BattleManager.Instance.DefenseAmount}방어)";
             BattleManager.Instance.FloatingText(BattleManager.Instance.PlayerDamageTextList, BattleManager.Instance.AttackAmount, BattleManager.Instance.SkillCount);
         }
-        yield return null;  
-    }
+        yield return null;
+    }        
 
     public IEnumerator PlayerMultiDamaged(string SkillName, int SkillTimes, string SkillType)
     {
-        for(int i = 0; i < SkillTimes; i++)
+        for (int i = 0; i < SkillTimes; i++)
         {
             // 스킬이펙트 실행
-            if(SkillType == "Physical")
+            if (SkillType == "Physical")
             {
                 BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(false);
                 BattleManager.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(true);
@@ -102,7 +126,7 @@ public class PlayerController : MonoBehaviour
             }
             BattleManager.Instance.SkillCount += 1;
             yield return new WaitForSeconds(0.2f);
-        }        
+        }
     }
 
     public void startPlayerSingleDamaged(string SkillName, string SkillType)
@@ -114,12 +138,11 @@ public class PlayerController : MonoBehaviour
     {
         StartCoroutine(PlayerMultiDamaged(SkillName, SkillTimes, SkillType));
     }
-    
+
     public void playerResurrection() // 플레이어 부활
     {
         PlayerTable.Instance.Hp = 0.5f * PlayerTable.Instance.MaxHp;
         PlayerTable.Instance.ResChance -= 1;
     }
+    */
 }
-
-

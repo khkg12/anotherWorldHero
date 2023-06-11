@@ -19,8 +19,7 @@ public class PlayerTable : ScriptableObject
         }
     }
     private static PlayerTable _Instance;
-
-
+    
     public float MaxHp // 프로퍼티로 하는 이유는 한계치를 정하기위해 
     {
         get => _MaxHp;

@@ -4635,7 +4635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollbar: {fileID: 261896274}
-  DialogText: {fileID: 0}
+  DialogText: {fileID: 1742891398}
 --- !u!1 &822546038
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,7 +5440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1014104690}
-  - component: {fileID: 1014104689}
+  - component: {fileID: 1014104691}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -5448,83 +5448,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1014104689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014104688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ed37f1973118445873a7cb8a189b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nowplayer: {fileID: 1160167423}
-  nowmonster: {fileID: 1042432975}
-  ResurrectionUI: {fileID: 781175667}
-  ResurrectionConfirmUI: {fileID: 1133462107}
-  ResBtn: {fileID: 311179523}
-  DiscardBtn: {fileID: 187189950}
-  ResConfirmText: {fileID: 161816768}
-  FirstSkillBtn: {fileID: 1520620979}
-  FirstSkillImage: {fileID: 1956958991}
-  SecondSkillBtn: {fileID: 1278172930}
-  SecondSkillImage: {fileID: 690211244}
-  ThirdSkillBtn: {fileID: 1067965107}
-  ThirdSkillImage: {fileID: 1399675613}
-  FourthSkillBtn: {fileID: 2062048476}
-  FourthSkillImage: {fileID: 1248332341}
-  FifthSkillBtn: {fileID: 887215727}
-  FifthSkillImage: {fileID: 1003539822}
-  BattleDialogText: {fileID: 1742891398}
-  PlayerDamageTextList:
-  - {fileID: 846276281}
-  - {fileID: 1975400055}
-  - {fileID: 295918353}
-  MonsterDamageTextList:
-  - {fileID: 990613686}
-  - {fileID: 1349852348}
-  - {fileID: 796401780}
-  PlayerPhysicalHitEffectList:
-  - {fileID: 1300050600}
-  - {fileID: 458557413}
-  - {fileID: 308017356}
-  PlayerMagicHitEffectList:
-  - {fileID: 249351878}
-  - {fileID: 1436770838}
-  - {fileID: 289047706}
-  MonsterPhysicalHitEffectList:
-  - {fileID: 195802361}
-  - {fileID: 1561107833}
-  - {fileID: 1525242422}
-  MonsterMagicHitEffectList:
-  - {fileID: 564327369}
-  - {fileID: 82465634}
-  - {fileID: 1024937660}
-  BattleRound: 0
-  SecondSkillText: {fileID: 389165025}
-  ThirdSkillText: {fileID: 1473964917}
-  FourthSkillText: {fileID: 1729319781}
-  FifthSkillText: {fileID: 381414600}
-  playerSkill:
-    Name: 
-    SkillPercentage: 0
-    CriMultiple: 0
-    SkillSprite: {fileID: 0}
-    SkillText: []
-    AvailableCount: 0
-    SkillType: 
-    SkillTimes: 0
-    type: 0
-  monsterSkill: {fileID: 0}
-  SkillCount: 0
-  DefenseAmount: 0
-  AttackAmount: 0
-  CriDefenseAmount: 0
-  CriAttackAmount: 0
-  PlayerAttackAmount: 0
-  PlayerCriAttackAmount: 0
 --- !u!4 &1014104690
 Transform:
   m_ObjectHideFlags: 0
@@ -5540,6 +5463,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1014104691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014104688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6173483261f6f6c4aaceea6cdfc1d0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResurrectionUI: {fileID: 0}
+  ResurrectionConfirmUI: {fileID: 0}
+  ResBtn: {fileID: 0}
+  DiscardBtn: {fileID: 0}
+  ResConfirmText: {fileID: 0}
+  battleDialogController: {fileID: 0}
+  PlayerDamageTextList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MonsterDamageTextList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerPhysicalHitEffectList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerMagicHitEffectList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MonsterPhysicalHitEffectList:
+  - {fileID: 195802361}
+  - {fileID: 1561107833}
+  - {fileID: 1525242422}
+  MonsterMagicHitEffectList:
+  - {fileID: 564327369}
+  - {fileID: 82465634}
+  - {fileID: 1024937660}
+  BattleRound: 0
+  SecondSkillText: {fileID: 0}
+  ThirdSkillText: {fileID: 0}
+  FourthSkillText: {fileID: 0}
+  FifthSkillText: {fileID: 0}
 --- !u!1 &1024937660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5655,8 +5625,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1042432974}
   - component: {fileID: 1042432973}
-  - component: {fileID: 1042432975}
   - component: {fileID: 1042432976}
+  - component: {fileID: 1042432978}
+  - component: {fileID: 1042432977}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -5733,37 +5704,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1042432975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042432972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab0a6cd6917b964295a6f3105c8c855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nowMonsterSprite: {fileID: 1670134042}
-  nowMonsterName: 
-  nowMonsterHp: 0
-  nowMonsterMaxHp: 0
-  nowMonsterDodge: 0
-  nowMonsterCri: 0
-  nowMonsterStunStack: 0
-  IsMonsterBoss: 0
-  monSkIllList: []
-  nowMonsterHpBar: {fileID: 242277914}
-  monsterAni: {fileID: 1042432976}
-  monsterNameText: {fileID: 2033279489}
-  MonsterImage: {fileID: 568724157}
-  monsterInfoNameText: {fileID: 807832503}
-  monsterHpText: {fileID: 1533549408}
-  monsterAtkText: {fileID: 1956319259}
-  monsterCriText: {fileID: 758065331}
-  monsterDodText: {fileID: 1221456002}
-  _nowMonsterAtk: 0
 --- !u!95 &1042432976
 Animator:
   serializedVersion: 4
@@ -5784,6 +5724,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1042432977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042432972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcb0658dd545d54cbebd642849b6a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1160167426}
+  monSkIllList: []
+  nowMonsterHpBar: {fileID: 242277914}
+  monsterNameText: {fileID: 2033279489}
+  MonsterImage: {fileID: 568724157}
+  monsterInfoNameText: {fileID: 807832503}
+  monsterHpText: {fileID: 1533549408}
+  monsterAtkText: {fileID: 1956319259}
+  monsterCriText: {fileID: 758065331}
+  monsterDodText: {fileID: 1221456002}
+  _nowMonsterAtk: 0
+--- !u!114 &1042432978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042432972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f879e686536a3a841b5989a668dd0934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowMonsterHp: 0
+  nowMonsterMaxHp: 0
+  battleDialogController: {fileID: 0}
+  nowMonsterDodge: 0
+  monsterAni: {fileID: 1042432976}
 --- !u!1 &1067965105
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,9 +6177,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1160167421}
-  - component: {fileID: 1160167423}
   - component: {fileID: 1160167422}
   - component: {fileID: 1160167424}
+  - component: {fileID: 1160167426}
+  - component: {fileID: 1160167425}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6277,25 +6258,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1160167423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160167420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e85230bc1398145949e94fe384e527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nowPlayerHpBar: {fileID: 822546040}
-  nowHpText: {fileID: 1994153556}
-  maxHpText: {fileID: 100164555}
-  playerAni: {fileID: 1160167424}
-  PlayerInfoBtn: {fileID: 2112606911}
-  StunEffect: {fileID: 546624151}
-  StunText: {fileID: 0}
 --- !u!95 &1160167424
 Animator:
   serializedVersion: 4
@@ -6316,6 +6278,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1160167425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160167420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a19e1c94057054ab9e8d504017acd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowPlayerHpBar: {fileID: 822546040}
+  nowHpText: {fileID: 1994153556}
+  maxHpText: {fileID: 100164555}
+  PlayerInfoBtn: {fileID: 2112606911}
+  StunEffect: {fileID: 546624151}
+  StunText: {fileID: 0}
+  BtnSkill:
+  - {fileID: 1520620979}
+  - {fileID: 1278172930}
+  - {fileID: 1067965107}
+  - {fileID: 2062048476}
+  - {fileID: 887215727}
+  ImageSkill:
+  - {fileID: 1956958991}
+  - {fileID: 690211244}
+  - {fileID: 1399675613}
+  - {fileID: 1248332341}
+  - {fileID: 1003539822}
+  Target: {fileID: 1042432978}
+  characterAni: {fileID: 1160167424}
+--- !u!114 &1160167426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160167420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5832068088b29b439fd7565797d35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atk: 0
+  critical: 0
+  dodge: 0
+  skillList: []
 --- !u!1 &1217253575
 GameObject:
   m_ObjectHideFlags: 0

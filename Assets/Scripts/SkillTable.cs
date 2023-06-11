@@ -28,8 +28,7 @@ public class SkillTable : ScriptableObject
     // 스킬선택 시 랜덤으로 돌릴 스킬리스트
     public List<BaseSkill> ActiveSkillList; 
     public List<PassiveSkill> PassiveSkillList;    
-        
-
+            
     // 플레이어 스킬
     public Attack attack;
     public Defense defense;
@@ -90,10 +89,8 @@ public class SkillTable : ScriptableObject
         }
         else
         {
-            player.playerAni.SetTrigger("IsAttack");
-            monster.startMonsterSingleDamaged(skill, SkillType);
-            monster.nowMonsterStunStack += 1; // 기절 스택 추가
-            BattleManager.Instance.BattleDialogText.text += "\n적을 기절시켰다!";
+            player.playerAni.SetTrigger("IsAttack"); // 출혈 or 도트대미지 애니로 바꾸기
+            // monster.startMonsterDotDamaged(skill, SkillType);     startDotDamaged
         }
     } // 몬스터 기절공격스킬 함수
 
@@ -149,7 +146,7 @@ public class SkillTable : ScriptableObject
                 BattleManager.Instance.BattleDialogText.text += "\n적의 공격에 기절하였다!";
             }
         }        
-    } // 몬스터 기절공격스킬 함수
+    } // 몬스터 기절공격스킬 함수    
 }
 
 // 몬스터 스킬 클래스
@@ -179,9 +176,16 @@ public class PassiveSkill
     public int Cri;
 }
 
+
+public enum Type
+{
+    Attack,
+    Defense,
+    Buff,
+}
 // 플레이어 액티브 스킬 클래스
 [System.Serializable]
-public class BaseSkill 
+public class BaseSkill : ScriptableObject
 {
     public string Name;
     public float SkillPercentage;    
@@ -191,8 +195,10 @@ public class BaseSkill
     public int AvailableCount;
     public string SkillType;
     public int SkillTimes;
+    public Type type;
     // 공격타입 : 단수공격, 멀티공격
-    public virtual void SkillOption(MonsterController monster, PlayerController player) { }    
+    public virtual void SkillOption(MonsterController monster, PlayerController player) { }
+    public virtual void SkillUse(MonsterClass target) { }    
 }
 
 [System.Serializable]
@@ -201,7 +207,13 @@ public class Attack : BaseSkill
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
         SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, SkillType); // 배틀매니저에서 monster를 nowmonster로 받고 this는 자기자신, 즉 스킬
-    }    
+    }
+
+    public override void SkillUse(MonsterClass target)
+    {
+        Debug.Log("맨처음 실행완료");
+        target.startMonsterDamaged(this);
+    }
 }
 
 [System.Serializable]
@@ -242,7 +254,13 @@ public class Baldo : BaseSkill
     }
 }
 
-
+public class FireBurn : BaseSkill
+{
+    public override void SkillOption(MonsterController monster, PlayerController player)
+    {
+        
+    }
+}
 
 
 
