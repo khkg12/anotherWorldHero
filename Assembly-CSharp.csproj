@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterAttackSkill.cs" />
     <Compile Include="Assets\Scripts\PlayerTable.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\MonsterClass.cs" />
     <Compile Include="Assets\Scripts\BackGroundTable.cs" />

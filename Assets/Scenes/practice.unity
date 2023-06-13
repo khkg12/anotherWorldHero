@@ -3356,8 +3356,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 846276280}
   - {fileID: 1975400053}
+  - {fileID: 846276280}
   - {fileID: 295918351}
   - {fileID: 990613685}
   - {fileID: 1349852346}
@@ -4725,7 +4725,7 @@ GameObject:
   - component: {fileID: 846276281}
   - component: {fileID: 846276283}
   m_Layer: 5
-  m_Name: PlayerDamageText
+  m_Name: PlayerDamageText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4744,7 +4744,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 576170817}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5480,23 +5480,23 @@ MonoBehaviour:
   ResBtn: {fileID: 0}
   DiscardBtn: {fileID: 0}
   ResConfirmText: {fileID: 0}
-  battleDialogController: {fileID: 0}
+  battleDialogController: {fileID: 821067922}
   PlayerDamageTextList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1975400055}
+  - {fileID: 846276281}
+  - {fileID: 295918353}
   MonsterDamageTextList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 990613686}
+  - {fileID: 1349852348}
+  - {fileID: 796401780}
   PlayerPhysicalHitEffectList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1300050600}
+  - {fileID: 458557413}
+  - {fileID: 308017356}
   PlayerMagicHitEffectList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 249351878}
+  - {fileID: 1436770838}
+  - {fileID: 289047706}
   MonsterPhysicalHitEffectList:
   - {fileID: 195802361}
   - {fileID: 1561107833}
@@ -5506,10 +5506,11 @@ MonoBehaviour:
   - {fileID: 82465634}
   - {fileID: 1024937660}
   BattleRound: 0
-  SecondSkillText: {fileID: 0}
-  ThirdSkillText: {fileID: 0}
-  FourthSkillText: {fileID: 0}
-  FifthSkillText: {fileID: 0}
+  SkillCountText:
+  - {fileID: 389165025}
+  - {fileID: 1473964917}
+  - {fileID: 1729319781}
+  - {fileID: 381414600}
 --- !u!1 &1024937660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5761,9 +5762,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nowMonsterHp: 0
   nowMonsterMaxHp: 0
-  battleDialogController: {fileID: 0}
-  nowMonsterDodge: 0
+  battleDialogController: {fileID: 821067922}
+  monsterSkill: {fileID: 0}
   monsterAni: {fileID: 1042432976}
+  StunStack: 0
+  DefenseAmount: 0
 --- !u!1 &1067965105
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,7 +6312,6 @@ MonoBehaviour:
   - {fileID: 1248332341}
   - {fileID: 1003539822}
   Target: {fileID: 1042432978}
-  characterAni: {fileID: 1160167424}
 --- !u!114 &1160167426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6322,10 +6324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5832068088b29b439fd7565797d35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 0
-  critical: 0
-  dodge: 0
+  characterAni: {fileID: 1160167424}
+  battleDialogController: {fileID: 821067922}
   skillList: []
+  DefenseAmount: 0
+  StunStack: 0
 --- !u!1 &1217253575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9109,7 +9112,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 180
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -9720,7 +9723,7 @@ GameObject:
   - component: {fileID: 1975400055}
   - component: {fileID: 1975400054}
   m_Layer: 5
-  m_Name: PlayerDamageText2
+  m_Name: PlayerDamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9739,7 +9742,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 576170817}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

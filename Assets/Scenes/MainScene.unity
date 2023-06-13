@@ -318,21 +318,45 @@ MonoBehaviour:
   DefText: {fileID: 1506931584}
   CriText: {fileID: 96950298}
   DodText: {fileID: 1817709377}
+  SkillBtnList:
+  - {fileID: 649920041}
+  - {fileID: 1266050072}
+  - {fileID: 749493628}
+  - {fileID: 520578739}
+  - {fileID: 606881288}
   FirstSkillBtn: {fileID: 649920041}
   SecondSkillBtn: {fileID: 1266050072}
   ThirdSkillBtn: {fileID: 749493628}
   FourthSkillBtn: {fileID: 520578739}
   FifthSkillBtn: {fileID: 606881288}
+  SkillImageList:
+  - {fileID: 92256145}
+  - {fileID: 146441394}
+  - {fileID: 1507659555}
+  - {fileID: 852108733}
+  - {fileID: 180135938}
   FirstSkillImage: {fileID: 92256145}
   SecondSkillImage: {fileID: 146441394}
   ThirdSkillImage: {fileID: 1507659555}
   FourthSkillImage: {fileID: 852108733}
   FifthSkillImage: {fileID: 180135938}
+  SkillNameList:
+  - {fileID: 1500580725}
+  - {fileID: 959391363}
+  - {fileID: 987303518}
+  - {fileID: 1566140236}
+  - {fileID: 321533656}
   FirstSkillName: {fileID: 1500580725}
   SecondSkillName: {fileID: 959391363}
   ThirdSkillName: {fileID: 987303518}
   FourthSkillName: {fileID: 1566140236}
   FifthSkillName: {fileID: 321533656}
+  SkillCountTextList:
+  - {fileID: 0}
+  - {fileID: 1462924763}
+  - {fileID: 1408160978}
+  - {fileID: 1916996843}
+  - {fileID: 1191688043}
   SecondSkillAvailableText: {fileID: 1462924763}
   ThirdSkillAvailableText: {fileID: 1408160978}
   FourthSkillAvailableText: {fileID: 1916996843}

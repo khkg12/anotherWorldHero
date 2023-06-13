@@ -57,10 +57,7 @@ public class bm : MonoBehaviour
     public int BattleRound;
 
     // 스킬 사용가능 횟수 텍스트
-    public TextMeshProUGUI SecondSkillText;
-    public TextMeshProUGUI ThirdSkillText;
-    public TextMeshProUGUI FourthSkillText;
-    public TextMeshProUGUI FifthSkillText;        
+    [SerializeField] private List<TextMeshProUGUI> SkillCountText;           
 
 
     private void Start()
@@ -117,15 +114,16 @@ public class bm : MonoBehaviour
         monsterSkill = nowmonster.monSkIllList[0];
 
         BattleDialogText.text = $"{monsterSkill.SkillText}\n무엇을 할까?";
-
-        StartCoroutine(UpdateCoroutine());
+        
         */
+        StartCoroutine(UpdateCoroutine());
     }
 
     private IEnumerator UpdateCoroutine() // 스킬사용횟수 차감하는 코드다음에 넣기
     {
         while (true)
         {
+            /*
             SecondSkillText.text = $"{PlayerTable.Instance.SecondSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[1].AvailableCount}";
             if (PlayerTable.Instance.ThirdSkillAvailableCount >= 0)
             {
@@ -139,14 +137,17 @@ public class bm : MonoBehaviour
             {
                 FifthSkillText.text = $"{PlayerTable.Instance.FifthSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[4].AvailableCount}";
             }
+            */
+            for(int i = 1; i < PlayerTable.Instance.playerSkillList.Count; ++i)
+            {
+                SkillCountText[i - 1].text = $"{PlayerTable.Instance.SkillAvailableCount[i]} / {PlayerTable.Instance.SkillFixedCount[i]}";
+                // i-1은 스킬카운트텍스트는 4개고 스킬은 5개이기때문에 격차메꾸기
+            }
             yield return new WaitForSeconds(0.1f);
         }
     }
 
-    public void PressBtn(int SkillNum)
-    {
-        StartCoroutine("BtnClickEvent", SkillNum);
-    }
+   
 
     /*
     IEnumerator BtnClickEvent(int SkillNum)
@@ -270,15 +271,16 @@ public class bm : MonoBehaviour
         if (PlayerTable.Instance.playerSkillCount >= 4 && PlayerTable.Instance.FourthSkillAvailableCount != 0) FourthSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 5 && PlayerTable.Instance.FifthSkillAvailableCount != 0) FifthSkillBtn.interactable = isBtnOn;
     }
-
     
-
     public void ResurrectionEvent() // 부활 버튼 클릭 시
     {
         nowplayer.playerResurrection();
         ResurrectionConfirmUI.gameObject.SetActive(true);
     }
     */
+
+
+
     public void FloatingText(List<TextMeshProUGUI> DamageTextList, float Damage, int SkillCount)
     {
         DamageTextList[SkillCount].text = $"{Damage}";

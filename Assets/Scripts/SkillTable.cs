@@ -157,9 +157,12 @@ public class MonsterSkill : ScriptableObject
     public float SkillPercentage;
     public float CriMultiple;
     public string SkillText; // 몬스터가 무슨 공격을 할지 암시하는 텍스트    
-    public int SkillTimes;
+    public int StunCount;
+    public int SkillTimes;    
     public string SkillType;
+    public Type type;
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }
+    public virtual void SkillUse(MonsterClass monster) { }
 }
 
 // 플레이어 패시브 스킬 클래스
@@ -193,12 +196,13 @@ public class BaseSkill : ScriptableObject
     public Sprite SkillSprite;
     public string[] SkillText; // 스킬에 대한 설명    
     public int AvailableCount;
+    public int StunCount;
     public string SkillType;
     public int SkillTimes;
     public Type type;
     // 공격타입 : 단수공격, 멀티공격
     public virtual void SkillOption(MonsterController monster, PlayerController player) { }
-    public virtual void SkillUse(MonsterClass target) { }    
+    public virtual void SkillUse(Character character) { }    
 }
 
 [System.Serializable]
@@ -207,13 +211,7 @@ public class Attack : BaseSkill
     public override void SkillOption(MonsterController monster, PlayerController player)
     {
         SkillTable.Instance.PlayerSingleAttackSkill(monster, player, this, SkillType); // 배틀매니저에서 monster를 nowmonster로 받고 this는 자기자신, 즉 스킬
-    }
-
-    public override void SkillUse(MonsterClass target)
-    {
-        Debug.Log("맨처음 실행완료");
-        target.startMonsterDamaged(this);
-    }
+    }    
 }
 
 [System.Serializable]

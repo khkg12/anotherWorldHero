@@ -20,6 +20,7 @@ MonoBehaviour:
   - "\uACF5\uACA9\uB825\uC758 100% \uD53C\uD574"
   - "\uD06C\uB9AC\uD2F0\uCEEC \uC2DC 150% \uD53C\uD574"
   AvailableCount: 0
+  StunCount: 1
   SkillType: Physical
   SkillTimes: 1
   type: 0

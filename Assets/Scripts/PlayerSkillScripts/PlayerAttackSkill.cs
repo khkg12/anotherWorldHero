@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerAttackSkill : BaseSkill
 {
-    public override void SkillUse(MonsterClass target)
+    public override void SkillUse(Character character)
     {
-        target.startMonsterDamaged(this);
+        character.startTakeDamaged(this);        
     }
 }

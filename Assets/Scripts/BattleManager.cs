@@ -81,6 +81,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
+        /*
         BtnEnable(true); 
         BattleRound = 1;        
         // PlayerTable에 NowDefense를 두지말고 체력을 두지말고 player스크립트에 변수만들고 전투시작시 현재 playertable에 가지고 있는 값 넣기
@@ -132,8 +133,10 @@ public class BattleManager : MonoBehaviour
         BattleDialogText.text = $"{monsterSkill.SkillText}\n무엇을 할까?";
 
         StartCoroutine(UpdateCoroutine());
+        */
     }
 
+    /*    
     private IEnumerator UpdateCoroutine()
     {
         while (true)
@@ -153,13 +156,14 @@ public class BattleManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-    }    
+    } 
+    */
 
     public void PressBtn(int SkillNum)
     {
         StartCoroutine("BtnClickEvent", SkillNum);
     }    
-    
+    /*
     IEnumerator BtnClickEvent(int SkillNum) 
     {        
         playerSkill = PlayerTable.Instance.playerSkillList[SkillNum];
@@ -186,8 +190,7 @@ public class BattleManager : MonoBehaviour
                 PlayerTable.Instance.NowDefense : nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage * monsterSkill.CriMultiple;
             CriAttackAmount = PlayerTable.Instance.NowDefense - nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage * monsterSkill.CriMultiple <= 0 ?
                 nowmonster.nowMonsterAtk * monsterSkill.SkillPercentage * monsterSkill.CriMultiple - PlayerTable.Instance.NowDefense : 0;
-        }
-        
+        }        
         yield return new WaitForSeconds(1f);
         {
             SkillCount = 0; // 플레이어 스킬 함수에서 skillcount(공유함)를 올리기 때문에 몬스터 스킬 함수 실행 전 초기화시킴
@@ -214,7 +217,7 @@ public class BattleManager : MonoBehaviour
             SkillCount = 0;
         }         
     }    
-
+    /*
     public void PlayerSkillEvent(BaseSkill playerSkill, int SkillNum)
     {
         if (PlayerTable.Instance.StunStack >= 1)
@@ -280,7 +283,8 @@ public class BattleManager : MonoBehaviour
         if (PlayerTable.Instance.playerSkillCount >= 3 && PlayerTable.Instance.ThirdSkillAvailableCount != 0) ThirdSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 4 && PlayerTable.Instance.FourthSkillAvailableCount != 0) FourthSkillBtn.interactable = isBtnOn;
         if (PlayerTable.Instance.playerSkillCount >= 5 && PlayerTable.Instance.FifthSkillAvailableCount != 0) FifthSkillBtn.interactable = isBtnOn;
-    }     
+    }
+    */
     public void ResurrectionEvent() // 부활 버튼 클릭 시
     {
         nowplayer.playerResurrection();
@@ -302,7 +306,7 @@ public class BattleManager : MonoBehaviour
         int range = Random.Range(1, 101);
         if (range < DodgeRate) return true;
         else return false;
-    }
+    }    
 }
 
 

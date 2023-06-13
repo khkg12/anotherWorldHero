@@ -338,6 +338,16 @@ public class DialogManager : MonoBehaviour
 
     public void SkillBtnEvent()
     {
+        for(int i = 1; i < PlayerTable.Instance.playerSkillList.Count; i++)
+        {
+            PlayerTable.Instance.SkillAvailableCount[i] += 2; // 스킬 사용횟수 2회복시키고
+            if (PlayerTable.Instance.SkillAvailableCount[i] > PlayerTable.Instance.SkillFixedCount[i]) // 회복시킨 값이 고정값보다 크면
+            {
+                PlayerTable.Instance.SkillAvailableCount[i] = PlayerTable.Instance.SkillFixedCount[i]; // 고정값으로 변경
+            }
+        }
+
+        /*
         PlayerTable.Instance.SecondSkillAvailableCount += 2;
         if (PlayerTable.Instance.SecondSkillAvailableCount > PlayerTable.Instance.secondCount) PlayerTable.Instance.SecondSkillAvailableCount = PlayerTable.Instance.secondCount;
         if (PlayerTable.Instance.playerSkillList[2].Name != "")
@@ -355,6 +365,7 @@ public class DialogManager : MonoBehaviour
             PlayerTable.Instance.FifthSkillAvailableCount += 2;
             if (PlayerTable.Instance.FifthSkillAvailableCount > PlayerTable.Instance.fifthCount) PlayerTable.Instance.FifthSkillAvailableCount = PlayerTable.Instance.fifthCount;
         }
+        */
     }
 }
 

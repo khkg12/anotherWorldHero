@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24531df52928aa944b0b21d373be707a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f09adf3cb2016541a5ef2e626d9fec0, type: 3}
   m_Name: Stab
   m_EditorClassIdentifier: 
   Name: "\uAE09\uC18C\uCC0C\uB974\uAE30"
-  SkillPercentage: 0.6
-  CriMultiple: 1.5
-  SkillText: "\uC801\uC740 \uCC0C\uB974\uAE30 \uC790\uC138\uB97C \uCDE8\uD55C\uB2E4."
+  SkillPercentage: 0.5
+  CriMultiple: 1.8
+  SkillText: "\uC801\uC774 \uCC0C\uB974\uAE30 \uC790\uC138\uB97C \uCDE8\uD55C\uB2E4."
   SkillTimes: 1
   SkillType: Physical
+  type: 0

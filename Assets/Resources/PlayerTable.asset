@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
   _MaxHp: 100
-  _Hp: 56
+  _Hp: 100
   _Atk: 13
   _NowAtk: 13
   _Defense: 10
@@ -26,9 +26,6 @@ MonoBehaviour:
   _Scare: 2
   _FightingSpirit: 0
   _WillPower: 3
-  playerSkillList:
-  - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
-  - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
   scareText:
     StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744
@@ -69,12 +66,8 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 3\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 4\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
-  playerSkillCount: 2
-  _SecondSkillAvailableCount: 20
-  secondCount: 20
-  ThirdSkillAvailableCount: 5
-  thirdCount: 5
-  FourthSkillAvailableCount: 0
-  fourthCount: 0
-  FifthSkillAvailableCount: 0
-  fifthCount: 0
+  playerSkillList:
+  - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
+  - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
+  SkillAvailableCount: 0000000014000000000000000000000000000000
+  SkillFixedCount: 0000000014000000000000000000000000000000

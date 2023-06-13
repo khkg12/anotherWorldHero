@@ -195,9 +195,7 @@ public class MonsterController : MonoBehaviour
     public void startMonsterMultiDamaged(BaseSkill Skill, int SkillTimes, string SkillType)
     {
         StartCoroutine(MonsterMultiDamaged(Skill, SkillTimes, SkillType));
-    }
-
-    
+    }    
 
     public void MonsterSet(int MonsterNum)
     {

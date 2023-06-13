@@ -23,9 +23,9 @@ MonoBehaviour:
     MonsterStunStack: 0
     IsMonsterBoss: 0
     monsterSkillList:
-    - {fileID: 11400000, guid: 6842d3338c4758545b3a830241fb8953, type: 2}
-    - {fileID: 11400000, guid: 0972f860179eabc4ca709bc44c5dcc2e, type: 2}
-    - {fileID: 11400000, guid: f451e995f254bbe449131da3ed9ad29d, type: 2}
+    - {fileID: 11400000, guid: b0b41d5527d13cd409f70244c550385c, type: 2}
+    - {fileID: 11400000, guid: 8d530ccbd7b2d3e4985fa4e16897b599, type: 2}
+    - {fileID: 11400000, guid: 1110bab6c99a13c4590cfb0b4b30970c, type: 2}
   - MonsterSprite: {fileID: 21300000, guid: 35c3d8f2f0b6f6d498678fabec1c5326, type: 3}
     MonsterName: "\uB9C8\uC871 \uAD81\uC218"
     MonsterHp: 80

@@ -55,14 +55,14 @@ public class mc : MonoBehaviour
                 monsterList = MonsterTable.Instance.FourthActMonsterList;
                 break;
         }*/
-        monsterList = MonsterTable.Instance.MonsterList;        
+        monsterList = MonsterTable.Instance.MonsterList; // 위에 주석 활성화하고 이코드 지우기
         monster = GetComponent<MonsterClass>();  
     }
 
     private void Start()
     {
         monster.Initialize(monsterList, MonsterTable.Instance.MonsterNum, Target);
-        MonsterUISet(MonsterTable.Instance.MonsterNum);
+        MonsterUISet(MonsterTable.Instance.MonsterNum);        
     }
 
     public void Update()

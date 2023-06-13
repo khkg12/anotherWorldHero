@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using System.Threading.Tasks;
+using UnityEditor.Experimental.GraphView;
 
 public class SkillData
 {
@@ -15,15 +17,19 @@ public class SkillData
 public class Character : MonoBehaviour
 {
     private MonsterClass target;
-    private Animator ani;
-    public int atk;
-    public int critical;
-    public int dodge;
-    private int defense;    
-    private BattleDialogController battleDialogController;    
-    public List<BaseSkill> skillList;    
+    public Animator characterAni;
+    private int atk;
+    private int critical;
+    private int dodge;
+    private int defense;
 
-    public void Initialize(MonsterClass Target, Animator characterAni) // 초기화 함수, Monster는 이 Character클래스와 같이 몬스터를 다룰 스크립트값을 만들고 가져오기
+    private bool MonsterStun;
+    [SerializeField] private BattleDialogController battleDialogController;
+    public List<BaseSkill> skillList;
+    public int DefenseAmount;
+    public int StunStack;
+
+    public void Initialize(MonsterClass Target) // 초기화 함수, Monster는 이 Character클래스와 같이 몬스터를 다룰 스크립트값을 만들고 가져오기
     {
         // hp는 유지되어야하므로 playertable의 hp에 직접할당, 아니면 몬스터가 죽고난뒤 값을 넣어주는것도 고려해볼것        
         atk = (int)PlayerTable.Instance.Atk;
@@ -31,123 +37,130 @@ public class Character : MonoBehaviour
         dodge = PlayerTable.Instance.Dodge;
         defense = (int)PlayerTable.Instance.Defense;
         skillList = PlayerTable.Instance.playerSkillList;
-        this.target = Target;
-        ani = characterAni;
-    }
+        this.target = Target;        
+    }    
 
-    public void UseSkill(int index) // 공격스킬과 버프스킬의 차이점을 두어야함 -> 공격스킬의 경우 몬스터회피에 따라 실패, 버프는 무조건 성공
-    {
-        Debug.Log(index);
+    public IEnumerator UseSkill(int index)
+    {        
         BaseSkill skill = skillList[index];
-        Debug.Log(skill);
-        var skillData = new SkillData() 
-        {
-            /*
-            SkillName = skill.Name,
-            Atk = (int)(atk * skill.SkillPercentage),
-            */
+        var skillData = new SkillData()
+        {            
+            Name = skill.Name,                        
         }; //주는쪽에서 정보를 모두 취합
 
         switch (skill.type)
         {
-            case Type.Attack: // 스킬이 공격스킬이면 몬스터의 회피에 따라 실행조건을 넣어줘야함
-                Debug.Log("몬스터회피율" + target.nowMonsterDodge);
-                if (bm.Instance.DodgeSucess(target.nowMonsterDodge)) // 타겟, 즉 몬스터가 회피에 성공했다면
-                {
-                    target.monsterAni.SetTrigger("IsDodge");
-                    battleDialogController.PlayerAddText(BattleType.Dodge, skillData);
+            case Type.Attack: // 스킬이 공격스킬이면 몬스터의 회피에 따라 실행조건을 넣어줘야함                
+                    if (target.Dodge()) // 타겟, 즉 몬스터가 회피에 성공했다면
+                    {
+                        target.monsterAni.SetTrigger("IsDodge");
+                        battleDialogController.PlayerAddText(BattleType.Dodge, skillData);                        
                 }
-                else
-                {                    
-                    ani.SetTrigger("IsAttack"); // 공격스킬 애니 실행
-                    skill.SkillUse(target); // 버튼클릭 -> useSkill -> 처리 후 몬스터체력 0이면 종료 -> 아니라면 monsterSkill                    
-                }
+                    else
+                    {
+                        characterAni.SetTrigger("IsAttack"); // 공격스킬 애니 실행
+                        skill.SkillUse(this); // 버튼클릭 -> useSkill -> 처리 후 몬스터체력 0이면 종료 -> 아니라면 monsterSkill                    
+                    }
+                break;
+            case Type.Defense:
+                characterAni.SetTrigger("IsDefense"); // 방어스킬 애니 실행
+                skill.SkillUse(this);
                 break;
             case Type.Buff:
-                skill.SkillUse(target);
+                // characterAni.SetTrigger("IsDefense"); 버프스킬 애니 실행
+                skill.SkillUse(this);
                 break;
         }
-
-        // 몬스터 스킬함수 실행
-        
-
-        // 모든게 끝났을 때 버튼 활성화
-        
-
-        /*int atk = skill.Use();
-        var atkData = new AttackData() { attackerName = Name, atk = atk, skillName = skill.GetName() };
-        target.TakeDamage(atkData);
-        scriptManager.AddText("blabla");*/
+        yield return new WaitForSeconds(0.8f);     
+        if(MonsterStun == true)
+        {
+            MonsterStun = false;
+            pc.BtnEnableAction(); // 버튼활성화
+        }
+        else
+        {
+            target.UseSkill(); // 몬스터 스킬함수 실행                            
+        }        
+        yield break;
     }
 
-    /*
     public async void Damaged(float DamageAmount)
     {
-        target.noWmONSTER -= DamageAmount;
-        monsterAni.SetTrigger("IsHit");
-        if (nowMonsterHp <= 0 && IsMonsterBoss == false) // 승리하였을 때 전투가 끝나므로 사실상 전투가 끝나고 실행될 코드들 집어넣음
+        PlayerTable.Instance.Hp -= DamageAmount;
+        characterAni.SetTrigger("IsHit");
+        if (PlayerTable.Instance.Hp <= 0)
         {
-            await Task.Delay(200);
-            GameManager.Instance.IsMonsterDead = true; // 몬스터의 체력이 0, 즉 죽으면 플래그 true
-            GameManager.Instance.IsAni = true;
-            GameManager.Instance.LoadMainScene();
             await Task.Delay(100);
-            UiManager.Instance.ItemSelectUI.gameObject.SetActive(true);
-        }
-        else if (nowMonsterHp <= 0 && IsMonsterBoss == true)
-        {
-            // 몬스터 사망 애니
-            await Task.Delay(500);
-            GameManager.Instance.AfterVictory();
-            // nextDialog를 실행시켜야함 어떻게실행시킬지?
+            BattleManager.Instance.ResurrectionUI.gameObject.SetActive(true);
         }
     }
 
-    public IEnumerator MonsterDamaged(BaseSkill Skill, int SkillTimes, string SkillType)
-    {
-        for (int i = 0; i < SkillTimes; i++)
+    public IEnumerator TakeDamaged(BaseSkill Skill)
+    {        
+        int SkillCount = 0;
+        var skillData = new SkillData() // 스킬을 받는 쪽에서 데이터취합, 필요한것만 정의
+        {
+            Name = Skill.Name,
+            Damage = (int)(atk * Skill.SkillPercentage),
+            CriDamage = (int)(atk * Skill.SkillPercentage * Skill.CriMultiple)
+        };        
+        for (int i = 0; i < Skill.SkillTimes; i++)
         {
             // 스킬이펙트 실행
-            if (SkillType == "Physical")
+            if (Skill.SkillType == "Physical")
             {
-                BattleManager.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(false);
-                BattleManager.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(true);
+                bm.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(false);
+                bm.Instance.MonsterPhysicalHitEffectList[i].gameObject.SetActive(true);
             }
             else
             {
-                BattleManager.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(false);
-                BattleManager.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(true);
+                bm.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(false);
+                bm.Instance.MonsterMagicHitEffectList[i].gameObject.SetActive(true);
             }
-
-            if (BattleManager.Instance.CriAttack(BattleManager.Instance.nowmonster.nowMonsterCri)) // 치명타 공격이라면
+            if (bm.Instance.CriAttack(critical)) // 치명타 공격이라면
             {
-                MonsterDamaged(BattleManager.Instance.PlayerCriAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n\n치명타!! {Skill.Name}! {BattleManager.Instance.PlayerCriAttackAmount} 피해입힘!";
-                BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerCriAttackAmount, BattleManager.Instance.SkillCount);
+                target.Damaged(skillData.CriDamage);
+                battleDialogController.PlayerAddText(BattleType.CriAttack, skillData);                
+                bm.Instance.FloatingText(bm.Instance.MonsterDamageTextList, skillData.CriDamage, SkillCount);
             }
             else
-            {
-                MonsterDamaged(BattleManager.Instance.PlayerAttackAmount);
-                BattleManager.Instance.BattleDialogText.text += $"\n\n{Skill.Name}! {BattleManager.Instance.PlayerAttackAmount} 피해입힘!";
-                BattleManager.Instance.FloatingText(BattleManager.Instance.MonsterDamageTextList, BattleManager.Instance.PlayerAttackAmount, BattleManager.Instance.SkillCount);
+            {                
+                target.Damaged(skillData.Damage);
+                battleDialogController.PlayerAddText(BattleType.Attack, skillData);                
+                bm.Instance.FloatingText(bm.Instance.MonsterDamageTextList, skillData.Damage, SkillCount);
             }
-            BattleManager.Instance.SkillCount += 1;
+            SkillCount += 1;
             yield return new WaitForSeconds(0.2f);
         }
+
+        if (Skill.StunCount > 0) // 스킬이 기절효과를 주는 스킬이라면
+        {
+            target.StunStack += 1; // 타겟의 기절스택을 하나 올리고
+            if (target.StunStack <= 0) // 타겟의 기절스택이 0이하라면 기절당하지 않았다는 뜻
+            {
+                battleDialogController.PlayerAddText(BattleType.EndureStun, skillData); // 기절을 견딤 텍스트 추가
+            }
+            else
+            {
+                battleDialogController.PlayerAddText(BattleType.GetStun, skillData); // 몬스터 기절
+                yield return new WaitForSeconds(0.5f);
+                MonsterStun = true; // 몬스터 스턴 플래그함수
+                target.SelectMonsterSkill(); // 몬스터의 다음스킬 정하고
+                battleDialogController.ActionAddText(target.monsterSkill); // 띄우기                
+                yield break;
+            }
+        }
+
+        yield return null;
     }
 
-    public void startMonsterDamaged(BaseSkill Skill, string SkillType)
-    {
-        StartCoroutine(MonsterDamaged(Skill, SkillType));
+    public void startTakeDamaged(BaseSkill Skill)
+    {        
+        StartCoroutine(TakeDamaged(Skill));
     }
 
-
-
-
-    /*public void TakeDamage(AttackData atk)
+    public bool Dodge()
     {
-        hp -= atk.atk;
-        scriptManager.AddText(BattleType.TakeDamage, atk);
-    }*/
-
+        return bm.Instance.DodgeSucess(dodge);
+    }    
 }
