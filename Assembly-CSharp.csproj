@@ -65,7 +65,6 @@
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\StunEffect.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\Character.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterStunSkill.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\BattleDialogController.cs" />
     <Compile Include="Assets\Scripts\DontDestroyCanvas.cs" />
     <Compile Include="Assets\Scripts\Fade.cs" />
@@ -75,7 +74,6 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\bm.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterSingleSkill.cs" />
     <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerAttackSkill.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\pc.cs" />
     <Compile Include="Assets\Scripts\SkillSelect.cs" />
@@ -83,7 +81,6 @@
     <Compile Include="Assets\Scripts\Dead.cs" />
     <Compile Include="Assets\Scripts\BattleBackGround.cs" />
     <Compile Include="Assets\Scripts\DialogManager.cs" />
-    <Compile Include="Assets\Scripts\MonsterSkillScripts\MonsterMultiSkill.cs" />
     <Compile Include="Assets\Scripts\BlessingSelect.cs" />
     <Compile Include="Assets\Scripts\MainSceneObj.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
@@ -96,6 +93,7 @@
     <Compile Include="Assets\Scripts\ItemSelect.cs" />
     <Compile Include="Assets\Scripts\DialogText.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDefenseSkill.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

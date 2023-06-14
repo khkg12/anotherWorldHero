@@ -44,7 +44,7 @@ public class pc : MonoBehaviour
             BtnSkill[j].onClick.AddListener(() => StartCoroutine(character.UseSkill(j)));
             BtnSkill[j].onClick.AddListener(() => BtnDisable(j));
             if (i == 0) continue; // i가 0일땐 공격스킬이므로 패스            
-            if (PlayerTable.Instance.SkillAvailableCount[i] > 0) BtnSkill[i].interactable = true; // 스킬사용횟수가 0보다 크면 버튼활성화
+            if (PlayerTable.Instance.SkillAvailableCount[i] > 0) BtnSkill[i].interactable = true; // 전투시작 시 스킬사용횟수가 0보다 크면 버튼활성화
             else BtnSkill[i].interactable = false;  // 아니면 비활성화
         }                
     }
@@ -77,10 +77,6 @@ public class pc : MonoBehaviour
             }
         }
     }
-
-
-
-
 
     /*
     public void playerResurrection() // 플레이어 부활

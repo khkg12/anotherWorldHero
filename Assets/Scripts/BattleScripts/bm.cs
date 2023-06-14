@@ -70,32 +70,7 @@ public class bm : MonoBehaviour
         PlayerTable.Instance.StunStack = 0; // 전투시작 시 기절스택 초기화        
         PlayerTable.Instance.Scare = PlayerTable.Instance.Scare; // 첫 배틀씬 입장 후 시작시 공포특성 적용        
         PlayerTable.Instance.NowAtk = PlayerTable.Instance.Atk; // 첫 시작시 투지특성인 3턴마다 공격력 증가시킬 NowAtk변수에 전투시에 변동되지않는 Player의 Atk 적용 NowAtk은 전투시에만 사용할 변수
-        PlayerTable.Instance.WillPower = PlayerTable.Instance.WillPower; // 첫 시작시 의지특성 부여        
-
-        // 리스트로 변경
-        FirstSkillImage.sprite = PlayerTable.Instance.playerSkillList[0].SkillSprite;
-        SecondSkillImage.sprite = PlayerTable.Instance.playerSkillList[1].SkillSprite;
-        ThirdSkillImage.sprite = PlayerTable.Instance.playerSkillList[2].SkillSprite; // 배틀씬의 세번째 스킬 이미지 선택한 스킬의 이미지로 채워짐            
-        FourthSkillImage.sprite = PlayerTable.Instance.playerSkillList[3].SkillSprite;
-        FifthSkillImage.sprite = PlayerTable.Instance.playerSkillList[4].SkillSprite;
-
-        // for문
-        if (PlayerTable.Instance.SecondSkillAvailableCount <= 0) // 전투시작 시 가능횟수가 0이라면 버튼을 비활성화
-        {
-            SecondSkillBtn.interactable = false;
-        }   // 스킬사용가능횟수 체크 후 버튼 비활성화     
-        if (PlayerTable.Instance.ThirdSkillAvailableCount <= 0)
-        {
-            ThirdSkillBtn.interactable = false;
-        }
-        if (PlayerTable.Instance.FourthSkillAvailableCount <= 0)
-        {
-            FourthSkillBtn.interactable = false;
-        }
-        if (PlayerTable.Instance.FifthSkillAvailableCount <= 0)
-        {
-            FifthSkillBtn.interactable = false;
-        }
+        PlayerTable.Instance.WillPower = PlayerTable.Instance.WillPower; // 첫 시작시 의지특성 부여                        
 
         //스킬버튼 이벤트
         //for문 
@@ -122,22 +97,7 @@ public class bm : MonoBehaviour
     private IEnumerator UpdateCoroutine() // 스킬사용횟수 차감하는 코드다음에 넣기
     {
         while (true)
-        {
-            /*
-            SecondSkillText.text = $"{PlayerTable.Instance.SecondSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[1].AvailableCount}";
-            if (PlayerTable.Instance.ThirdSkillAvailableCount >= 0)
-            {
-                ThirdSkillText.text = $"{PlayerTable.Instance.ThirdSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[2].AvailableCount}";
-            }
-            if (PlayerTable.Instance.FourthSkillAvailableCount >= 0)
-            {
-                FourthSkillText.text = $"{PlayerTable.Instance.FourthSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[3].AvailableCount}";
-            }
-            if (PlayerTable.Instance.FifthSkillAvailableCount >= 0)
-            {
-                FifthSkillText.text = $"{PlayerTable.Instance.FifthSkillAvailableCount} / {PlayerTable.Instance.playerSkillList[4].AvailableCount}";
-            }
-            */
+        {           
             for(int i = 1; i < PlayerTable.Instance.playerSkillList.Count; ++i)
             {
                 SkillCountText[i - 1].text = $"{PlayerTable.Instance.SkillAvailableCount[i]} / {PlayerTable.Instance.SkillFixedCount[i]}";

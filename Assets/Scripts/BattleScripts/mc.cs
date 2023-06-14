@@ -9,9 +9,8 @@ using System.Runtime;
 public class mc : MonoBehaviour
 {
     [SerializeField] private Character Target;
-    public List<MonsterSkill> monSkIllList;
 
-    public Image nowMonsterHpBar;    
+    [SerializeField] private Image nowMonsterHpBar;    
     public TextMeshProUGUI monsterNameText;
 
     public Image MonsterImage;
@@ -73,8 +72,9 @@ public class mc : MonoBehaviour
 
     public void MonsterUISet(int MonsterNum)
     {
-        Monster nowMonster = monsterList[MonsterNum];        
+        Monster nowMonster = monsterList[MonsterNum];
         // 몬스터 정보창 UI
+        monsterNameText.text = nowMonster.MonsterName;
         monsterInfoNameText.text = nowMonster.MonsterName;
         MonsterImage.sprite = nowMonster.MonsterSprite;
         monsterHpText.text = $"체력 : {nowMonster.MonsterMaxHp}";

@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class MonsterClass : MonoBehaviour
 {
     // 이름 바꿀것
-    private Sprite nowMonsterSprite;
+    [SerializeField] private SpriteRenderer nowMonsterSprite;
     private string nowMonsterName;
     public float nowMonsterHp; // mc에서 체력바를 제어하기 때문에 어쩔수없이 public
     public float nowMonsterMaxHp;    
@@ -28,7 +28,7 @@ public class MonsterClass : MonoBehaviour
     public int DefenseAmount;
 
     private void Start()
-    {
+    {        
         SelectMonsterSkill(); // 게임시작 시 mosterSkill 랜덤으로 채택
         battleDialogController.ActionAddText(monsterSkill); // 몬스터가 무슨공격을 할지 텍스트 띄움
     }
@@ -36,7 +36,7 @@ public class MonsterClass : MonoBehaviour
     public void Initialize(List<Monster> monsterList, int MonsterNum, Character Target)
     {
         Monster nowMonster = monsterList[MonsterNum];
-        nowMonsterSprite = nowMonster.MonsterSprite;
+        nowMonsterSprite.sprite = nowMonster.MonsterSprite;
         nowMonsterName = nowMonster.MonsterName;
         nowMonsterHp = nowMonster.MonsterHp;
         nowMonsterMaxHp = nowMonster.MonsterMaxHp;

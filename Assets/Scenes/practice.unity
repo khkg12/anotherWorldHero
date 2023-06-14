@@ -5738,7 +5738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1160167426}
-  monSkIllList: []
   nowMonsterHpBar: {fileID: 242277914}
   monsterNameText: {fileID: 2033279489}
   MonsterImage: {fileID: 568724157}
@@ -5760,6 +5759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f879e686536a3a841b5989a668dd0934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nowMonsterSprite: {fileID: 1670134042}
   nowMonsterHp: 0
   nowMonsterMaxHp: 0
   battleDialogController: {fileID: 821067922}

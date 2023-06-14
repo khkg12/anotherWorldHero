@@ -92,61 +92,8 @@ public class SkillTable : ScriptableObject
             player.playerAni.SetTrigger("IsAttack"); // 출혈 or 도트대미지 애니로 바꾸기
             // monster.startMonsterDotDamaged(skill, SkillType);     startDotDamaged
         }
-    } // 몬스터 기절공격스킬 함수
-
-    // 몬스터 단타공격스킬 함수, monster 및 player를 battlaManager의 함수실행에 skilloption을 실행할 때 매개변수로 nowPlayer, nowMonster를 받는다
-    public void MonsterSingleAttackSkill(MonsterController monster, PlayerController player, string Name, string SkillType) // string 배열은 참조형식이기 때문에 ref사용, 없으면 오류발생 
-    {       
-        if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
-        {
-            player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";            
-        }
-        else
-        {
-            monster.monsterAni.SetTrigger("IsAttack");
-            player.startPlayerSingleDamaged(Name, SkillType); // 스킬이름을 매개변수로 주고 player의 코루틴함수 실행
-        }
-    }
-
-    public void MonsterMultiAttackSkill(MonsterController monster, PlayerController player, string Name, int SkillTimes, string SkillType) // 몬스터 다타공격스킬 함수
-    {
-        if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
-        {
-            player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";
-            return;
-        }
-        else
-        {
-            monster.monsterAni.SetTrigger("IsAttack");
-            player.startPlayerMultiDamaged(Name, SkillTimes, SkillType);
-        }
-    }
-    
-    public void MonsterStunAttackSkill(MonsterController monster, PlayerController player, string Name, string SkillType)
-    {
-        if (BattleManager.Instance.DodgeSucess(PlayerTable.Instance.Dodge)) // 플레이어가 회피 성공 시
-        {
-            player.playerAni.SetTrigger("IsDodge");
-            BattleManager.Instance.BattleDialogText.text += $"\n적의 공격을 회피하였다!";
-        }
-        else
-        {
-            monster.monsterAni.SetTrigger("IsAttack");
-            player.startPlayerSingleDamaged(Name, SkillType); // 스킬이름을 매개변수로 주고 player의 코루틴함수 실행
-            PlayerTable.Instance.StunStack += 1; // 기절 스택 추가
-            if (PlayerTable.Instance.StunStack <= 0)
-            {
-                BattleManager.Instance.BattleDialogText.text += "\n불굴의 의지로 기절을 견디었다!";
-                return;
-            }
-            else
-            {
-                BattleManager.Instance.BattleDialogText.text += "\n적의 공격에 기절하였다!";
-            }
-        }        
     } // 몬스터 기절공격스킬 함수    
+    
 }
 
 // 몬스터 스킬 클래스
@@ -160,8 +107,7 @@ public class MonsterSkill : ScriptableObject
     public int StunCount;
     public int SkillTimes;    
     public string SkillType;
-    public Type type;
-    public virtual void SkillOption(MonsterController monster, PlayerController player) { }
+    public Type type;    
     public virtual void SkillUse(MonsterClass monster) { }
 }
 
