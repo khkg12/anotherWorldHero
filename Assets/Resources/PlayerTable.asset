@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acbc5baccc79084391635fcabbf2990, type: 3}
   m_Name: PlayerTable
   m_EditorClassIdentifier: 
-  _MaxHp: 100
-  _Hp: 100
-  _Atk: 13
+  _MaxHp: 200
   _NowAtk: 13
   _Defense: 10
   NowDefense: 0
@@ -68,6 +66,6 @@ MonoBehaviour:
     - "cc\uAE30\uB97C 5\uD68C \uBB34\uC2DC\uD569\uB2C8\uB2E4."
   playerSkillList:
   - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
-  - {fileID: 11400000, guid: 71c20d1fc991ce44fb63e8d9e3e8075d, type: 2}
+  - {fileID: 11400000, guid: 96c165c1e81aac845829aa1636a6a099, type: 2}
   SkillAvailableCount: 0000000014000000000000000000000000000000
   SkillFixedCount: 0000000014000000000000000000000000000000

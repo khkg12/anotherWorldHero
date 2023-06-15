@@ -72,7 +72,7 @@ public class MonsterClass : MonoBehaviour
     }
 
     public IEnumerator TakeDamaged(MonsterSkill Skill)
-    {        
+    {               
         int SkillCount = 0;
         int Damage = (int)(nowMonsterAtk * Skill.SkillPercentage);
         int CriDamage = (int)(nowMonsterAtk * Skill.SkillPercentage * Skill.CriMultiple);
@@ -84,58 +84,64 @@ public class MonsterClass : MonoBehaviour
             CriDamage = target.DefenseAmount - CriDamage <= 0 ? CriDamage - target.DefenseAmount : 0,
             Defense = target.DefenseAmount - Damage <= 0 ? target.DefenseAmount : Damage,
             CriDenfense = target.DefenseAmount - CriDamage <= 0 ? target.DefenseAmount : CriDamage,            
-        };        
+        };
 
-        for (int i = 0; i < Skill.SkillTimes; i++)
-        {            
-            if (Skill.SkillType == "Physical")
-            {
-                bm.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(false);
-                bm.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                bm.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(false);
-                bm.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(true);
-            }
-            if (bm.Instance.CriAttack(nowMonsterCri)) // 치명타 공격이라면
-            {
-                target.Damaged(skillData.CriDamage);
-                battleDialogController.MonsterAddText(BattleType.CriAttack, skillData);                
-                bm.Instance.FloatingText(bm.Instance.PlayerDamageTextList, skillData.CriDamage, SkillCount);
-            }
-            else
-            {
-                target.Damaged(skillData.Damage);
-                battleDialogController.MonsterAddText(BattleType.Attack, skillData);                
-                bm.Instance.FloatingText(bm.Instance.PlayerDamageTextList, skillData.Damage, SkillCount);
-            }
-            SkillCount += 1;
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        if(Skill.StunCount > 0) // 스킬이 기절효과를 주는 스킬이라면
+        if (target.Dodge()) // 플레이어가 회피
         {
-            target.StunStack += 1; // 타겟의 기절스택을 하나 올리고
-            if (target.StunStack <= 0) // 타겟의 기절스택이 0이하라면 기절당하지 않았다는 뜻
-            {
-                battleDialogController.MonsterAddText(BattleType.EndureStun, skillData); // 기절을 견딤 텍스트 추가
-            }
-            else
-            {
-                battleDialogController.MonsterAddText(BattleType.GetStun, skillData); // 적의 공격에 기절, 따라서 바로 몬스터스킬실행
-                target.DefenseAmount = 0; // 무방비상태가 되어 철통같은 특성이 실행이 안되거나, 철통특성만 적용하거나
-                SelectMonsterSkill(); // 랜덤으로 뽑은다음
-                yield return new WaitForSeconds(0.5f);
-                UseSkill(); // 스킬실행
-                yield break; // 기절당해서 연속으로 몬스터의 스킬이 실행될 때 아래의 코드는 실행되면 안되므로 break해줌
-            }
+            target.characterAni.SetTrigger("IsDodge");
+            battleDialogController.MonsterAddText(BattleType.Dodge, skillData);            
         }
+        else
+        {
+            monsterAni.SetTrigger("IsAttack");
+            for (int i = 0; i < Skill.SkillTimes; i++)
+            {
+                if (Skill.SkillType == "Physical")
+                {
+                    bm.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(false);
+                    bm.Instance.PlayerPhysicalHitEffectList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    bm.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(false);
+                    bm.Instance.PlayerMagicHitEffectList[i].gameObject.SetActive(true);
+                }
+                if (bm.Instance.CriAttack(nowMonsterCri)) // 치명타 공격이라면
+                {
+                    target.Damaged(skillData.CriDamage);
+                    battleDialogController.MonsterAddText(BattleType.CriAttack, skillData);
+                    bm.Instance.FloatingText(bm.Instance.PlayerDamageTextList, skillData.CriDamage, SkillCount);
+                }
+                else
+                {
+                    target.Damaged(skillData.Damage);
+                    battleDialogController.MonsterAddText(BattleType.Attack, skillData);
+                    bm.Instance.FloatingText(bm.Instance.PlayerDamageTextList, skillData.Damage, SkillCount);
+                }
+                SkillCount += 1;
+                yield return new WaitForSeconds(0.2f);
+            }
 
+            if (Skill.StunCount > 0) // 스킬이 기절효과를 주는 스킬이라면
+            {
+                target.StunStack += 1; // 플레이어의 기절스택을 하나 올리고
+                if (target.StunStack <= 0) // 플레이어의 기절스택이 0이하라면 기절당하지 않았다는 뜻
+                {
+                    battleDialogController.MonsterAddText(BattleType.EndureStun, skillData); // 기절을 견딤 텍스트 추가
+                }
+                else
+                {
+                    battleDialogController.MonsterAddText(BattleType.GetStun, skillData); // 적의 공격에 기절, 따라서 바로 몬스터스킬실행
+                    target.DefenseAmount = 0; // 무방비상태가 되어 철통같은 특성이 실행이 안되거나, 철통특성만 적용하거나
+                    SelectMonsterSkill(); // 랜덤으로 뽑은다음
+                    yield return new WaitForSeconds(0.8f);
+                    UseSkill(); // 스킬실행
+                    yield break; // 기절당해서 연속으로 몬스터의 스킬이 실행될 때 아래의 코드는 실행되면 안되므로 break해줌
+                }
+            }
+        }        
         yield return new WaitForSeconds(0.6f);
-        SelectMonsterSkill(); //랜덤으로 몬스터스킬을 선택하고
-        battleDialogController.ActionAddText(monsterSkill); // 다음 몬스터 공격스킬 텍스트띄우기
-        pc.BtnEnableAction(); // 버튼활성화        
+        target.SkillEnd = true;
         yield break;
     }
 
@@ -150,27 +156,7 @@ public class MonsterClass : MonoBehaviour
         {
             Name = monsterSkill.Name,
         }; //주는 쪽에선 간략한 정보만 취합하여 제공
-
-        switch (monsterSkill.type) // 스킬의 타입
-        {
-            case Type.Attack: 
-                if (target.Dodge()) // 플레이어가 회피
-                {
-                    target.characterAni.SetTrigger("IsDodge");
-                    battleDialogController.MonsterAddText(BattleType.Dodge, skillData);
-                    SelectMonsterSkill(); //랜덤으로 몬스터스킬을 선택하고
-                    battleDialogController.ActionAddText(monsterSkill); // 다음 몬스터 공격스킬 텍스트띄우기
-                    pc.BtnEnableAction(); // 버튼활성화
-                }
-                else
-                {
-                    monsterSkill.SkillUse(this);
-                }
-                break;
-            case Type.Buff:
-                monsterSkill.SkillUse(this);
-                break;
-        }        
+        monsterSkill.SkillUse(this);
     }    
 
     public bool Dodge()

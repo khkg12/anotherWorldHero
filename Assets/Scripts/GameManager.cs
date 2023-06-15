@@ -90,9 +90,7 @@ public class GameManager : MonoBehaviour
 
         AfterVictory += LoadMainScene;
         NowAct = 1;
-        BgImageList = BackGroundTable.Instance.FirstActBgList;
-
-        SkillTable.Instance.ActiveSkillList = new List<BaseSkill>() { SkillTable.Instance.doubleAttack, SkillTable.Instance.baldo, SkillTable.Instance.stunBoom }; // 스킬리스트 초기화
+        BgImageList = BackGroundTable.Instance.FirstActBgList;        
     }
 
     private void OnEnable()
@@ -114,13 +112,6 @@ public class GameManager : MonoBehaviour
     public void LoadDeadScene()
     {
         SceneManager.LoadScene("DeadScene");
-    }
-    public BaseSkill SkillMatch(string Name) // 이름체크 후 스킬매치
-    {
-        if (Name == "발도") return SkillTable.Instance.baldo;
-        else if (Name == "더블 어택") return SkillTable.Instance.doubleAttack;
-        else if (Name == "스턴붐") return SkillTable.Instance.stunBoom;
-        else return null;
     }    
     public void Fade()
     {

@@ -12,8 +12,7 @@ using Unity.VisualScripting;
 public class pc : MonoBehaviour
 {
     [SerializeField] private Image nowPlayerHpBar;
-    [SerializeField] private TextMeshProUGUI nowHpText;
-    [SerializeField] private TextMeshProUGUI maxHpText;
+    [SerializeField] private TextMeshProUGUI nowHpText;    
     [SerializeField] private Button PlayerInfoBtn;
     [SerializeField] private GameObject StunEffect;
     [SerializeField] private TextMeshProUGUI StunText;
@@ -32,9 +31,7 @@ public class pc : MonoBehaviour
     private void Start()
     {
         character.Initialize(Target); // pc를 캐릭터 오브젝트에 붙히고, 초기화시킴
-        nowPlayerHpBar.fillAmount = PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp;
-        nowHpText.text = $"{PlayerTable.Instance.Hp}";
-        maxHpText.text = $"/ {PlayerTable.Instance.MaxHp}";
+        nowPlayerHpBar.fillAmount = PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp;        
         PlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
 
         for(int i = 0; i < character.skillList.Count; ++i) // 가지고 있는 스킬갯수만큼만 버튼활성화
@@ -52,7 +49,7 @@ public class pc : MonoBehaviour
     private void Update()
     {
         nowPlayerHpBar.fillAmount = Mathf.Lerp(nowPlayerHpBar.fillAmount, PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp, Time.deltaTime * 5f);
-        nowHpText.text = $"{PlayerTable.Instance.Hp}";
+        nowHpText.text = $"{PlayerTable.Instance.Hp} / {PlayerTable.Instance.MaxHp}";
     }
     
     public void BtnDisable(int index)

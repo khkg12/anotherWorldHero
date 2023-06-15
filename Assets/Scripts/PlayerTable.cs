@@ -49,7 +49,7 @@ public class PlayerTable : ScriptableObject
             }            
         }
     }
-    public float _Hp = 100;
+    private float _Hp = 100;
 
     public float Atk
     {
@@ -59,7 +59,7 @@ public class PlayerTable : ScriptableObject
             _Atk = value;
         }
     }
-    public float _Atk = 10;
+    private float _Atk = 10;
 
     public float NowAtk
     {

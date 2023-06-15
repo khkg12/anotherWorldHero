@@ -34,7 +34,7 @@ public class BattleDialogController : MonoBehaviour
         }
     }
 
-    public void PlayerAddText(BattleType type, SkillData skillData)
+    public void PlayerAddText(BattleType type, SkillData skillData) //플레이어의 행동에 의한 텍스트
     {        
         string str = string.Empty;
         switch (type)
@@ -53,6 +53,9 @@ public class BattleDialogController : MonoBehaviour
                 break;
             case BattleType.EndureStun:
                 str = $"적은 기절을 견디었다!";
+                break;
+            case BattleType.GetShield:
+                str = $"{skillData.Name}! {skillData.Defense}의 방어도 획득!";
                 break;
         }
         DialogText.text += str+"\n"; // 여기서 효과줄것, 한글자씩 출력되는 함수설정 후 넣던지                
@@ -85,13 +88,12 @@ public class BattleDialogController : MonoBehaviour
     public void ActionAddText(MonsterSkill monsterSkill)
     {
         DialogText.text += monsterSkill.SkillText;
-        DialogText.text += " 무엇을 할까?\n";
-        
+        DialogText.text += " 무엇을 할까?\n";        
     }
 
     public void LineAddText()
     {
-        DialogText.text += "\n";
+        DialogText.text += "무엇을 할까?\n";
     }
 }
 
