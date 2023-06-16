@@ -27,7 +27,8 @@ public class SkillTable : ScriptableObject
 
     // 스킬선택 시 랜덤으로 돌릴 스킬리스트
     public List<BaseSkill> ActiveSkillList; 
-    public List<PassiveSkill> PassiveSkillList;                        
+    public List<PassiveSkill> PassiveSkillList;
+    public List<Buff> BuffList;
 }
 
 // 몬스터 스킬 클래스
@@ -70,12 +71,19 @@ public class BaseSkill : ScriptableObject
     public int AvailableCount;
     public int StunCount; // bool로 변경
     public string SkillType;
-    public int SkillTimes;    
-    // 공격타입 : 단수공격, 멀티공격    
+    public int SkillTimes;
+    public int CoolTime;          
     public virtual void SkillUse(Character character) { }    
 }
 
-
+public class Buff
+{
+    public Sprite BuffSprite;
+    public int Damage;
+    public int Atk;
+    public int Hp;
+    public int Defense;
+}
 
 
 

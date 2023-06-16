@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using System.Threading.Tasks;
 using UnityEditor.Experimental.GraphView;
+using JetBrains.Annotations;
 
 public class SkillData
 {
@@ -21,15 +22,15 @@ public class Character : MonoBehaviour
     private int critical;
     private int dodge;
     private int defense;
-    private bool MonsterStun;
-    private bool TurnFree;
+    private bool MonsterStun;    
 
     [SerializeField] private BattleDialogController battleDialogController;
     public Animator characterAni;
     public List<BaseSkill> skillList;
     public int DefenseAmount;
     public int StunStack;
-    public bool SkillEnd;    
+    public bool SkillEnd;
+    public bool TurnFree;
 
     public void Initialize(MonsterClass Target) // 초기화 함수, Monster는 이 Character클래스와 같이 몬스터를 다룰 스크립트값을 만들고 가져오기
     {
@@ -45,10 +46,13 @@ public class Character : MonoBehaviour
     public IEnumerator UseSkill(int index)
     {        
         BaseSkill skill = skillList[index];
-        var skillData = new SkillData()
-        {            
-            Name = skill.Name,                        
-        }; //주는쪽에서 정보를 모두 취합
+        var skillData = new SkillData() { Name = skill.Name }; // 이름만 정보줌, 받는쪽에서 정보취합
+        
+        if (skill.CoolTime > 0 && bm.Instance.SkillCoolTime[index] == 0) // 쿨타임 존재하는 스킬이라면
+        {
+            bm.Instance.SkillCoolTime[index] += skill.CoolTime; // 쿨타임 추가
+            bm.Instance.CoolTimeImage[index].gameObject.SetActive(true); // 쿨타임 이미지 띄우기
+        }        
 
         skill.SkillUse(this);
 
@@ -57,9 +61,11 @@ public class Character : MonoBehaviour
         {
             TurnFree = false;
             battleDialogController.LineAddText(); // 무엇을 할까만 띄우기
+            pc.BtnEnableAction(); // 버튼활성화       
             yield break;
         }
-        if(MonsterStun == true) // 턴을 소모하지 않는 스킬일 때 flag변수 추가해서 몬스터스킬실행안되게끔
+
+        if(MonsterStun == true) 
         {
             MonsterStun = false;            
         }
@@ -67,6 +73,7 @@ public class Character : MonoBehaviour
         {
             target.UseSkill(); // 몬스터 스킬함수 실행                            
         }
+
         yield return new WaitUntil(() => SkillEnd == true); // 스킬이 끝났을 때
         SkillEnd = false;
         target.SelectMonsterSkill(); // 몬스터의 다음스킬 정하고
@@ -158,12 +165,7 @@ public class Character : MonoBehaviour
     public void startTakeDamaged(BaseSkill Skill)
     {        
         StartCoroutine(TakeDamaged(Skill));
-    }
-
-    public void startTurnFreeTakeDamaged(BaseSkill Skill) // 턴을 소모하지 않는
-    {
-        StartCoroutine(TakeDamaged(Skill));
-    }
+    }  
 
     // 방어스킬 함수
     public void TakeDefense(BaseSkill Skill)
@@ -177,8 +179,13 @@ public class Character : MonoBehaviour
         };        
         battleDialogController.PlayerAddText(BattleType.GetShield, skillData);        
     }
-   
-
+    
+    // 버프스킬 함수
+    public void TakeBuff()
+    {
+        
+    }
+       
     public bool Dodge()
     {
         return bm.Instance.DodgeSucess(dodge);

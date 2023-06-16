@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffb531e430063848bf3840c0ff1d48d, type: 3}
+  m_Name: WindKick
+  m_EditorClassIdentifier: 
+  Name: "\uC708\uB4DC\uD0A5"
+  SkillPercentage: 0.4
+  CriMultiple: 1.5
+  SkillSprite: {fileID: 21300000, guid: 4cff4ef634be5d64e9dda2bee5118ed1, type: 3}
+  SkillText:
+  - "\uACF5\uACA9\uB825\uC758 40%\uC758 \uB300\uBBF8\uC9C0"
+  - "\uD06C\uB9AC\uD2F0\uCEEC \uC2DC 150%\uC758 \uD53C\uD574"
+  - "(\uD134\uC744 \uC18C\uBAA8\uD558\uC9C0 \uC54A\uC74C)"
+  AvailableCount: 5
+  StunCount: 0
+  SkillType: 
+  SkillTimes: 1
+  CoolTime: 3

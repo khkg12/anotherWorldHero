@@ -52,11 +52,9 @@ public class pc : MonoBehaviour
         nowHpText.text = $"{PlayerTable.Instance.Hp} / {PlayerTable.Instance.MaxHp}";
     }
     
-    public void BtnDisable(int index)
-    {
-        Debug.Log("일단 인덱스" + index);      
-        if(index != 0) PlayerTable.Instance.SkillAvailableCount[index]--; // 0, 즉 공격이 아닐경우 사용한 스킬의 사용회수를 하나 줄임        
-        // 어차피 버튼을 클릭하면 모든 버튼은 비활성화됨 -> 따라서 버튼 클릭시 모든버튼 비활성화시킨 뒤 -> 활성화시킬 타이밍에 사용가능횟수 체크하고 비활성화
+    public void BtnDisable(int index) // 어차피 버튼을 클릭하면 모든 버튼은 비활성화됨 -> 따라서 버튼 클릭시 모든버튼 비활성화시킨 뒤 -> 활성화시킬 타이밍에 사용가능횟수 체크하고 비활성화
+    {          
+        if(index != 0) PlayerTable.Instance.SkillAvailableCount[index]--; // 0, 즉 공격이 아닐경우 사용한 스킬의 사용회수를 하나 줄임                
         for (int i = 0; i < character.skillList.Count; ++i)
         {
             BtnSkill[i].interactable = false;
@@ -70,7 +68,16 @@ public class pc : MonoBehaviour
             if(i == 0) BtnSkill[i].interactable = true; // 공격은 횟수가 무제한이므로 무조건 활성화
             else // 나머지의 경우
             {
-                if (PlayerTable.Instance.SkillAvailableCount[i] > 0) BtnSkill[i].interactable = true;
+                if (bm.Instance.SkillCoolTime[i] > 0) 
+                {
+                    bm.Instance.SkillCoolTime[i] -= 1; // 모든 스킬로직이 종료되는 시점에 발동되는 버튼활성화 함수에서 스킬쿨타임 줄이기
+                    if(bm.Instance.SkillCoolTime[i] == 0) bm.Instance.CoolTimeImage[i].gameObject.SetActive(false);
+                }
+                // 위에서 스킬 쿨타임이 감소된 다음, 쿨타임이 0이라면 활성화
+                if (PlayerTable.Instance.SkillAvailableCount[i] > 0 && bm.Instance.SkillCoolTime[i] == 0)
+                {
+                    BtnSkill[i].interactable = true;                    
+                }
             }
         }
     }

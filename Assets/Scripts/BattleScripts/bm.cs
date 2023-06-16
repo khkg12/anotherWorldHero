@@ -6,9 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class bm : MonoBehaviour
-{    
-    //playerco monsterco이 서로 연관되게끔 계층구조를 관리하면 될듯ㅇ
-
+{        
     public static bm Instance
     {
         get
@@ -53,11 +51,15 @@ public class bm : MonoBehaviour
     public List<GameObject> MonsterPhysicalHitEffectList;
     public List<GameObject> MonsterMagicHitEffectList;
 
+    public List<int> SkillCoolTime;
+    public List<Image> CoolTimeImage;
+    public List<TextMeshProUGUI> CoolTimeText;
     // 배틀라운드
     public int BattleRound;
 
     // 스킬 사용가능 횟수 텍스트
-    [SerializeField] private List<TextMeshProUGUI> SkillCountText;           
+    [SerializeField] private List<TextMeshProUGUI> SkillCountText;
+    
 
 
     private void Start()
@@ -102,12 +104,13 @@ public class bm : MonoBehaviour
             {
                 SkillCountText[i - 1].text = $"{PlayerTable.Instance.SkillAvailableCount[i]} / {PlayerTable.Instance.SkillFixedCount[i]}";
                 // i-1은 스킬카운트텍스트는 4개고 스킬은 5개이기때문에 격차메꾸기
+                CoolTimeText[i].text = $"{SkillCoolTime[i]}턴";
             }
             yield return new WaitForSeconds(0.1f);
         }
     }
 
-   
+
 
     /*
     IEnumerator BtnClickEvent(int SkillNum)
@@ -232,14 +235,13 @@ public class bm : MonoBehaviour
         if (PlayerTable.Instance.playerSkillCount >= 5 && PlayerTable.Instance.FifthSkillAvailableCount != 0) FifthSkillBtn.interactable = isBtnOn;
     }
     
-    public void ResurrectionEvent() // 부활 버튼 클릭 시
-    {
-        nowplayer.playerResurrection();
-        ResurrectionConfirmUI.gameObject.SetActive(true);
-    }
+    
     */
 
-
+    public void ResurrectionEvent() // 부활 버튼 클릭 시
+    {        
+        ResurrectionConfirmUI.gameObject.SetActive(true);
+    }
 
     public void FloatingText(List<TextMeshProUGUI> DamageTextList, float Damage, int SkillCount)
     {
@@ -257,5 +259,5 @@ public class bm : MonoBehaviour
         int range = Random.Range(1, 101);
         if (range < DodgeRate) return true;
         else return false;
-    }
+    }    
 }

@@ -8,6 +8,6 @@ public class PlayerAttackSkill : BaseSkill
 {
     public override void SkillUse(Character character)
     {
-        character.startTakeDamaged(this);        
+        character.startTakeDamaged(this);                
     }
 }

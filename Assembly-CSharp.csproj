@@ -94,6 +94,9 @@
     <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDefenseSkill.cs" />
     <Compile Include="Assets\Scripts\DialogText.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerTurnFreeAttackSkill.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerBuffSkill.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDotSkill.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
