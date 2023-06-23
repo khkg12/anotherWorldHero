@@ -9,10 +9,12 @@ public class PlayerDotSkill : BaseSkill
     public override void SkillUse(Character character)
     {
         buff = new Buff()
-        {
-            Atk = 3,
+        {            
+            
         };
-        character.TakeBuff();        
+        character.TakeBuff(buff);        
     }
 }
+
+
 

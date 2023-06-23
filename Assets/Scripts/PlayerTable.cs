@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "PlayerTable", menuName = "ScriptableObjects/PlayerTable", order = 2)]
 public class PlayerTable : ScriptableObject
-{
-
+{                                                                                                                           
     public static PlayerTable Instance
     {
         get
@@ -142,6 +141,7 @@ public class PlayerTable : ScriptableObject
                 {
                     case 1:
                         NowDefense += 2;
+                        // Scare.level += 1;
                         break;
                     case 2:
                         NowDefense += 3;
@@ -160,38 +160,18 @@ public class PlayerTable : ScriptableObject
         }
     }
     public int _IronBody = 0;
-
+    
     public int Scare // 공포 : 몬스터 공격력 감소
     {
         get => _Scare;
         set
         {
-            _Scare = value;
+            // if (_Scare == 0) SpecialtyList.Add();
+            _Scare = value;            
             if (value >= 5) 
             {
                 _Scare = 5; // 최대레벨 5
-            }
-            if (SceneManager.GetActiveScene().name == "BattleScene") 
-            {
-                switch (value)
-                {
-                    case 1:
-                        BattleManager.Instance.nowmonster.nowMonsterAtk -= 1;
-                        break;
-                    case 2:
-                        BattleManager.Instance.nowmonster.nowMonsterAtk -= 2;
-                        break;
-                    case 3:
-                        BattleManager.Instance.nowmonster.nowMonsterAtk -= 4;
-                        break;
-                    case 4:
-                        BattleManager.Instance.nowmonster.nowMonsterAtk -= 10;                        
-                        break;
-                    case 5:
-                        BattleManager.Instance.nowmonster.nowMonsterAtk -= 21;
-                        break;
-                }
-            }                
+            }                       
         }
     }
     public int _Scare = 0;
@@ -232,12 +212,13 @@ public class PlayerTable : ScriptableObject
     }
     public int _FightingSpirit = 0;
 
+    
     public int WillPower //  의지 : cc기 일정기회 무시
     {
         get => _WillPower;
         set
-        {
-            _WillPower = value;
+        {            
+            _WillPower = value;            
             if (value >= 5)
             {
                 _WillPower = 5; // 최대레벨 5
@@ -266,7 +247,9 @@ public class PlayerTable : ScriptableObject
             }
         }
     }
-    public int _WillPower = 0;    
+    public int _WillPower = 0;
+    
+    public List<Specialty> SpecialtyList;    
 
     public StatusText scareText;
     public StatusText ironBodyText;

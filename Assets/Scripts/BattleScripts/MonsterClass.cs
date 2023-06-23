@@ -12,11 +12,11 @@ public class MonsterClass : MonoBehaviour
     [SerializeField] private SpriteRenderer nowMonsterSprite;
     private string nowMonsterName;
     public float nowMonsterHp; // mc에서 체력바를 제어하기 때문에 어쩔수없이 public
-    public float nowMonsterMaxHp;    
+    public float nowMonsterMaxHp;
+    public float nowMonsterAtk;
     private int nowMonsterCri;
     private int nowMonsterStunStack;
-    private bool IsMonsterBoss;
-    private float nowMonsterAtk;    
+    private bool IsMonsterBoss;    
     private List<MonsterSkill> monsterSkIllList;
     
     [SerializeField] private BattleDialogController battleDialogController;
@@ -71,7 +71,7 @@ public class MonsterClass : MonoBehaviour
         }
     }
 
-    public IEnumerator TakeDamaged(MonsterSkill Skill)
+    public IEnumerator TakeDamaged(MonsterSkill Skill)  
     {               
         int SkillCount = 0;
         int Damage = (int)(nowMonsterAtk * Skill.SkillPercentage);

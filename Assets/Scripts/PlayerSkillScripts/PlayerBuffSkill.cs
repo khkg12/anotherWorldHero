@@ -6,6 +6,6 @@ public class PlayerBuffSkill : BaseSkill
 {
     public override void SkillUse(Character character)
     {
-        character.TakeBuff();
+        // character.TakeBuff();
     }
 }

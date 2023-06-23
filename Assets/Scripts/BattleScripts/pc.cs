@@ -20,17 +20,18 @@ public class pc : MonoBehaviour
     [SerializeField] private List<Image> ImageSkill;    
     [SerializeField] private MonsterClass Target;    
     private Character character;
-    public static Action BtnEnableAction { get; private set; } // 이 스크립트 내에서만 set이 가능하게함, 즉 읽기전용
+    public static Action BtnEnableAction { get; private set; } // 이 스크립트 내에서만 set이 가능하게함, 즉 읽기전용    
 
     private void Awake()
     {        
         character = GetComponent<Character>();
-        BtnEnableAction += BtnEnable;
+        BtnEnableAction += BtnEnable;        
     }
 
     private void Start()
     {
         character.Initialize(Target); // pc를 캐릭터 오브젝트에 붙히고, 초기화시킴
+        character.StartBattleSpecialty(); // 전투시작 시 캐릭터의 개전특성 발동
         nowPlayerHpBar.fillAmount = PlayerTable.Instance.Hp / PlayerTable.Instance.MaxHp;        
         PlayerInfoBtn.onClick.AddListener(() => GameManager.Instance.PlayerInfoUI.gameObject.SetActive(true));
 

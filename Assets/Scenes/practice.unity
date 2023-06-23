@@ -6277,6 +6277,7 @@ MonoBehaviour:
   nowMonsterSprite: {fileID: 1670134042}
   nowMonsterHp: 0
   nowMonsterMaxHp: 0
+  nowMonsterAtk: 0
   battleDialogController: {fileID: 821067922}
   monsterSkill: {fileID: 0}
   monsterAni: {fileID: 1042432976}
@@ -6839,6 +6840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5832068088b29b439fd7565797d35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atk: 0
+  critical: 0
+  dodge: 0
+  defense: 0
   battleDialogController: {fileID: 821067922}
   characterAni: {fileID: 1160167424}
   skillList: []

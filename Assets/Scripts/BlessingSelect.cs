@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using TMPro;
+using JetBrains.Annotations;
 
 public class BlessingSelect : MonoBehaviour
 {
@@ -159,7 +160,8 @@ public class BlessingSelect : MonoBehaviour
     {
         BlessingGetOption.text = ""; // 축복 옵션 텍스트UI 초기화
         BlessingGetUI.gameObject.SetActive(true);
-
+        // speicaltyManager.instance.StatUp(selectBlessing.id);
+        
         PlayerTable.Instance.Scare += selectBlessing.ScarePt;
         PlayerTable.Instance.WillPower += selectBlessing.WillPowerPt;
         PlayerTable.Instance.FightingSpirit += selectBlessing.FightingSpiritPt;

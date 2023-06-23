@@ -24,6 +24,9 @@ MonoBehaviour:
   _Scare: 2
   _FightingSpirit: 0
   _WillPower: 3
+  SpecialtyList:
+  - {fileID: 11400000, guid: 34bfbf2565d442a4ca1ba8ce261d3d1a, type: 2}
+  - {fileID: 11400000, guid: 94815806e31e9b843a6f71361d976593, type: 2}
   scareText:
     StatusName: "\uACF5\uD3EC"
     OptionText: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801\uC758 \uACF5\uACA9\uB825\uC744

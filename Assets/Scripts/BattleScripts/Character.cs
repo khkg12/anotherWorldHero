@@ -18,10 +18,10 @@ public class SkillData
 public class Character : MonoBehaviour
 {
     private MonsterClass target;    
-    private int atk;
-    private int critical;
-    private int dodge;
-    private int defense;
+    public int atk;
+    public int critical;
+    public int dodge;
+    public int defense;
     private bool MonsterStun;    
 
     [SerializeField] private BattleDialogController battleDialogController;
@@ -31,6 +31,9 @@ public class Character : MonoBehaviour
     public int StunStack;
     public bool SkillEnd;
     public bool TurnFree;
+
+    // 특성과 버프 및 디버프 리스트
+    public List<Buff> buffList;
 
     public void Initialize(MonsterClass Target) // 초기화 함수, Monster는 이 Character클래스와 같이 몬스터를 다룰 스크립트값을 만들고 가져오기
     {
@@ -181,11 +184,29 @@ public class Character : MonoBehaviour
     }
     
     // 버프스킬 함수
-    public void TakeBuff()
+    public void TakeBuff(Buff buff)
     {
-        
+        buffList.Add(buff);
+        // 쿨타임 리스트도 추가하고 배틀라운드 1개증가할때에 쿨타임감소
+        // 배틀매니저에 상태 UI띄우기, 아니면 BATTLEDialogManager에 UI를 두고 띄우기
     }
-       
+    // 개전특성 함수 
+    public void StartBattleSpecialty()
+    {
+        for(int i = 0; i < PlayerTable.Instance.SpecialtyList.Count; i++)
+        {
+            if (PlayerTable.Instance.SpecialtyList[i].specialtyLevel != 0)
+            {                    
+                PlayerTable.Instance.SpecialtyList[i].StartSpeicalty(this, target);
+            }            
+        }        
+    }
+
+    public void AlwaysBattleSpecialty(int specialtyAmount, int specialtyTimes)
+    {
+        // for(int i = 0; i < PlayerTable.Instance.Speic)
+    }
+
     public bool Dodge()
     {
         return bm.Instance.DodgeSucess(dodge);

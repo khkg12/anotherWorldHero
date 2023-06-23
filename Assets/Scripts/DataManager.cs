@@ -6,6 +6,7 @@ using System.Linq;
 using TMPro;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 public struct Dialogs
 {
@@ -70,7 +71,6 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private TextAsset RandomDialogFile;
     public RandomSceneData[] RandomSceneData;
-
     public TextMeshProUGUI talkerName;    
 
     private void OnEnable()

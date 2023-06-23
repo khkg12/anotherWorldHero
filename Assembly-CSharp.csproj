@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\BattleScripts\MonsterClass.cs" />
     <Compile Include="Assets\Scripts\BackGroundTable.cs" />
     <Compile Include="Assets\Scripts\EffectScripts\ClickAlarmEffect.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerTurnFreeAttackSkill.cs" />
     <Compile Include="Assets\Scripts\BlessingTable.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\StunEffect.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Fade.cs" />
     <Compile Include="Assets\Scripts\ItemTable.cs" />
     <Compile Include="Assets\Scripts\UiManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerBuffSkill.cs" />
     <Compile Include="Assets\Scripts\EffectScripts\CircleEffect.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -77,7 +79,9 @@
     <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerAttackSkill.cs" />
     <Compile Include="Assets\Scripts\BattleScripts\pc.cs" />
     <Compile Include="Assets\Scripts\SkillSelect.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDotSkill.cs" />
     <Compile Include="Assets\Scripts\CharacteristicInfo.cs" />
+    <Compile Include="Assets\Scripts\SpecialtyScripts\Specialty.cs" />
     <Compile Include="Assets\Scripts\Dead.cs" />
     <Compile Include="Assets\Scripts\BattleBackGround.cs" />
     <Compile Include="Assets\Scripts\DialogManager.cs" />
@@ -94,9 +98,6 @@
     <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDefenseSkill.cs" />
     <Compile Include="Assets\Scripts\DialogText.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerTurnFreeAttackSkill.cs" />
-    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerBuffSkill.cs" />
-    <Compile Include="Assets\Scripts\PlayerSkillScripts\PlayerDotSkill.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
