@@ -249,7 +249,8 @@ public class PlayerTable : ScriptableObject
     }
     public int _WillPower = 0;
     
-    public List<Specialty> SpecialtyList;    
+    public List<Specialty> StartSpecialtyList;
+    public List<Specialty> AlwaysSpecialtyList;
 
     public StatusText scareText;
     public StatusText ironBodyText;

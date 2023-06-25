@@ -47,7 +47,9 @@ public class Character : MonoBehaviour
     }    
 
     public IEnumerator UseSkill(int index)
-    {        
+    {
+        AlwaysBattleSpecialty(); // 상시특성 실행
+
         BaseSkill skill = skillList[index];
         var skillData = new SkillData() { Name = skill.Name }; // 이름만 정보줌, 받는쪽에서 정보취합
         
@@ -193,18 +195,25 @@ public class Character : MonoBehaviour
     // 개전특성 함수 
     public void StartBattleSpecialty()
     {
-        for(int i = 0; i < PlayerTable.Instance.SpecialtyList.Count; i++)
+        for(int i = 0; i < PlayerTable.Instance.StartSpecialtyList.Count; i++)
         {
-            if (PlayerTable.Instance.SpecialtyList[i].specialtyLevel != 0)
+            if (PlayerTable.Instance.StartSpecialtyList[i].specialtyLevel != 0)
             {                    
-                PlayerTable.Instance.SpecialtyList[i].StartSpeicalty(this, target);
+                PlayerTable.Instance.StartSpecialtyList[i].StartSpeicalty(this, target);                                
             }            
         }        
     }
 
-    public void AlwaysBattleSpecialty(int specialtyAmount, int specialtyTimes)
+    public void AlwaysBattleSpecialty()
     {
-        // for(int i = 0; i < PlayerTable.Instance.Speic)
+        for (int i = 0; i < PlayerTable.Instance.AlwaysSpecialtyList.Count; i++)
+        {
+            if (PlayerTable.Instance.AlwaysSpecialtyList[i].specialtyLevel != 0)
+            {
+                PlayerTable.Instance.AlwaysSpecialtyList[i].AlwaysSpecialty(this, target);
+                // battleDialogController.specialtyAddText(PlayerTable.Instance.AlwaysSpecialtyList[i].speicaltyType);
+            }
+        }
     }
 
     public bool Dodge()

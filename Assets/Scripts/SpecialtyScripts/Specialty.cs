@@ -46,11 +46,11 @@ public class Specialty : ScriptableObject // 개전특성일 경우
                 character.DefenseAmount += specialtyAmount[specialtyLevel];
                 break;
             case SpeicaltyType.FightingSpirit:
-                if(bm.Instance.BattleRound / 3 == 0)
+                if(bm.Instance.BattleRound % 3 == 0)
                 {
                     character.atk += specialtyAmount[specialtyLevel];
                 }                
-                break;
+                break;            
         }
     }
 }
